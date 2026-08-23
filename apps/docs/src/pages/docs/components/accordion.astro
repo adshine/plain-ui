@@ -1,0 +1,151 @@
+---
+import DocsLayout from '../../../layouts/DocsLayout.astro';
+import ComponentPlayground from '../../../components/ComponentPlayground.astro';
+import CodeBlock from '../../../components/CodeBlock.astro';
+import { components } from '../../../data/components';
+
+const component = components.find(c => c.slug === 'accordion')!;
+const currentIndex = components.findIndex(c => c.slug === component.slug);
+const prevComponent = currentIndex > 0 ? components[currentIndex - 1] : null;
+const nextComponent = currentIndex < components.length - 1 ? components[currentIndex + 1] : null;
+---
+
+<DocsLayout title={component.title} description={component.description} activeSlug={component.slug}>
+  <div class="space-y-12">
+    
+    <!-- Component Header -->
+    <div class="space-y-4 border-b border-zinc-200 dark:border-zinc-800 pb-8">
+      <div class="flex items-center gap-2">
+        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400">
+          {component.category}
+        </span>
+        {component.badges.map(b => (
+          <span class="px-2 py-0.5 rounded-full text-[11px] font-mono bg-blue-500/10 text-blue-600 dark:text-blue-400">
+            {b}
+          </span>
+        ))}
+      </div>
+      
+      <h1 class="text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
+        {component.title}
+      </h1>
+      
+      <p class="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
+        {component.description}
+      </p>
+    </div>
+
+    <!-- 1. Live Interactive Playground with CodeMirror & Sandboxed Iframe -->
+    <section id="interactive-preview" class="space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold tracking-tight">Interactive Preview</h2>
+        <span class="text-xs text-zinc-500 font-mono">Live Edit & Viewport Resizer</span>
+      </div>
+      
+      <ComponentPlayground 
+        componentSlug={component.slug}
+        defaultHtml={component.defaultHtml}
+        defaultCss={component.defaultCss}
+        variants={component.variants}
+      />
+    </section>
+
+    <!-- 2. CLI Installation -->
+    <section id="installation" class="space-y-4">
+      <h2 class="text-2xl font-bold tracking-tight">Installation</h2>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400">
+        Add the {component.title} component to your project via CLI:
+      </p>
+      <CodeBlock code={component.installCommand} lang="bash" filename="terminal" />
+    </section>
+
+    <!-- 3. Key Features -->
+    <section id="features" class="space-y-4">
+      <h2 class="text-2xl font-bold tracking-tight">Features</h2>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+        {component.features.map(f => (
+          <li class="flex items-start gap-2.5 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 text-xs sm:text-sm text-zinc-700 dark:text-zinc-300">
+            <span class="text-emerald-500 font-bold">✓</span>
+            <span>{f}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- 4. Component Variants -->
+    {component.variants.length > 0 && (
+      <section id="variants" class="space-y-6">
+        <h2 class="text-2xl font-bold tracking-tight">Variants & Examples</h2>
+        {component.variants.map((v) => (
+          <div class="space-y-3 p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-900/30">
+            <h3 class="text-lg font-semibold">{v.name}</h3>
+            <p class="text-xs text-zinc-500 dark:text-zinc-400">{v.description}</p>
+            <CodeBlock code={v.html} lang="html" filename={`${component.slug}-${v.name.toLowerCase().replace(/\s+/g, '-')}.html`} />
+          </div>
+        ))}
+      </section>
+    )}
+
+    <!-- 5. Props / Classes Reference -->
+    {component.props && component.props.length > 0 && (
+      <section id="api-reference" class="space-y-4">
+        <h2 class="text-2xl font-bold tracking-tight">Attributes & Classes</h2>
+        <div class="overflow-x-auto rounded-xl border border-zinc-200 dark:border-zinc-800">
+          <table class="w-full text-left text-xs sm:text-sm">
+            <thead class="bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border-b border-zinc-200 dark:border-zinc-800">
+              <tr>
+                <th class="p-3">Attribute / Prop</th>
+                <th class="p-3">Type</th>
+                <th class="p-3">Default</th>
+                <th class="p-3">Description</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-200 dark:divide-zinc-800 font-mono text-xs">
+              {component.props.map(p => (
+                <tr class="hover:bg-zinc-50 dark:hover:bg-zinc-900/50">
+                  <td class="p-3 font-semibold text-blue-600 dark:text-blue-400">{p.name}</td>
+                  <td class="p-3 text-zinc-500">{p.type}</td>
+                  <td class="p-3 text-zinc-400">{p.default || "-"}</td>
+                  <td class="p-3 font-sans text-zinc-700 dark:text-zinc-300">{p.description}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    )}
+
+    <!-- 6. Accessibility Guidelines -->
+    {component.accessibility && component.accessibility.length > 0 && (
+      <section id="accessibility" class="space-y-4">
+        <h2 class="text-2xl font-bold tracking-tight">Accessibility & Keyboard Navigation</h2>
+        <ul class="space-y-2">
+          {component.accessibility.map(a => (
+            <li class="flex items-start gap-2 text-xs sm:text-sm text-zinc-600 dark:text-zinc-400">
+              <span class="text-blue-500 font-bold">•</span>
+              <span>{a}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Footer Navigation (Prev / Next) -->
+    <div class="flex items-center justify-between pt-8 border-t border-zinc-200 dark:border-zinc-800 text-sm font-medium">
+      {prevComponent ? (
+        <a href={`/docs/components/${prevComponent.slug}`} class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+          <span>←</span>
+          <span>{prevComponent.title}</span>
+        </a>
+      ) : <div></div>}
+
+      {nextComponent ? (
+        <a href={`/docs/components/${nextComponent.slug}`} class="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+          <span>{nextComponent.title}</span>
+          <span>→</span>
+        </a>
+      ) : <div></div>}
+    </div>
+
+  </div>
+</DocsLayout>

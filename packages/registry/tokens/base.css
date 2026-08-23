@@ -1,0 +1,370 @@
+/**
+ * @plain-ui/tokens - base.css
+ * 
+ * HTML5 Semantic Reset, Focus-Visible Outline Rings,
+ * Typography Defaults, and Accessible Scrollbar Styling.
+ *
+ * Part of Plain UI Design System.
+ */
+
+/* ==========================================================================
+   1. HTML5 SEMANTIC RESET & BOX-SIZING
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--border, currentColor);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  tab-size: 4;
+  font-family: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  line-height: var(--leading-normal, 1.5);
+  color: var(--foreground);
+  background-color: var(--background);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  margin: 0;
+  line-height: inherit;
+  color: inherit;
+  background-color: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Block display for HTML5 semantic elements */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/* ==========================================================================
+   2. TYPOGRAPHY DEFAULTS
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--leading-tight, 1.25);
+  color: var(--foreground);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--font-size-4xl, 2.25rem);
+  letter-spacing: var(--tracking-tight, -0.025em);
+  font-weight: var(--font-weight-bold, 700);
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: var(--font-size-3xl, 1.875rem);
+  letter-spacing: var(--tracking-tight, -0.025em);
+  margin-bottom: 0.625rem;
+}
+
+h3 {
+  font-size: var(--font-size-2xl, 1.5rem);
+  letter-spacing: var(--tracking-tight, -0.025em);
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  font-size: var(--font-size-xl, 1.25rem);
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  font-size: var(--font-size-lg, 1.125rem);
+  margin-bottom: 0.375rem;
+}
+
+h6 {
+  font-size: var(--font-size-base, 1rem);
+  margin-bottom: 0.25rem;
+}
+
+p {
+  line-height: var(--leading-relaxed, 1.625);
+  margin-bottom: 1rem;
+  text-wrap: pretty;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+small {
+  font-size: var(--font-size-sm, 0.875rem);
+}
+
+strong,
+b {
+  font-weight: var(--font-weight-bold, 700);
+}
+
+blockquote {
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--muted-foreground);
+  margin: 1.25rem 0;
+}
+
+hr {
+  height: 0;
+  color: inherit;
+  border-top-width: 1px;
+  border-color: var(--border);
+  margin: 1.5rem 0;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: inherit;
+  cursor: pointer;
+  transition: color var(--duration-fast, 150ms) var(--ease-out, ease-out);
+}
+
+a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Code & Preformatted Text */
+code,
+kbd,
+samp,
+pre {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace);
+  font-size: 0.875em;
+}
+
+code:not(pre code) {
+  background-color: var(--muted);
+  color: var(--foreground);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm, 4px);
+  border: 1px solid var(--border);
+  white-space: break-spaces;
+}
+
+pre {
+  background-color: var(--muted);
+  color: var(--foreground);
+  padding: 1rem;
+  border-radius: var(--radius-md, 6px);
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  line-height: 1.45;
+  margin: 1rem 0;
+}
+
+kbd {
+  background-color: var(--muted);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: var(--radius-xs, 2px);
+  padding: 0.15em 0.35em;
+  font-size: 0.75em;
+  font-weight: var(--font-weight-medium, 500);
+  box-shadow: var(--shadow-2xs);
+}
+
+/* Selection Styling */
+::selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+::-moz-selection {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* Lists */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  text-indent: 0;
+  border-color: inherit;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+th {
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--foreground);
+}
+
+/* Media Elements */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form Elements Reset */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-style: none;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+  user-select: none;
+}
+
+button:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled,
+[aria-disabled="true"] {
+  cursor: var(--disabled-cursor, not-allowed);
+  opacity: var(--disabled-opacity, 0.5);
+  pointer-events: none;
+}
+
+/* Hidden elements */
+[hidden] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   3. FOCUS-VISIBLE OUTLINE RINGS (ACCESSIBLE WCAG 2.2 AA / APCA)
+   ========================================================================== */
+
+/* Universal accessible keyboard focus ring */
+:focus-visible {
+  outline: var(--focus-ring-width, 2px) var(--focus-ring-style, solid) var(--focus-ring-color, var(--ring));
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+/* Form control specific focus styling */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 0px;
+  border-color: var(--ring);
+}
+
+/* Remove default focus outline when not using keyboard navigation */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ==========================================================================
+   4. SCROLLBAR STYLING
+   ========================================================================== */
+
+/* Standards-compliant scrollbar styling */
+html,
+body,
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* WebKit scrollbar styling */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border);
+  border-radius: var(--radius-full, 9999px);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--muted-foreground);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* ==========================================================================
+   5. REDUCED MOTION PREFERENCE OVERRIDE
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

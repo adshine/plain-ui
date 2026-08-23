@@ -1,0 +1,454 @@
+---
+title: "Sheet / Drawer"
+description: "Slide-over sheet drawers (left, right, top, bottom) with Popover API and backdrop dismiss."
+category: "overlay"
+type: "registry:ui"
+zeroJs: true
+version: "1.0.0"
+dependencies: []
+registryDependencies: ["tokens","motion"]
+modernApis: ["popover='auto'","@starting-style","allow-discrete"]
+---
+
+# Sheet / Drawer
+
+> Slide-over sheet drawers (left, right, top, bottom) with Popover API and backdrop dismiss.
+
+## Overview
+
+- **Type**: `registry:ui`
+- **Zero JavaScript**: ✅ Yes (Pure HTML5 & Modern CSS)
+- **Category**: `overlay`
+- **Modern Browser APIs**: `popover='auto'`, `@starting-style`, `allow-discrete`
+- **Tailwind Version**: Tailwind CSS v4 (@theme tokens)
+
+---
+
+## Installation
+
+### CLI Command
+
+```bash
+# Add using Plain UI CLI
+npx plain-ui add sheet
+
+# Or using pnpm dlx
+pnpm dlx plain-ui add sheet
+```
+
+### Manual Installation
+
+Copy the source files below directly into your project structure:
+- **`src/components/ui/sheet.html`** (`registry:ui`)
+
+---
+
+## Source Code
+
+### `sheet.html` (`src/components/ui/sheet.html`)
+
+```html
+<!--
+  Plain UI - Sheet / Drawer Component
+  Pure HTML5 / Tailwind v4 Zero-JS Slide-Over Sheets (Right, Left, Bottom, Top)
+  Uses native Popover API (popover="auto") & @starting-style slide transitions
+-->
+
+<style>
+  /* Base Sheet Styles for Popover Overlay */
+  .sheet {
+    display: none;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: transparent;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow: visible;
+  }
+
+  .sheet:popover-open {
+    display: flex;
+  }
+
+  /* Backdrop Transition */
+  .sheet::backdrop {
+    background-color: rgb(0 0 0 / 0);
+    backdrop-filter: blur(0px);
+    transition: 
+      background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+      display 0.3s allow-discrete,
+      overlay 0.3s allow-discrete;
+  }
+
+  .sheet:popover-open::backdrop {
+    background-color: rgb(0 0 0 / 0.5);
+    backdrop-filter: blur(6px);
+  }
+
+  @starting-style {
+    .sheet:popover-open::backdrop {
+      background-color: rgb(0 0 0 / 0);
+      backdrop-filter: blur(0px);
+    }
+  }
+
+  /* Directional Transitions & Panels */
+  .sheet-panel {
+    transition: 
+      transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.35s ease-out;
+  }
+
+  /* Right Sheet */
+  .sheet-right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+  }
+  .sheet-right .sheet-panel {
+    transform: translateX(100%);
+  }
+  .sheet-right:popover-open .sheet-panel {
+    transform: translateX(0);
+  }
+  @starting-style {
+    .sheet-right:popover-open .sheet-panel {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Left Sheet */
+  .sheet-left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: auto;
+  }
+  .sheet-left .sheet-panel {
+    transform: translateX(-100%);
+  }
+  .sheet-left:popover-open .sheet-panel {
+    transform: translateX(0);
+  }
+  @starting-style {
+    .sheet-left:popover-open .sheet-panel {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Bottom Sheet (Mobile Drawer) */
+  .sheet-bottom {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  .sheet-bottom .sheet-panel {
+    transform: translateY(100%);
+  }
+  .sheet-bottom:popover-open .sheet-panel {
+    transform: translateY(0);
+  }
+  @starting-style {
+    .sheet-bottom:popover-open .sheet-panel {
+      transform: translateY(100%);
+    }
+  }
+
+  /* Top Sheet */
+  .sheet-top {
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+  .sheet-top .sheet-panel {
+    transform: translateY(-100%);
+  }
+  .sheet-top:popover-open .sheet-panel {
+    transform: translateY(0);
+  }
+  @starting-style {
+    .sheet-top:popover-open .sheet-panel {
+      transform: translateY(-100%);
+    }
+  }
+</style>
+
+<div class="space-y-12 p-6 max-w-5xl mx-auto font-sans">
+  <!-- Section 1: Sheet Directions Overview -->
+  <section class="space-y-4">
+    <div>
+      <h3 class="text-lg font-semibold text-foreground">Sheet / Drawer Variants</h3>
+      <p class="text-sm text-muted-foreground">Slide-over sheets from any edge (Right, Left, Bottom, Top) using native HTML5 <code>popover="auto"</code> and CSS <code>@starting-style</code>.</p>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-4">
+      <!-- Trigger Right Sheet -->
+      <button 
+        type="button"
+        popovertarget="sheet-right-demo"
+        class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-xs hover:bg-primary/90 active:scale-[0.98] transition-all cursor-pointer"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        Open Right Sheet
+      </button>
+
+      <!-- Trigger Left Sheet -->
+      <button 
+        type="button"
+        popovertarget="sheet-left-demo"
+        class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-foreground bg-background border border-input rounded-lg shadow-2xs hover:bg-accent transition-all cursor-pointer"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        Open Left Sheet
+      </button>
+
+      <!-- Trigger Bottom Sheet -->
+      <button 
+        type="button"
+        popovertarget="sheet-bottom-demo"
+        class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-foreground bg-background border border-input rounded-lg shadow-2xs hover:bg-accent transition-all cursor-pointer"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+        Open Bottom Sheet
+      </button>
+
+      <!-- Trigger Top Sheet -->
+      <button 
+        type="button"
+        popovertarget="sheet-top-demo"
+        class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-foreground bg-background border border-input rounded-lg shadow-2xs hover:bg-accent transition-all cursor-pointer"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+        Open Top Sheet
+      </button>
+    </div>
+  </section>
+
+  <!-- 1. RIGHT SHEET (Side Drawer / Cart / Settings) -->
+  <div id="sheet-right-demo" popover="auto" class="sheet sheet-right">
+    <div class="sheet-panel w-full sm:w-96 h-screen bg-card text-card-foreground border-l border-border shadow-2xl flex flex-col">
+      <!-- Header -->
+      <div class="flex items-center justify-between px-6 py-5 border-b border-border/60">
+        <div>
+          <h4 class="text-base font-semibold text-foreground">Shopping Cart</h4>
+          <p class="text-xs text-muted-foreground">Review selected items in your order.</p>
+        </div>
+        <button 
+          type="button" 
+          popovertarget="sheet-right-demo" 
+          popovertargetaction="hide"
+          aria-label="Close sheet"
+          class="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="flex-1 overflow-y-auto p-6 space-y-4">
+        <div class="flex items-center gap-4 p-3 border border-border/60 rounded-xl bg-muted/20">
+          <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-semibold text-xs">
+            UI
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-foreground truncate">Plain UI Pro License</p>
+            <p class="text-xs text-muted-foreground">Lifetime access & updates</p>
+          </div>
+          <span class="text-sm font-semibold text-foreground"></span>
+        </div>
+
+        <div class="flex items-center gap-4 p-3 border border-border/60 rounded-xl bg-muted/20">
+          <div class="w-12 h-12 rounded-lg bg-secondary flex items-center justify-center text-secondary-foreground font-semibold text-xs">
+            CSS
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-foreground truncate">Tailwind v4 Token Kit</p>
+            <p class="text-xs text-muted-foreground">Semantic design variables</p>
+          </div>
+          <span class="text-sm font-semibold text-foreground"></span>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="p-6 border-t border-border/60 bg-muted/10 space-y-3">
+        <div class="flex items-center justify-between text-sm font-medium">
+          <span class="text-muted-foreground">Subtotal</span>
+          <span class="text-foreground font-semibold">.00</span>
+        </div>
+        <button 
+          type="button"
+          class="w-full py-2.5 px-4 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-xs hover:bg-primary/90 active:scale-[0.99] transition-all cursor-pointer text-center"
+        >
+          Proceed to Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. LEFT SHEET (Navigation Sidebar) -->
+  <div id="sheet-left-demo" popover="auto" class="sheet sheet-left">
+    <div class="sheet-panel w-full sm:w-80 h-screen bg-card text-card-foreground border-r border-border shadow-2xl flex flex-col">
+      <div class="flex items-center justify-between px-6 py-5 border-b border-border/60">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+            P
+          </div>
+          <span class="font-semibold text-foreground">Plain UI Docs</span>
+        </div>
+        <button 
+          type="button" 
+          popovertarget="sheet-left-demo" 
+          popovertargetaction="hide"
+          aria-label="Close navigation"
+          class="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <nav class="flex-1 overflow-y-auto p-4 space-y-1">
+        <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-foreground bg-accent">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+          Overview
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+          Components
+        </a>
+        <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
+          Design Tokens
+        </a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 3. BOTTOM SHEET (Mobile Action Drawer with Handle) -->
+  <div id="sheet-bottom-demo" popover="auto" class="sheet sheet-bottom">
+    <div class="sheet-panel w-full max-w-xl mx-auto bg-card text-card-foreground border-t border-x border-border rounded-t-2xl shadow-2xl p-6 flex flex-col">
+      <!-- Drag Handle Indicator -->
+      <div class="w-12 h-1.5 bg-muted-foreground/30 rounded-full mx-auto mb-4 cursor-grab" aria-hidden="true"></div>
+      
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h4 class="text-base font-semibold text-foreground">Share Component</h4>
+          <p class="text-xs text-muted-foreground">Send or export this component directly.</p>
+        </div>
+        <button 
+          type="button" 
+          popovertarget="sheet-bottom-demo" 
+          popovertargetaction="hide"
+          aria-label="Close share drawer"
+          class="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="grid grid-cols-4 gap-3 py-2 text-center">
+        <button type="button" class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-accent transition-colors cursor-pointer">
+          <div class="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+          </div>
+          <span class="text-xs font-medium text-foreground">Copy HTML</span>
+        </button>
+        <button type="button" class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-accent transition-colors cursor-pointer">
+          <div class="w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
+          </div>
+          <span class="text-xs font-medium text-foreground">Copy Link</span>
+        </button>
+        <button type="button" class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-accent transition-colors cursor-pointer">
+          <div class="w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" /></svg>
+          </div>
+          <span class="text-xs font-medium text-foreground">Export</span>
+        </button>
+        <button type="button" class="flex flex-col items-center gap-2 p-3 rounded-xl hover:bg-accent transition-colors cursor-pointer">
+          <div class="w-10 h-10 rounded-full bg-muted text-muted-foreground flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" /></svg>
+          </div>
+          <span class="text-xs font-medium text-foreground">More</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. TOP SHEET (Banner / Notification Drawer) -->
+  <div id="sheet-top-demo" popover="auto" class="sheet sheet-top">
+    <div class="sheet-panel w-full bg-card text-card-foreground border-b border-border shadow-2xl p-4 sm:p-6 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-lg bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+        </div>
+        <div>
+          <p class="text-sm font-semibold text-foreground">System Maintenance Notice</p>
+          <p class="text-xs text-muted-foreground">Plain UI services will undergo scheduled cloud maintenance tonight at 02:00 UTC.</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 flex-shrink-0">
+        <button 
+          type="button" 
+          popovertarget="sheet-top-demo" 
+          popovertargetaction="hide"
+          class="px-3 py-1.5 text-xs font-medium text-primary-foreground bg-primary rounded-lg shadow-xs hover:bg-primary/90 transition-colors cursor-pointer"
+        >
+          Got it
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## Component Anatomy & Architecture
+
+This component uses zero runtime JavaScript. All interactions, styling transitions, and state changes are handled natively by the browser engine via:
+- **popover='auto'**: Native browser execution without script parsing overhead.
+- **@starting-style**: Native browser execution without script parsing overhead.
+- **allow-discrete**: Native browser execution without script parsing overhead.
+
+### State Management
+- States like `:hover`, `:active`, `:focus-visible`, `:checked`, `:has()`, and `[open]` are handled declaratively in HTML and Tailwind CSS v4 utility classes.
+
+---
+
+## Accessibility & Keyboard Shortcuts
+
+- **WCAG 2.2 AA Compliant**: All color pairings adhere to APCA / WCAG contrast standards in both light and dark themes.
+- **Focus Indicators**: Includes high-contrast `focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none` rings for keyboard users.
+- **Reduced Motion**: All animations and transitions automatically pause or degrade to instant state changes when `prefers-reduced-motion: reduce` is detected.
+
+---
+
+## Customization & Tokens
+
+This component relies on Plain UI design tokens defined in `tokens.css`:
+- Backgrounds: `var(--background)`, `var(--card)`, `var(--popover)`
+- Foregrounds: `var(--foreground)`, `var(--primary)`, `var(--muted-foreground)`
+- Borders & Rings: `var(--border)`, `var(--ring)`, `var(--radius)`
+- Motion Timing: `var(--motion-dur-enter)`, `var(--motion-ease-enter)`

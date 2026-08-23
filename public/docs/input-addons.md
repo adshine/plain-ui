@@ -1,0 +1,327 @@
+---
+title: "Input Addons"
+description: "Input controls with prefix, suffix icons, inline currency badges, and embedded action buttons."
+category: "inputs"
+type: "registry:ui"
+zeroJs: true
+version: "1.0.0"
+dependencies: []
+registryDependencies: ["tokens"]
+modernApis: [":focus-within","flexbox"]
+---
+
+# Input Addons
+
+> Input controls with prefix, suffix icons, inline currency badges, and embedded action buttons.
+
+## Overview
+
+- **Type**: `registry:ui`
+- **Zero JavaScript**: ✅ Yes (Pure HTML5 & Modern CSS)
+- **Category**: `inputs`
+- **Modern Browser APIs**: `:focus-within`, `flexbox`
+- **Tailwind Version**: Tailwind CSS v4 (@theme tokens)
+
+---
+
+## Installation
+
+### CLI Command
+
+```bash
+# Add using Plain UI CLI
+npx plain-ui add input-addons
+
+# Or using pnpm dlx
+pnpm dlx plain-ui add input-addons
+```
+
+### Manual Installation
+
+Copy the source files below directly into your project structure:
+- **`src/components/ui/input-addons.html`** (`registry:ui`)
+
+---
+
+## Source Code
+
+### `input-addons.html` (`src/components/ui/input-addons.html`)
+
+```html
+<!-- 
+  Plain UI - Input Addons & Suffixes (Origin UI Inspired)
+  Zero-JS HTML5 + Tailwind CSS v4 Input Prefixes, Suffixes, Badges & Embedded Buttons
+-->
+<div class="flex flex-col gap-10 p-6 max-w-4xl mx-auto font-sans text-zinc-900 dark:text-zinc-100">
+
+  <!-- Section Header -->
+  <div class="space-y-1 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-400">Form Controls</span>
+      <span class="text-xs text-zinc-400">•</span>
+      <span class="text-xs text-zinc-500">Addons & Decorators</span>
+    </div>
+    <h2 class="text-2xl font-bold tracking-tight">Input Addons & Inline Badges</h2>
+    <p class="text-sm text-zinc-500 dark:text-zinc-400">
+      Inputs with leading/trailing icons, inline currency badges, website protocols (<code>https://</code>), embedded action buttons, and segmented steppers.
+    </p>
+  </div>
+
+  <!-- Variant 1: Leading Icon Input -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-leading-icon" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">01. Leading Icon (Email Input)</label>
+    <div class="relative max-w-md">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400 dark:text-zinc-500">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <input
+        type="email"
+        id="addon-leading-icon"
+        placeholder="john@example.com"
+        class="w-full rounded-lg border border-zinc-300 bg-white pl-10 pr-3.5 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+    </div>
+  </div>
+
+  <!-- Variant 2: Trailing Icon Input -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-trailing-icon" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">02. Trailing Icon (Status Indicator)</label>
+    <div class="relative max-w-md">
+      <input
+        type="text"
+        id="addon-trailing-icon"
+        value="acme-production-cluster"
+        class="w-full rounded-lg border border-zinc-300 bg-white pl-3.5 pr-10 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-emerald-600 dark:text-emerald-400">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 3: Leading & Trailing Icons Combined -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-both-icons" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">03. Leading & Trailing Icons</label>
+    <div class="relative max-w-md">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400 dark:text-zinc-500">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <input
+        type="text"
+        id="addon-both-icons"
+        placeholder="Quick search documents..."
+        class="w-full rounded-lg border border-zinc-300 bg-white pl-10 pr-10 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-zinc-400 dark:text-zinc-500">
+        <kbd class="inline-flex items-center rounded border border-zinc-200 bg-zinc-100 px-1.5 py-0.5 text-[10px] font-mono text-zinc-500 dark:border-zinc-800 dark:bg-zinc-800 dark:text-zinc-400">⌘K</kbd>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 4: Inline URL Protocol Prefix (https://) -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-url-protocol" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">04. Inline Protocol Prefix (<code>https://</code>)</label>
+    <div class="relative flex max-w-md rounded-lg shadow-sm">
+      <span class="inline-flex items-center rounded-l-lg border border-r-0 border-zinc-300 bg-zinc-50 px-3 text-sm text-zinc-500 select-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400">
+        https://
+      </span>
+      <input
+        type="text"
+        id="addon-url-protocol"
+        placeholder="example.com/subpage"
+        class="block w-full min-w-0 flex-1 rounded-r-lg border border-zinc-300 bg-white px-3.5 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+    </div>
+  </div>
+
+  <!-- Variant 5: Inline Suffix Domain (.com / @company) -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-suffix-domain" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">05. Inline Handle Prefix & Domain Suffix</label>
+    <div class="relative flex max-w-md rounded-lg shadow-sm">
+      <span class="inline-flex items-center rounded-l-lg border border-r-0 border-zinc-300 bg-zinc-50 px-3 text-sm font-medium text-zinc-500 select-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400">
+        @
+      </span>
+      <input
+        type="text"
+        id="addon-suffix-domain"
+        placeholder="username"
+        class="block w-full min-w-0 flex-1 border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <span class="inline-flex items-center rounded-r-lg border border-l-0 border-zinc-300 bg-zinc-50 px-3 text-sm text-zinc-500 select-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-400">
+        .plainui.dev
+      </span>
+    </div>
+  </div>
+
+  <!-- Variant 6: Inline Currency Badges ($ USD & € EUR) -->
+  <div class="flex flex-col gap-4">
+    <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">06. Inline Currency Badges ($ USD & € EUR)</span>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl">
+      <!-- USD Badge -->
+      <div class="relative flex rounded-lg shadow-sm">
+        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-500 dark:text-zinc-400 font-semibold">
+          $
+        </div>
+        <input
+          type="text"
+          id="addon-currency-usd"
+          placeholder="0.00"
+          class="block w-full rounded-lg border border-zinc-300 bg-white pl-8 pr-16 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+        />
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+          <span class="rounded bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-300">USD</span>
+        </div>
+      </div>
+
+      <!-- EUR Badge -->
+      <div class="relative flex rounded-lg shadow-sm">
+        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-500 dark:text-zinc-400 font-semibold">
+          €
+        </div>
+        <input
+          type="text"
+          id="addon-currency-eur"
+          placeholder="0.00"
+          class="block w-full rounded-lg border border-zinc-300 bg-white pl-8 pr-16 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+        />
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+          <span class="rounded bg-zinc-100 dark:bg-zinc-800 px-1.5 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-300">EUR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 7: Inline Country Code Phone Prefix -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-phone-prefix" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">07. Inline Country Code Selector</label>
+    <div class="relative flex max-w-md rounded-lg shadow-sm">
+      <select
+        aria-label="Country Dial Code"
+        class="rounded-l-lg border border-r-0 border-zinc-300 bg-zinc-50 px-3 py-2 text-sm text-zinc-700 focus:border-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-200 cursor-pointer"
+      >
+        <option value="US">🇺🇸 +1</option>
+        <option value="GB">🇬🇧 +44</option>
+        <option value="DE">🇩🇪 +49</option>
+        <option value="FR">🇫🇷 +33</option>
+        <option value="JP">🇯🇵 +81</option>
+      </select>
+      <input
+        type="tel"
+        id="addon-phone-prefix"
+        placeholder="(555) 234-5678"
+        class="block w-full min-w-0 flex-1 rounded-r-lg border border-zinc-300 bg-white px-3.5 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+    </div>
+  </div>
+
+  <!-- Variant 8: Inline Send Button -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-send-btn" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">08. Inline Send / Action Button</label>
+    <div class="relative max-w-md">
+      <input
+        type="text"
+        id="addon-send-btn"
+        placeholder="Ask AI or write a message..."
+        class="w-full rounded-lg border border-zinc-300 bg-white pl-3.5 pr-20 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <button
+        type="button"
+        class="absolute right-1.5 top-1.5 bottom-1.5 inline-flex items-center gap-1.5 rounded-md bg-zinc-900 px-3 text-xs font-medium text-white hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-1 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200 transition-colors"
+      >
+        <span>Send</span>
+        <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Variant 9: Inline Apply Promo Code Button -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-promo-btn" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">09. Inline Promo Code / "Apply" Button</label>
+    <div class="relative max-w-md">
+      <input
+        type="text"
+        id="addon-promo-btn"
+        placeholder="PROMO2026"
+        class="w-full rounded-lg border border-zinc-300 bg-white pl-3.5 pr-20 py-2 text-sm uppercase tracking-wider text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <button
+        type="button"
+        class="absolute right-1 top-1 bottom-1 inline-flex items-center rounded-md bg-zinc-100 px-3 text-xs font-semibold text-zinc-800 hover:bg-zinc-200 focus:outline-none dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+
+  <!-- Variant 10: Number Input with Inline Stepper Buttons -->
+  <div class="flex flex-col gap-2">
+    <label for="addon-number-stepper" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">10. Number Input with Stepper Controls</label>
+    <div class="relative flex max-w-xs items-center">
+      <button
+        type="button"
+        aria-label="Decrement"
+        class="absolute left-1 flex size-7 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 transition-colors"
+      >
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20 12H4" />
+        </svg>
+      </button>
+      <input
+        type="number"
+        id="addon-number-stepper"
+        value="1"
+        min="1"
+        max="99"
+        class="w-full rounded-lg border border-zinc-300 bg-white px-9 py-2 text-center text-sm font-semibold text-zinc-900 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+      />
+      <button
+        type="button"
+        aria-label="Increment"
+        class="absolute right-1 flex size-7 items-center justify-center rounded-md text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800 dark:hover:text-zinc-100 transition-colors"
+      >
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+</div>
+```
+
+---
+
+## Component Anatomy & Architecture
+
+This component uses zero runtime JavaScript. All interactions, styling transitions, and state changes are handled natively by the browser engine via:
+- **:focus-within**: Native browser execution without script parsing overhead.
+- **flexbox**: Native browser execution without script parsing overhead.
+
+### State Management
+- States like `:hover`, `:active`, `:focus-visible`, `:checked`, `:has()`, and `[open]` are handled declaratively in HTML and Tailwind CSS v4 utility classes.
+
+---
+
+## Accessibility & Keyboard Shortcuts
+
+- **WCAG 2.2 AA Compliant**: All color pairings adhere to APCA / WCAG contrast standards in both light and dark themes.
+- **Focus Indicators**: Includes high-contrast `focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none` rings for keyboard users.
+- **Reduced Motion**: All animations and transitions automatically pause or degrade to instant state changes when `prefers-reduced-motion: reduce` is detected.
+
+---
+
+## Customization & Tokens
+
+This component relies on Plain UI design tokens defined in `tokens.css`:
+- Backgrounds: `var(--background)`, `var(--card)`, `var(--popover)`
+- Foregrounds: `var(--foreground)`, `var(--primary)`, `var(--muted-foreground)`
+- Borders & Rings: `var(--border)`, `var(--ring)`, `var(--radius)`
+- Motion Timing: `var(--motion-dur-enter)`, `var(--motion-ease-enter)`

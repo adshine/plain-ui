@@ -1,0 +1,1090 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "plain-ui",
+  "homepage": "https://plain-ui.dev",
+  "version": "1.0.0",
+  "description": "Zero-JS Pure HTML5 & Tailwind CSS v4 Component Registry with Modern Browser Primitives",
+  "items": [
+    {
+      "name": "tokens",
+      "type": "registry:token",
+      "title": "Design Tokens",
+      "description": "Complete 3-Tier OKLCH design token system, semantic variables, theme presets, and base typography.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "name": "tokens.css",
+          "path": "tokens/tokens.css",
+          "type": "registry:token",
+          "target": "src/styles/tokens.css"
+        },
+        {
+          "name": "base.css",
+          "path": "tokens/base.css",
+          "type": "registry:token",
+          "target": "src/styles/base.css"
+        },
+        {
+          "name": "themes.css",
+          "path": "tokens/themes.css",
+          "type": "registry:token",
+          "target": "src/styles/themes.css"
+        },
+        {
+          "name": "index.css",
+          "path": "tokens/index.css",
+          "type": "registry:token",
+          "target": "src/styles/index.css"
+        },
+        {
+          "name": "tokens.ts",
+          "path": "tokens/index.ts",
+          "type": "registry:lib",
+          "target": "src/styles/tokens.ts"
+        }
+      ],
+      "categories": [
+        "tokens",
+        "theme"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "colorSpace": "oklch",
+        "tailwind": "v4"
+      }
+    },
+    {
+      "name": "motion",
+      "type": "registry:style",
+      "title": "Motion & Physics Tokens",
+      "description": "Houdini CSS properties, asymmetric easing curves, scroll-driven animations, and view transition rules.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "motion.css",
+          "path": "motion/motion.css",
+          "type": "registry:style",
+          "target": "src/styles/motion.css"
+        },
+        {
+          "name": "motion.ts",
+          "path": "motion/index.ts",
+          "type": "registry:lib",
+          "target": "src/styles/motion.ts"
+        }
+      ],
+      "categories": [
+        "motion",
+        "animation"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "houdini": true,
+        "scrollDriven": true
+      }
+    },
+    {
+      "name": "script-combobox",
+      "type": "registry:script",
+      "title": "Combobox Script",
+      "description": "Light-DOM ESM vanilla JavaScript micro-controller (<1KB) for combobox.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "name": "combobox.js",
+          "path": "scripts/combobox.js",
+          "type": "registry:script",
+          "target": "src/scripts/combobox.js"
+        }
+      ],
+      "categories": [
+        "scripts",
+        "controller"
+      ],
+      "meta": {
+        "zeroJs": false,
+        "esm": true,
+        "lightDom": true
+      }
+    },
+    {
+      "name": "script-command",
+      "type": "registry:script",
+      "title": "Command Script",
+      "description": "Light-DOM ESM vanilla JavaScript micro-controller (<1KB) for command.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "name": "command.js",
+          "path": "scripts/command.js",
+          "type": "registry:script",
+          "target": "src/scripts/command.js"
+        }
+      ],
+      "categories": [
+        "scripts",
+        "controller"
+      ],
+      "meta": {
+        "zeroJs": false,
+        "esm": true,
+        "lightDom": true
+      }
+    },
+    {
+      "name": "script-tabs",
+      "type": "registry:script",
+      "title": "Tabs Script",
+      "description": "Light-DOM ESM vanilla JavaScript micro-controller (<1KB) for tabs.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "name": "tabs.js",
+          "path": "scripts/tabs.js",
+          "type": "registry:script",
+          "target": "src/scripts/tabs.js"
+        }
+      ],
+      "categories": [
+        "scripts",
+        "controller"
+      ],
+      "meta": {
+        "zeroJs": false,
+        "esm": true,
+        "lightDom": true
+      }
+    },
+    {
+      "name": "script-toast",
+      "type": "registry:script",
+      "title": "Toast Script",
+      "description": "Light-DOM ESM vanilla JavaScript micro-controller (<1KB) for toast.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [],
+      "files": [
+        {
+          "name": "toast.js",
+          "path": "scripts/toast.js",
+          "type": "registry:script",
+          "target": "src/scripts/toast.js"
+        }
+      ],
+      "categories": [
+        "scripts",
+        "controller"
+      ],
+      "meta": {
+        "zeroJs": false,
+        "esm": true,
+        "lightDom": true
+      }
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Zero-JS vertically collapsing accordion built with HTML5 details[name] and interpolate-size transitions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "accordion.html",
+          "path": "ui/accordion.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/accordion.html"
+        }
+      ],
+      "categories": [
+        "disclosure"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "details::details-content",
+          "interpolate-size",
+          "details[name]"
+        ]
+      }
+    },
+    {
+      "name": "bento-grid",
+      "type": "registry:ui",
+      "title": "Bento Grid",
+      "description": "Modern responsive bento grid layouts with dynamic aspect ratios and hover effects.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "bento-grid.html",
+          "path": "ui/bento-grid.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/bento-grid.html"
+        }
+      ],
+      "categories": [
+        "layout"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "grid-template-columns",
+          "subgrid"
+        ]
+      }
+    },
+    {
+      "name": "border-beam",
+      "type": "registry:ui",
+      "title": "Border Beam",
+      "description": "Animated border beam highlighting using Houdini CSS @property angle rotations.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "border-beam.html",
+          "path": "ui/border-beam.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/border-beam.html"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "@property",
+          "conic-gradient"
+        ]
+      }
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Zero-JS button primitives with primary, secondary, outline, ghost, destructive, and link variants.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "button.html",
+          "path": "ui/button.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/button.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          ":focus-visible",
+          ":active"
+        ]
+      }
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Accessible zero-JS custom checkboxes, card selectors, swatches, and multi-select chips.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "checkbox.html",
+          "path": "ui/checkbox.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/checkbox.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          ":has()",
+          ":checked"
+        ]
+      }
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "title": "Combobox",
+      "description": "Accessible autocomplete and searchable select dropdown with keyboard navigation and filter support.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "combobox.html",
+          "path": "ui/combobox.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/combobox.html"
+        },
+        {
+          "name": "combobox.js",
+          "path": "scripts/combobox.js",
+          "type": "registry:script",
+          "target": "src/scripts/combobox.js"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": false,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "aria-activedescendant",
+          "role='combobox'"
+        ]
+      }
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command Palette",
+      "description": "Fast, accessible command palette and search dialog with keyboard shortcut triggers.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "dialog"
+      ],
+      "files": [
+        {
+          "name": "command.html",
+          "path": "ui/command.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/command.html"
+        },
+        {
+          "name": "command.js",
+          "path": "scripts/command.js",
+          "type": "registry:script",
+          "target": "src/scripts/command.js"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "zeroJs": false,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "<dialog>",
+          "keyboard-shortcuts"
+        ]
+      }
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog / Modal",
+      "description": "Zero-JS modal dialog built on HTML5 native <dialog> with @starting-style entrance animations and backdrop blur.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "dialog.html",
+          "path": "ui/dialog.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/dialog.html"
+        },
+        {
+          "name": "dialog.css",
+          "path": "ui/dialog.css",
+          "type": "registry:style",
+          "target": "src/styles/dialog.css"
+        }
+      ],
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "<dialog>",
+          "@starting-style",
+          "::backdrop",
+          "allow-discrete"
+        ]
+      }
+    },
+    {
+      "name": "dock",
+      "type": "registry:ui",
+      "title": "Dock",
+      "description": "macOS-style interactive magnification dock with pure CSS smooth scaling.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "dock.html",
+          "path": "ui/dock.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/dock.html"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          ":has()",
+          "transform-origin"
+        ]
+      }
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Zero-JS dropdown menu utilizing Popover API (popover=\"auto\") and CSS Anchor Positioning.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "dropdown-menu.html",
+          "path": "ui/dropdown-menu.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/dropdown-menu.html"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "popover='auto'",
+          "anchor()",
+          "position-anchor"
+        ]
+      }
+    },
+    {
+      "name": "glow-card",
+      "type": "registry:ui",
+      "title": "Glow Card",
+      "description": "Interactive spotlight and glow cards powered by Houdini conic gradients and hover physics.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "glow-card.html",
+          "path": "ui/glow-card.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/glow-card.html"
+        }
+      ],
+      "categories": [
+        "cards"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "@property",
+          "radial-gradient",
+          "conic-gradient"
+        ]
+      }
+    },
+    {
+      "name": "input-addons",
+      "type": "registry:ui",
+      "title": "Input Addons",
+      "description": "Input controls with prefix, suffix icons, inline currency badges, and embedded action buttons.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "input-addons.html",
+          "path": "ui/input-addons.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/input-addons.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          ":focus-within",
+          "flexbox"
+        ]
+      }
+    },
+    {
+      "name": "input-floating",
+      "type": "registry:ui",
+      "title": "Floating Label Input",
+      "description": "Pure CSS zero-JS floating label text inputs using :placeholder-shown transitions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "input-floating.html",
+          "path": "ui/input-floating.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/input-floating.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          ":placeholder-shown",
+          ":focus"
+        ]
+      }
+    },
+    {
+      "name": "input-password",
+      "type": "registry:ui",
+      "title": "Password Input",
+      "description": "Password input with real-time strength indicators and zero-JS CSS :has() validation checklist.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "input-password.html",
+          "path": "ui/input-password.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/input-password.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          ":has()",
+          ":valid",
+          "pattern"
+        ]
+      }
+    },
+    {
+      "name": "input-search",
+      "type": "registry:ui",
+      "title": "Search Input",
+      "description": "Search inputs with quick-clear triggers, shortcut badges, and async loading spinners.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "input-search.html",
+          "path": "ui/input-search.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/input-search.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "type='search'",
+          ":placeholder-shown"
+        ]
+      }
+    },
+    {
+      "name": "marquee",
+      "type": "registry:ui",
+      "title": "Marquee",
+      "description": "Smooth, infinitely scrolling marquee track with pause-on-hover and GPU acceleration.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "marquee.html",
+          "path": "ui/marquee.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/marquee.html"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "keyframes",
+          "mask-image"
+        ]
+      }
+    },
+    {
+      "name": "otp-input",
+      "type": "registry:ui",
+      "title": "OTP Input",
+      "description": "Segmented one-time PIN and verification code input with auto-focus and digit grouping.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "otp-input.html",
+          "path": "ui/otp-input.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/otp-input.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "inputmode='numeric'",
+          ":focus"
+        ]
+      }
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Zero-JS native popover with CSS Anchor Positioning and automatic light-dismiss.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "popover.html",
+          "path": "ui/popover.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/popover.html"
+        }
+      ],
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "popover='auto'",
+          "anchor()",
+          "position-anchor"
+        ]
+      }
+    },
+    {
+      "name": "radio",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Accessible radio cards, segmented selector bars, and custom radio dots.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "radio.html",
+          "path": "ui/radio.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/radio.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          ":checked",
+          ":has()"
+        ]
+      }
+    },
+    {
+      "name": "scroll-reveal",
+      "type": "registry:ui",
+      "title": "Scroll Reveal",
+      "description": "Zero-JS scroll-driven viewport reveals and progress animations using CSS animation-timeline: view() and scroll().",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "scroll-reveal.html",
+          "path": "ui/scroll-reveal.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/scroll-reveal.html"
+        }
+      ],
+      "categories": [
+        "effects"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "animation-timeline: view()",
+          "animation-timeline: scroll()",
+          "animation-range"
+        ]
+      }
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet / Drawer",
+      "description": "Slide-over sheet drawers (left, right, top, bottom) with Popover API and backdrop dismiss.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "sheet.html",
+          "path": "ui/sheet.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/sheet.html"
+        }
+      ],
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "popover='auto'",
+          "@starting-style",
+          "allow-discrete"
+        ]
+      }
+    },
+    {
+      "name": "shimmer-button",
+      "type": "registry:ui",
+      "title": "Shimmer Button",
+      "description": "High-performance glowing shimmer button with Houdini angle interpolation.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "shimmer-button.html",
+          "path": "ui/shimmer-button.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/shimmer-button.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "@property",
+          "conic-gradient"
+        ]
+      }
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Theme-aware shimmer loading skeleton with CSS color-mix() gradient sweep.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "skeleton.html",
+          "path": "ui/skeleton.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/skeleton.html"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "color-mix()",
+          "keyframes"
+        ]
+      }
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider / Range",
+      "description": "Custom HTML5 range input sliders with tick marks, multi-step intervals, and numeric badges.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens"
+      ],
+      "files": [
+        {
+          "name": "slider.html",
+          "path": "ui/slider.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/slider.html"
+        }
+      ],
+      "categories": [
+        "inputs"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "::-webkit-slider-thumb",
+          "::-moz-range-thumb"
+        ]
+      }
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Accessible keyboard-navigable tabs with roving tabindex and smooth panel transitions.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "tabs.html",
+          "path": "ui/tabs.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/tabs.html"
+        },
+        {
+          "name": "tabs.js",
+          "path": "scripts/tabs.js",
+          "type": "registry:script",
+          "target": "src/scripts/tabs.js"
+        }
+      ],
+      "categories": [
+        "navigation"
+      ],
+      "meta": {
+        "zeroJs": false,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "role='tablist'",
+          "roving-tabindex"
+        ]
+      }
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "title": "Toast Notification",
+      "description": "Lightweight, accessible toast notifications with auto-dismiss, progress timer, and action buttons.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "toast.html",
+          "path": "ui/toast.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/toast.html"
+        },
+        {
+          "name": "toast.js",
+          "path": "scripts/toast.js",
+          "type": "registry:script",
+          "target": "src/scripts/toast.js"
+        }
+      ],
+      "categories": [
+        "feedback"
+      ],
+      "meta": {
+        "zeroJs": false,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "aria-live='polite'",
+          "role='status'"
+        ]
+      }
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Zero-JS tooltip using popover=\"hint\" and CSS Anchor Positioning or pure CSS pseudo-elements.",
+      "dependencies": [],
+      "devDependencies": [],
+      "registryDependencies": [
+        "tokens",
+        "motion"
+      ],
+      "files": [
+        {
+          "name": "tooltip.html",
+          "path": "ui/tooltip.html",
+          "type": "registry:ui",
+          "target": "src/components/ui/tooltip.html"
+        }
+      ],
+      "categories": [
+        "overlay"
+      ],
+      "meta": {
+        "zeroJs": true,
+        "framework": "html5",
+        "tailwind": "v4",
+        "modernApis": [
+          "popover='hint'",
+          "anchor()",
+          "position-anchor"
+        ]
+      }
+    }
+  ]
+}

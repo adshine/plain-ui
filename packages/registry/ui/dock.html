@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dock - Plain UI</title>
+  <style>
+    /* Design System Tokens */
+    :root {
+      --bg-canvas: #09090b;
+      --bg-surface: #121215;
+      --bg-surface-raised: #18181b;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --text-primary: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --text-tertiary: #71717a;
+      --accent-primary: #6366f1;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      
+      /* Apple Spring Curve */
+      --motion-ease-dock: cubic-bezier(0.16, 1, 0.3, 1);
+      --motion-dur-dock: 240ms;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      line-height: 1.5;
+      padding: 2.5rem 1.5rem 6rem;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .plain-container {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .plain-header {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 2rem;
+    }
+
+    .plain-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      color: #60a5fa;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .plain-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .plain-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      max-width: 680px;
+    }
+
+    .plain-showcase-box {
+      background: radial-gradient(circle at 50% 100%, rgba(99, 102, 241, 0.12), transparent 65%),
+                  var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 4rem 2rem 3rem;
+      margin-bottom: 3.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+      position: relative;
+    }
+
+    /* ==========================================================================
+       Plain UI - macOS Proximity Dock (Pure CSS :has() + Anchor Positioning)
+       Zero Lines of JavaScript.
+       ========================================================================== */
+
+    .plain-dock-wrapper {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 0.625rem;
+      padding: 0.625rem 0.875rem;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(28px) saturate(190%);
+      -webkit-backdrop-filter: blur(28px) saturate(190%);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 24px;
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6),
+                  inset 0 1px 0 0 rgba(255, 255, 255, 0.25);
+      position: relative;
+      user-select: none;
+    }
+
+    /* Individual Dock Item */
+    .plain-dock-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      text-decoration: none;
+      cursor: pointer;
+      transform-origin: bottom center;
+      transition: transform var(--motion-dur-dock) var(--motion-ease-dock),
+                  width var(--motion-dur-dock) var(--motion-ease-dock),
+                  height var(--motion-dur-dock) var(--motion-ease-dock),
+                  margin var(--motion-dur-dock) var(--motion-ease-dock),
+                  background-color var(--motion-dur-dock);
+    }
+
+    .plain-dock-icon {
+      width: 28px;
+      height: 28px;
+      transition: transform var(--motion-dur-dock) var(--motion-ease-dock);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .plain-dock-icon svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+    }
+
+    /* Active Running App Dot Indicator */
+    .plain-dock-dot {
+      position: absolute;
+      bottom: -4px;
+      width: 4px;
+      height: 4px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.85);
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+      pointer-events: none;
+    }
+
+    /* Dock Divider */
+    .plain-dock-divider {
+      width: 1px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.15);
+      margin: 0 0.25rem 6px;
+      border-radius: 1px;
+    }
+
+    /* ==========================================================================
+       Pure CSS :has() Proximity Physics Engine
+       ========================================================================== */
+
+    /* 1. Target Hovered Item */
+    .plain-dock-item:hover {
+      transform: translateY(-16px) scale(1.45);
+      margin: 0 0.45rem;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.7);
+    }
+
+    /* 2. Immediate Right Sibling (+1) */
+    .plain-dock-item:hover + .plain-dock-item {
+      transform: translateY(-9px) scale(1.24);
+      margin: 0 0.25rem;
+      z-index: 5;
+    }
+
+    /* 3. Immediate Left Sibling (-1 via :has) */
+    .plain-dock-item:has(+ .plain-dock-item:hover) {
+      transform: translateY(-9px) scale(1.24);
+      margin: 0 0.25rem;
+      z-index: 5;
+    }
+
+    /* 4. Second Right Sibling (+2) */
+    .plain-dock-item:hover + .plain-dock-item + .plain-dock-item {
+      transform: translateY(-4px) scale(1.10);
+      z-index: 2;
+    }
+
+    /* 5. Second Left Sibling (-2 via :has) */
+    .plain-dock-item:has(+ .plain-dock-item + .plain-dock-item:hover) {
+      transform: translateY(-4px) scale(1.10);
+      z-index: 2;
+    }
+
+    /* ==========================================================================
+       CSS Anchor Positioning & Zero-JS Tooltips
+       ========================================================================== */
+
+    /* Anchor Names */
+    .dock-finder   { anchor-name: --dock-finder; }
+    .dock-safari   { anchor-name: --dock-safari; }
+    .dock-terminal { anchor-name: --dock-terminal; }
+    .dock-code     { anchor-name: --dock-code; }
+    .dock-music    { anchor-name: --dock-music; }
+    .dock-chat     { anchor-name: --dock-chat; }
+    .dock-settings { anchor-name: --dock-settings; }
+    .dock-trash    { anchor-name: --dock-trash; }
+
+    /* Tooltip Bubble */
+    .plain-dock-tooltip {
+      position: absolute;
+      bottom: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(4px);
+      padding: 0.35rem 0.75rem;
+      border-radius: 8px;
+      background: rgba(24, 24, 27, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.15s ease, transform 0.15s var(--motion-ease-dock);
+      box-shadow: 0 8px 16px -4px rgba(0, 0, 0, 0.5);
+      z-index: 100;
+    }
+
+    .plain-dock-item:hover .plain-dock-tooltip {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* CSS Native Anchor Positioning Progressive Enhancement */
+    @supports (position-anchor: --dock-finder) {
+      .plain-dock-item:hover .plain-dock-tooltip {
+        position-area: top;
+        margin-bottom: 12px;
+      }
+    }
+
+    /* Tooltip Arrow */
+    .plain-dock-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 4px;
+      border-style: solid;
+      border-color: rgba(24, 24, 27, 0.92) transparent transparent transparent;
+    }
+
+    /* ==========================================================================
+       Dock Variations: Vertical Sidebar Dock
+       ========================================================================== */
+
+    .plain-dock-vertical {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.875rem 0.625rem;
+      border-radius: 24px;
+      transform-origin: center left;
+    }
+
+    .plain-dock-vertical .plain-dock-item {
+      transform-origin: center left;
+    }
+
+    .plain-dock-vertical .plain-dock-item:hover {
+      transform: translateX(12px) scale(1.42);
+      margin: 0.45rem 0;
+    }
+
+    .plain-dock-vertical .plain-dock-item:hover + .plain-dock-item {
+      transform: translateX(7px) scale(1.22);
+      margin: 0.25rem 0;
+    }
+
+    .plain-dock-vertical .plain-dock-item:has(+ .plain-dock-item:hover) {
+      transform: translateX(7px) scale(1.22);
+      margin: 0.25rem 0;
+    }
+
+    .plain-dock-vertical .plain-dock-tooltip {
+      bottom: auto;
+      left: calc(100% + 14px);
+      top: 50%;
+      transform: translateY(-50%) translateX(-4px);
+    }
+
+    .plain-dock-vertical .plain-dock-item:hover .plain-dock-tooltip {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .plain-dock-vertical .plain-dock-tooltip::after {
+      top: 50%;
+      left: auto;
+      right: 100%;
+      transform: translateY(-50%);
+      border-color: transparent rgba(24, 24, 27, 0.92) transparent transparent;
+    }
+
+    /* Technical Docs */
+    .plain-doc-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .plain-code-block {
+      background: #000000;
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: #e4e4e7;
+      overflow-x: auto;
+      line-height: 1.6;
+      margin-top: 1rem;
+    }
+
+    .token-prop { color: #93c5fd; }
+    .token-val { color: #f472b6; }
+    .token-tag { color: #6ee7b7; }
+    .token-comment { color: #71717a; font-style: italic; }
+
+    /* Accessibility */
+    @media (prefers-reduced-motion: reduce) {
+      .plain-dock-item {
+        transition: none !important;
+      }
+      .plain-dock-item:hover,
+      .plain-dock-item:hover + .plain-dock-item,
+      .plain-dock-item:has(+ .plain-dock-item:hover) {
+        transform: none !important;
+        margin: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="plain-container">
+    <!-- Header -->
+    <header class="plain-header">
+      <div class="plain-badge">Modern CSS Architecture</div>
+      <h1 class="plain-title">macOS Proximity Dock</h1>
+      <p class="plain-subtitle">
+        Fluid macOS magnification dock using modern CSS <code>:has()</code> relational selectors and CSS Anchor Positioning. Experience realistic proximity physics without JavaScript.
+      </p>
+    </header>
+
+    <!-- Showcase 1: macOS Bottom Desktop Dock -->
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">macOS Desktop Shelf</h2>
+      <div class="plain-showcase-box">
+        <nav class="plain-dock-wrapper" aria-label="macOS Application Dock">
+          <!-- Finder -->
+          <a href="#finder" class="plain-dock-item dock-finder" aria-label="Finder">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect width="20" height="20" x="2" y="2" rx="5" fill="#3b82f6"/>
+                <path d="M7 15c1 1.5 3 2 5 2s4-.5 5-2" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="8.5" cy="9.5" r="1.5" fill="#fff"/>
+                <circle cx="15.5" cy="9.5" r="1.5" fill="#fff"/>
+                <path d="M12 9v4" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="plain-dock-dot" aria-hidden="true"></span>
+            <div class="plain-dock-tooltip" role="tooltip">Finder</div>
+          </a>
+
+          <!-- Safari -->
+          <a href="#safari" class="plain-dock-item dock-safari" aria-label="Safari">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect width="20" height="20" x="2" y="2" rx="5" fill="#0284c7"/>
+                <circle cx="12" cy="12" r="7" stroke="#fff" stroke-width="1.5"/>
+                <polygon points="15.5 8.5 13.5 13.5 8.5 15.5 10.5 10.5" fill="#ef4444"/>
+              </svg>
+            </div>
+            <span class="plain-dock-dot" aria-hidden="true"></span>
+            <div class="plain-dock-tooltip" role="tooltip">Safari</div>
+          </a>
+
+          <!-- Terminal -->
+          <a href="#terminal" class="plain-dock-item dock-terminal" aria-label="Terminal">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect width="20" height="20" x="2" y="2" rx="5" fill="#18181b" stroke="rgba(255,255,255,0.2)"/>
+                <path d="m7 9 3 3-3 3" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M13 15h4" stroke="#22c55e" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="plain-dock-dot" aria-hidden="true"></span>
+            <div class="plain-dock-tooltip" role="tooltip">Terminal</div>
+          </a>
+
+          <!-- VS Code -->
+          <a href="#code" class="plain-dock-item dock-code" aria-label="Code Editor">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect width="20" height="20" x="2" y="2" rx="5" fill="#0284c7"/>
+                <path d="M16.5 4.5 9 10.5l-4-3L3 8.5l3.5 3.5L3 15.5 5 16.5l4-3 7.5 6 4.5-2V6.5l-4.5-2Z" fill="#38bdf8"/>
+              </svg>
+            </div>
+            <span class="plain-dock-dot" aria-hidden="true"></span>
+            <div class="plain-dock-tooltip" role="tooltip">VS Code</div>
+          </a>
+
+          <!-- Music -->
+          <a href="#music" class="plain-dock-item dock-music" aria-label="Music">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect width="20" height="20" x="2" y="2" rx="5" fill="#ec4899"/>
+                <path d="M9 18V5l10-2v13" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="6" cy="18" r="3" fill="#fff"/>
+                <circle cx="16" cy="16" r="3" fill="#fff"/>
+              </svg>
+            </div>
+            <div class="plain-dock-tooltip" role="tooltip">Music</div>
+          </a>
+
+          <!-- Messages -->
+          <a href="#chat" class="plain-dock-item dock-chat" aria-label="Messages">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect width="20" height="20" x="2" y="2" rx="5" fill="#22c55e"/>
+                <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="plain-dock-dot" aria-hidden="true"></span>
+            <div class="plain-dock-tooltip" role="tooltip">Messages</div>
+          </a>
+
+          <!-- Divider -->
+          <div class="plain-dock-divider" role="separator"></div>
+
+          <!-- Settings -->
+          <a href="#settings" class="plain-dock-item dock-settings" aria-label="System Settings">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect width="20" height="20" x="2" y="2" rx="5" fill="#71717a"/>
+                <circle cx="12" cy="12" r="3" stroke="#fff" stroke-width="2"/>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="#fff" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <div class="plain-dock-tooltip" role="tooltip">Settings</div>
+          </a>
+
+          <!-- Trash -->
+          <a href="#trash" class="plain-dock-item dock-trash" aria-label="Trash">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e4e4e7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+              </svg>
+            </div>
+            <div class="plain-dock-tooltip" role="tooltip">Trash</div>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Showcase 2: Vertical App Bar -->
+    <div style="margin-bottom: 2rem;">
+      <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: #ffffff;">Vertical Sidebar Dock</h2>
+      <div class="plain-showcase-box" style="align-items: flex-start; padding-left: 4rem;">
+        <nav class="plain-dock-wrapper plain-dock-vertical" aria-label="Vertical Sidebar Dock">
+          <a href="#dashboard" class="plain-dock-item" aria-label="Dashboard">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></svg>
+            </div>
+            <div class="plain-dock-tooltip" role="tooltip">Dashboard</div>
+          </a>
+          <a href="#analytics" class="plain-dock-item" aria-label="Analytics">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+            </div>
+            <div class="plain-dock-tooltip" role="tooltip">Analytics</div>
+          </a>
+          <a href="#deployments" class="plain-dock-item" aria-label="Deployments">
+            <div class="plain-dock-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            </div>
+            <div class="plain-dock-tooltip" role="tooltip">Deployments</div>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Technical Docs -->
+    <section class="plain-doc-section">
+      <h2 style="font-size: 1.25rem; font-weight: 600; color: #ffffff; margin-bottom: 0.75rem;">Proximity Physics via CSS :has() Combinators</h2>
+      <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.6;">
+        Prior to CSS <code>:has()</code>, creating neighbor-sensitive proximity magnification required subscribing to <code>mousemove</code> events in JavaScript. Today, pure CSS selectors inspect subsequent and preceding sibling states declaratively:
+      </p>
+
+      <div class="plain-code-block">
+<span class="token-comment">/* 1. Direct hover on active dock item */</span>
+<span class="token-tag">.plain-dock-item:hover</span> {
+  <span class="token-prop">transform</span>: <span class="token-val">translateY(-16px) scale(1.45)</span>;
+}
+
+<span class="token-comment">/* 2. Immediate right neighbor (+1 sibling) */</span>
+<span class="token-tag">.plain-dock-item:hover + .plain-dock-item</span> {
+  <span class="token-prop">transform</span>: <span class="token-val">translateY(-9px) scale(1.24)</span>;
+}
+
+<span class="token-comment">/* 3. Immediate left neighbor (-1 sibling via :has relational selector) */</span>
+<span class="token-tag">.plain-dock-item:has(+ .plain-dock-item:hover)</span> {
+  <span class="token-prop">transform</span>: <span class="token-val">translateY(-9px) scale(1.24)</span>;
+}
+
+<span class="token-comment">/* 4. Second left/right neighbors for organic parabolic decay */</span>
+<span class="token-tag">.plain-dock-item:hover + .plain-dock-item + .plain-dock-item</span>,
+<span class="token-tag">.plain-dock-item:has(+ .plain-dock-item + .plain-dock-item:hover)</span> {
+  <span class="token-prop">transform</span>: <span class="token-val">translateY(-4px) scale(1.10)</span>;
+}
+      </div>
+    </section>
+  </div>
+</body>
+</html>

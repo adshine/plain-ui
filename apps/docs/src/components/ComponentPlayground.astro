@@ -1,0 +1,419 @@
+---
+import type { ComponentVariant } from '../data/components';
+
+interface Props {
+  componentSlug: string;
+  defaultHtml: string;
+  defaultCss?: string;
+  variants?: ComponentVariant[];
+}
+
+const { componentSlug, defaultHtml, defaultCss = "", variants = [] } = Astro.props;
+const playgroundId = `playground-${componentSlug}-${Math.random().toString(36).substring(2, 7)}`;
+---
+
+<div 
+  class="plain-playground my-8 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 overflow-hidden shadow-lg"
+  id={playgroundId}
+  data-slug={componentSlug}
+  data-default-html={defaultHtml}
+  data-default-css={defaultCss}
+>
+  <!-- Top Toolbar: Mode tabs + Viewport Resizer + Actions -->
+  <div class="flex flex-wrap items-center justify-between gap-3 px-4 py-3 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/60 text-xs">
+    
+    <!-- View Switcher (Preview / HTML / CSS) -->
+    <div class="flex items-center p-1 rounded-xl bg-zinc-200/70 dark:bg-zinc-800 border border-zinc-300/60 dark:border-zinc-700 font-medium">
+      <button 
+        type="button" 
+        class="tab-view-btn px-3 py-1 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-xs cursor-pointer"
+        data-mode="preview"
+      >
+        Preview
+      </button>
+      <button 
+        type="button" 
+        class="tab-view-btn px-3 py-1 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+        data-mode="html"
+      >
+        HTML
+      </button>
+      {defaultCss && (
+        <button 
+          type="button" 
+          class="tab-view-btn px-3 py-1 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+          data-mode="css"
+        >
+          CSS
+        </button>
+      )}
+    </div>
+
+    <!-- Viewport Resizer Controls -->
+    <div class="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-200/70 dark:bg-zinc-800 border border-zinc-300/60 dark:border-zinc-700">
+      <!-- Desktop (100%) -->
+      <button 
+        type="button" 
+        class="viewport-btn p-1.5 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-xs cursor-pointer transition-all"
+        data-width="100%"
+        title="Desktop Viewport (100%)"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      </button>
+      <!-- Tablet (768px) -->
+      <button 
+        type="button" 
+        class="viewport-btn p-1.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all cursor-pointer"
+        data-width="768px"
+        title="Tablet Viewport (768px)"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+      </button>
+      <!-- Mobile (375px) -->
+      <button 
+        type="button" 
+        class="viewport-btn p-1.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all cursor-pointer"
+        data-width="375px"
+        title="Mobile Viewport (375px)"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+      </button>
+    </div>
+
+    <!-- Actions: Copy / Reset / Reload -->
+    <div class="flex items-center gap-2">
+      <!-- Reset Button -->
+      <button 
+        type="button" 
+        class="reset-btn p-1.5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+        title="Reset code to original"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+      </button>
+
+      <!-- Reload Preview -->
+      <button 
+        type="button" 
+        class="reload-btn p-1.5 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 rounded-lg hover:bg-zinc-200 dark:hover:bg-zinc-800 transition-colors cursor-pointer"
+        title="Reload live preview"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/></svg>
+      </button>
+
+      <!-- Copy Code Button -->
+      <button 
+        type="button" 
+        class="copy-playground-btn inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-medium hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all cursor-pointer shadow-xs"
+        title="Copy active code"
+      >
+        <svg class="w-3.5 h-3.5 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+        <svg class="w-3.5 h-3.5 check-icon hidden text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+        <span class="btn-text">Copy Code</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Variant Picker (if variants present) -->
+  {variants.length > 0 && (
+    <div class="flex items-center gap-2 px-4 py-2 border-b border-zinc-200 dark:border-zinc-800 bg-zinc-100/50 dark:bg-zinc-900/30 overflow-x-auto text-xs">
+      <span class="text-zinc-400 font-medium text-[11px] shrink-0">Variants:</span>
+      <button 
+        type="button" 
+        class="variant-btn px-2.5 py-1 rounded-md bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium shrink-0 cursor-pointer"
+        data-variant-index="-1"
+      >
+        Default
+      </button>
+      {variants.map((v, i) => (
+        <button 
+          type="button" 
+          class="variant-btn px-2.5 py-1 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 shrink-0 transition-colors cursor-pointer"
+          data-variant-index={i}
+          data-variant-html={v.html}
+          data-variant-css={v.css || ""}
+        >
+          {v.name}
+        </button>
+      ))}
+    </div>
+  )}
+
+  <!-- Playground Main Stage -->
+  <div class="relative bg-zinc-100/40 dark:bg-zinc-950/60 p-4 md:p-6 overflow-hidden min-h-[380px] flex items-center justify-center">
+    
+    <!-- 1. Live Sandboxed Iframe Preview -->
+    <div class="iframe-container w-full transition-all duration-300 mx-auto ease-in-out">
+      <iframe 
+        class="sandboxed-preview-iframe w-full h-[360px] md:h-[420px] rounded-xl border border-zinc-200/80 dark:border-zinc-800 bg-white/60 dark:bg-zinc-900/60 shadow-inner"
+        sandbox="allow-scripts allow-modals allow-forms allow-same-origin"
+        loading="lazy"
+        title="Component Live Sandbox"
+      ></iframe>
+    </div>
+
+    <!-- 2. CodeMirror Live HTML Editor -->
+    <div class="codemirror-html-panel hidden w-full h-[360px] md:h-[420px] rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-950 overflow-hidden shadow-inner">
+      <div class="cm-editor-html-target w-full h-full"></div>
+    </div>
+
+    <!-- 3. CodeMirror Live CSS Editor -->
+    <div class="codemirror-css-panel hidden w-full h-[360px] md:h-[420px] rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-950 overflow-hidden shadow-inner">
+      <div class="cm-editor-css-target w-full h-full"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { EditorView, basicSetup } from 'codemirror';
+  import { html } from '@codemirror/lang-html';
+  import { css } from '@codemirror/lang-css';
+  import { oneDark } from '@codemirror/theme-one-dark';
+  import { EditorState } from '@codemirror/state';
+
+  function buildSrcDoc(htmlCode: string, cssCode: string = "", isDark: boolean = true) {
+    return `<!DOCTYPE html>
+<html lang="en" class="${isDark ? 'dark' : ''}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"><\/script>
+  <style>
+    @keyframes border-beam { 100% { offset-distance: 100%; } }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+    html { interpolate-size: allow-keywords; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 24px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      box-sizing: border-box;
+    }
+    ${cssCode}
+  </style>
+</head>
+<body class="text-zinc-900 dark:text-zinc-100">
+  ${htmlCode}
+</body>
+</html>`;
+  }
+
+  function initPlaygrounds() {
+    document.querySelectorAll<HTMLElement>('.plain-playground').forEach(playground => {
+      if (playground.dataset.initialized) return;
+      playground.dataset.initialized = 'true';
+
+      const defaultHtml = playground.dataset.defaultHtml || "";
+      const defaultCss = playground.dataset.defaultCss || "";
+      let currentHtml = defaultHtml;
+      let currentCss = defaultCss;
+      let activeMode = 'preview';
+
+      const iframe = playground.querySelector<HTMLIFrameElement>('.sandboxed-preview-iframe');
+      const iframeContainer = playground.querySelector<HTMLElement>('.iframe-container');
+      const htmlPanel = playground.querySelector<HTMLElement>('.codemirror-html-panel');
+      const cssPanel = playground.querySelector<HTMLElement>('.codemirror-css-panel');
+      const htmlTarget = playground.querySelector<HTMLElement>('.cm-editor-html-target');
+      const cssTarget = playground.querySelector<HTMLElement>('.cm-editor-css-target');
+
+      const tabButtons = playground.querySelectorAll<HTMLButtonElement>('.tab-view-btn');
+      const viewportButtons = playground.querySelectorAll<HTMLButtonElement>('.viewport-btn');
+      const copyBtn = playground.querySelector<HTMLButtonElement>('.copy-playground-btn');
+      const resetBtn = playground.querySelector<HTMLButtonElement>('.reset-btn');
+      const reloadBtn = playground.querySelector<HTMLButtonElement>('.reload-btn');
+      const variantButtons = playground.querySelectorAll<HTMLButtonElement>('.variant-btn');
+
+      function updateIframe() {
+        if (!iframe) return;
+        const isDark = document.documentElement.classList.contains('dark');
+        iframe.srcdoc = buildSrcDoc(currentHtml, currentCss, isDark);
+      }
+
+      // Initial render
+      updateIframe();
+
+      // Theme sync listener
+      window.addEventListener('plain-theme-change', () => {
+        updateIframe();
+      });
+
+      // CodeMirror Editors
+      let htmlEditorView: EditorView | null = null;
+      let cssEditorView: EditorView | null = null;
+
+      let debounceTimer: any = null;
+
+      if (htmlTarget) {
+        htmlEditorView = new EditorView({
+          state: EditorState.create({
+            doc: currentHtml,
+            extensions: [
+              basicSetup,
+              html(),
+              oneDark,
+              EditorView.updateListener.of(update => {
+                if (update.docChanged) {
+                  currentHtml = update.state.doc.toString();
+                  clearTimeout(debounceTimer);
+                  debounceTimer = setTimeout(updateIframe, 150);
+                }
+              })
+            ]
+          }),
+          parent: htmlTarget
+        });
+      }
+
+      if (cssTarget && defaultCss) {
+        cssEditorView = new EditorView({
+          state: EditorState.create({
+            doc: currentCss,
+            extensions: [
+              basicSetup,
+              css(),
+              oneDark,
+              EditorView.updateListener.of(update => {
+                if (update.docChanged) {
+                  currentCss = update.state.doc.toString();
+                  clearTimeout(debounceTimer);
+                  debounceTimer = setTimeout(updateIframe, 150);
+                }
+              })
+            ]
+          }),
+          parent: cssTarget
+        });
+      }
+
+      // Mode Tabs (Preview / HTML / CSS)
+      tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const mode = btn.getAttribute('data-mode') || 'preview';
+          activeMode = mode;
+
+          tabButtons.forEach(b => {
+            b.className = 'tab-view-btn px-3 py-1 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer';
+          });
+          btn.className = 'tab-view-btn px-3 py-1 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-xs cursor-pointer font-medium';
+
+          if (mode === 'preview') {
+            iframeContainer?.classList.remove('hidden');
+            htmlPanel?.classList.add('hidden');
+            cssPanel?.classList.add('hidden');
+          } else if (mode === 'html') {
+            iframeContainer?.classList.add('hidden');
+            htmlPanel?.classList.remove('hidden');
+            cssPanel?.classList.add('hidden');
+            htmlEditorView?.requestMeasure();
+          } else if (mode === 'css') {
+            iframeContainer?.classList.add('hidden');
+            htmlPanel?.classList.add('hidden');
+            cssPanel?.classList.remove('hidden');
+            cssEditorView?.requestMeasure();
+          }
+        });
+      });
+
+      // Viewport Resizer (Desktop / Tablet / Mobile)
+      viewportButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const w = btn.getAttribute('data-width') || '100%';
+          viewportButtons.forEach(b => {
+            b.className = 'viewport-btn p-1.5 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-all cursor-pointer';
+          });
+          btn.className = 'viewport-btn p-1.5 rounded-lg bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-xs cursor-pointer transition-all';
+
+          if (iframeContainer) {
+            iframeContainer.style.maxWidth = w;
+          }
+        });
+      });
+
+      // Variant Buttons
+      variantButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          variantButtons.forEach(b => {
+            b.className = 'variant-btn px-2.5 py-1 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 shrink-0 transition-colors cursor-pointer';
+          });
+          btn.className = 'variant-btn px-2.5 py-1 rounded-md bg-zinc-200 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 font-medium shrink-0 cursor-pointer';
+
+          const idx = btn.getAttribute('data-variant-index');
+          if (idx === '-1') {
+            currentHtml = defaultHtml;
+            currentCss = defaultCss;
+          } else {
+            currentHtml = btn.getAttribute('data-variant-html') || "";
+            currentCss = btn.getAttribute('data-variant-css') || "";
+          }
+
+          // Update editors
+          if (htmlEditorView) {
+            htmlEditorView.dispatch({
+              changes: { from: 0, to: htmlEditorView.state.doc.length, insert: currentHtml }
+            });
+          }
+          if (cssEditorView) {
+            cssEditorView.dispatch({
+              changes: { from: 0, to: cssEditorView.state.doc.length, insert: currentCss }
+            });
+          }
+
+          updateIframe();
+        });
+      });
+
+      // Copy Button
+      copyBtn?.addEventListener('click', async () => {
+        const textToCopy = activeMode === 'css' ? currentCss : currentHtml;
+        await navigator.clipboard.writeText(textToCopy);
+
+        const copyIcon = copyBtn.querySelector('.copy-icon');
+        const checkIcon = copyBtn.querySelector('.check-icon');
+        const btnText = copyBtn.querySelector('.btn-text');
+
+        if (copyIcon && checkIcon && btnText) {
+          copyIcon.classList.add('hidden');
+          checkIcon.classList.remove('hidden');
+          btnText.textContent = 'Copied!';
+          setTimeout(() => {
+            copyIcon.classList.remove('hidden');
+            checkIcon.classList.add('hidden');
+            btnText.textContent = 'Copy Code';
+          }, 2000);
+        }
+      });
+
+      // Reset Button
+      resetBtn?.addEventListener('click', () => {
+        currentHtml = defaultHtml;
+        currentCss = defaultCss;
+        if (htmlEditorView) {
+          htmlEditorView.dispatch({
+            changes: { from: 0, to: htmlEditorView.state.doc.length, insert: defaultHtml }
+          });
+        }
+        if (cssEditorView) {
+          cssEditorView.dispatch({
+            changes: { from: 0, to: cssEditorView.state.doc.length, insert: defaultCss }
+          });
+        }
+        updateIframe();
+      });
+
+      // Reload Button
+      reloadBtn?.addEventListener('click', () => {
+        updateIframe();
+      });
+    });
+  }
+
+  // Run on mount
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPlaygrounds);
+  } else {
+    initPlaygrounds();
+  }
+</script>

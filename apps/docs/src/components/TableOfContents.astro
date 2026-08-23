@@ -1,0 +1,34 @@
+---
+interface Props {
+  headings?: { depth: number; slug: string; text: string }[];
+}
+
+const defaultHeadings = [
+  { depth: 2, slug: "interactive-preview", text: "Interactive Preview" },
+  { depth: 2, slug: "installation", text: "Installation" },
+  { depth: 2, slug: "features", text: "Key Features" },
+  { depth: 2, slug: "variants", text: "Component Variants" },
+  { depth: 2, slug: "api-reference", text: "API Reference" },
+  { depth: 2, slug: "accessibility", text: "Accessibility" }
+];
+
+const { headings = defaultHeadings } = Astro.props;
+---
+
+<div class="hidden xl:block w-56 shrink-0 sticky top-24 self-start space-y-3 text-xs">
+  <h4 class="font-semibold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider text-[11px]">
+    On This Page
+  </h4>
+  <ul class="space-y-2 border-l border-zinc-200 dark:border-zinc-800 ps-3">
+    {headings.map((h) => (
+      <li>
+        <a 
+          href={`#${h.slug}`} 
+          class="block text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors"
+        >
+          {h.text}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>

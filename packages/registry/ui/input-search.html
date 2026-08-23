@@ -1,0 +1,185 @@
+<!-- 
+  Plain UI - Search Inputs & Command Controls (Origin UI Inspired)
+  Zero-JS HTML5 + Tailwind CSS v4 Search Inputs, Badges, Clear Triggers & Async Loaders
+-->
+<div class="flex flex-col gap-10 p-6 max-w-4xl mx-auto font-sans text-zinc-900 dark:text-zinc-100">
+
+  <!-- Section Header -->
+  <div class="space-y-1 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-400">Form Controls</span>
+      <span class="text-xs text-zinc-400">•</span>
+      <span class="text-xs text-zinc-500">Search & Command</span>
+    </div>
+    <h2 class="text-2xl font-bold tracking-tight">Search Inputs & Command Fields</h2>
+    <p class="text-sm text-zinc-500 dark:text-zinc-400">
+      Feature-rich search inputs with keyboard badges (<code><kbd>⌘K</kbd></code>), clear triggers (✕), animated loading spinners, and spotlight palettes.
+    </p>
+  </div>
+
+  <!-- Variant 1: Search with Keyboard Shortcut Badge -->
+  <div class="flex flex-col gap-2">
+    <label for="search-shortcut" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">01. Search with Shortcut Badge (<kbd>⌘K</kbd>)</label>
+    <div class="relative max-w-md">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400 dark:text-zinc-500">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <input
+        type="search"
+        id="search-shortcut"
+        placeholder="Search documentation..."
+        class="w-full rounded-lg border border-zinc-300 bg-white pl-9 pr-12 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2.5">
+        <kbd class="inline-flex items-center rounded border border-zinc-200 bg-zinc-100 px-1.5 py-0.5 text-[10px] font-mono text-zinc-500 shadow-xs dark:border-zinc-800 dark:bg-zinc-800 dark:text-zinc-400">⌘K</kbd>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 2: Search with Clear Button (✕) -->
+  <div class="flex flex-col gap-2">
+    <label for="search-clearable" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">02. Search with Instant Clear Button (✕)</label>
+    <form class="relative max-w-md">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400 dark:text-zinc-500">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <input
+        type="text"
+        id="search-clearable"
+        value="Tailwind CSS v4 components"
+        placeholder="Search anything..."
+        class="w-full rounded-lg border border-zinc-300 bg-white pl-9 pr-8 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <button
+        type="reset"
+        aria-label="Clear search input"
+        class="absolute inset-y-0 right-0 flex items-center pr-2.5 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors"
+      >
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- Variant 3: Search with Animated Loading Spinner -->
+  <div class="flex flex-col gap-2">
+    <label for="search-loading" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">03. Search with Async Loader</label>
+    <div class="relative max-w-md">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-zinc-400 dark:text-zinc-500">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <input
+        type="search"
+        id="search-loading"
+        value="Fetching results..."
+        class="w-full rounded-lg border border-zinc-300 bg-white pl-9 pr-9 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <!-- Spinner -->
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-zinc-500 dark:text-zinc-400">
+        <svg class="size-4 animate-spin" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 4: Spotlight / Command Palette Search -->
+  <div class="flex flex-col gap-2">
+    <label class="text-sm font-medium text-zinc-700 dark:text-zinc-300">04. Spotlight Command Bar (Elevated)</label>
+    <div class="relative max-w-lg rounded-xl border border-zinc-200 bg-white shadow-xl shadow-zinc-900/5 dark:border-zinc-800 dark:bg-zinc-900 dark:shadow-black/40">
+      <div class="flex items-center px-3.5 py-3 border-b border-zinc-100 dark:border-zinc-800">
+        <svg class="size-5 text-zinc-400 mr-3 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+        <input
+          type="text"
+          placeholder="Type a command or search..."
+          class="w-full bg-transparent text-sm text-zinc-900 placeholder:text-zinc-400 focus:outline-none dark:text-zinc-100 dark:placeholder:text-zinc-500"
+        />
+        <div class="flex items-center gap-1 shrink-0 ml-2">
+          <kbd class="rounded border border-zinc-200 bg-zinc-100 px-1.5 py-0.5 text-[10px] font-mono text-zinc-500 dark:border-zinc-800 dark:bg-zinc-800 dark:text-zinc-400">ESC</kbd>
+        </div>
+      </div>
+      <div class="flex items-center justify-between px-3.5 py-2 text-[11px] text-zinc-400 dark:text-zinc-500">
+        <span>Navigate with <kbd class="font-mono">↑↓</kbd></span>
+        <span>Select with <kbd class="font-mono">↵</kbd></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 5: Search with Category Dropdown -->
+  <div class="flex flex-col gap-2">
+    <label for="search-category" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">05. Search with Category Filter</label>
+    <div class="relative flex max-w-md rounded-lg shadow-sm">
+      <select
+        aria-label="Search Category"
+        class="rounded-l-lg border border-r-0 border-zinc-300 bg-zinc-50 px-3 py-2 text-xs font-medium text-zinc-600 focus:border-zinc-900 focus:outline-none dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 cursor-pointer"
+      >
+        <option>All Assets</option>
+        <option>Components</option>
+        <option>Icons</option>
+        <option>Templates</option>
+      </select>
+      <input
+        type="search"
+        id="search-category"
+        placeholder="Filter by query..."
+        class="block w-full min-w-0 flex-1 rounded-r-lg border border-zinc-300 bg-white px-3.5 py-2 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+    </div>
+  </div>
+
+  <!-- Variant 6: Pill Search Bar with Microphone Action -->
+  <div class="flex flex-col gap-2">
+    <label for="search-pill-voice" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">06. Pill Search with Voice Trigger</label>
+    <div class="relative max-w-md">
+      <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-zinc-400 dark:text-zinc-500">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+      <input
+        type="search"
+        id="search-pill-voice"
+        placeholder="Search audio, files or speak..."
+        class="w-full rounded-full border border-zinc-300 bg-white pl-10 pr-10 py-2.5 text-sm text-zinc-900 placeholder:text-zinc-400 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <button
+        type="button"
+        aria-label="Voice search"
+        class="absolute inset-y-0 right-0 flex items-center pr-3.5 text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors"
+      >
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Variant 7: Smooth Expandable Search Bar -->
+  <div class="flex flex-col gap-2">
+    <label for="search-expandable" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">07. Expandable Focus Search Bar</label>
+    <div class="relative flex items-center">
+      <input
+        type="search"
+        id="search-expandable"
+        placeholder="Search..."
+        class="w-48 rounded-lg border border-zinc-300 bg-white pl-9 pr-3 py-1.5 text-xs text-zinc-900 placeholder:text-zinc-400 transition-all duration-300 focus:w-80 focus:border-zinc-900 focus:outline-none focus:ring-1 focus:ring-zinc-900 dark:border-zinc-700 dark:bg-zinc-950 dark:text-zinc-100 dark:placeholder:text-zinc-600 dark:focus:border-zinc-300 dark:focus:ring-zinc-300"
+      />
+      <div class="pointer-events-none absolute left-3 text-zinc-400 dark:text-zinc-500">
+        <svg class="size-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,71 @@
+---
+import DocsLayout from '../../layouts/DocsLayout.astro';
+import CodeBlock from '../../components/CodeBlock.astro';
+import { components } from '../../data/components';
+---
+
+<DocsLayout title="Getting Started with Plain UI" description="Introduction and installation guide for Plain UI.">
+  <div class="space-y-10">
+    
+    <!-- Header -->
+    <div class="space-y-3 border-b border-zinc-200 dark:border-zinc-800 pb-8">
+      <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-500 dark:text-blue-400">
+        Documentation
+      </div>
+      <h1 class="text-4xl font-extrabold tracking-tight">Introduction</h1>
+      <p class="text-base text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-3xl">
+        Plain UI is a copy-paste collection of accessible, framework-agnostic UI primitives crafted with pure HTML5 and Tailwind CSS v4.
+      </p>
+    </div>
+
+    <!-- Philosophy -->
+    <section id="features" class="space-y-4">
+      <h2 class="text-2xl font-bold tracking-tight">Core Architecture Principles</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 space-y-2">
+          <div class="text-lg font-semibold">⚡️ Zero-Runtime Bundle</div>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            No heavy React or JS bundles shipped to users. Interactive primitives leverage HTML5 native tags (<dialog>, <details>, popover).
+          </p>
+        </div>
+        <div class="p-5 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50/50 dark:bg-zinc-900/50 space-y-2">
+          <div class="text-lg font-semibold">🎨 Tailwind CSS v4 Native</div>
+          <p class="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            Styled with modern CSS custom variables, @theme directives, and full dark-mode color schemes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tailwind v4 Setup -->
+    <section id="tailwind-v4" class="space-y-4">
+      <h2 class="text-2xl font-bold tracking-tight">Tailwind CSS v4 Setup</h2>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400">
+        Add the CSS import to your main stylesheet:
+      </p>
+      <CodeBlock code='@import "tailwindcss";' lang="css" filename="src/styles/global.css" />
+    </section>
+
+    <!-- CLI Quickstart -->
+    <section id="installation" class="space-y-4">
+      <h2 class="text-2xl font-bold tracking-tight">CLI Installation</h2>
+      <p class="text-sm text-zinc-600 dark:text-zinc-400">
+        Add any component directly to your project using the Plain UI CLI:
+      </p>
+      <CodeBlock code="npx plain-ui add button dialog popover" lang="bash" filename="terminal" />
+    </section>
+
+    <!-- Components List -->
+    <section id="variants" class="space-y-4 pt-6 border-t border-zinc-200 dark:border-zinc-800">
+      <h2 class="text-2xl font-bold tracking-tight">Available Primitives</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {components.map(c => (
+          <a href={`/docs/components/${c.slug}`} class="flex items-center justify-between p-3 rounded-lg border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-900 transition-colors">
+            <span class="text-sm font-medium">{c.title}</span>
+            <span class="text-xs text-zinc-500 font-mono">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</DocsLayout>

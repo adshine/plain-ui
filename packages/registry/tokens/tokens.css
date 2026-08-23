@@ -1,0 +1,593 @@
+/**
+ * @plain-ui/tokens - tokens.css
+ * 
+ * Complete 3-Tier Design Token System in OKLCH Color Space
+ * Tier 1: Primitives (Neutral, Zinc, Slate, Stone, Gray, Accent Palettes, Radii, Shadows, Spacing, Typography, Z-index, Motion)
+ * Tier 2: Semantic Design Tokens (Contextual mappings: background, foreground, card, popover, primary, secondary, muted, accent, destructive, border, input, ring, radius-*)
+ * Tier 3: Component & Contrast Guardrail Tokens (APCA / WCAG 2.2 AA compliant)
+ *
+ * Designed for Plain UI - Accessible, Perceptually Uniform, Themeable.
+ */
+
+/* ==========================================================================
+   TIER 1: PRIMITIVE TOKENS
+   ========================================================================== */
+
+:root {
+  /* --------------------------------------------------------------------------
+     1.1 Base Colors
+     -------------------------------------------------------------------------- */
+  --color-white: oklch(1 0 0);
+  --color-black: oklch(0 0 0);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  /* --------------------------------------------------------------------------
+     1.2 Neutral Palette (Pure Achromatic Neutral)
+     -------------------------------------------------------------------------- */
+  --color-neutral-50: oklch(0.985 0 0);
+  --color-neutral-100: oklch(0.965 0 0);
+  --color-neutral-200: oklch(0.920 0 0);
+  --color-neutral-300: oklch(0.865 0 0);
+  --color-neutral-400: oklch(0.705 0 0);
+  --color-neutral-500: oklch(0.550 0 0);
+  --color-neutral-600: oklch(0.440 0 0);
+  --color-neutral-700: oklch(0.365 0 0);
+  --color-neutral-800: oklch(0.265 0 0);
+  --color-neutral-900: oklch(0.200 0 0);
+  --color-neutral-950: oklch(0.140 0 0);
+
+  /* --------------------------------------------------------------------------
+     1.3 Zinc Palette (Subtle Cool-Blue Tint, default for Plain UI)
+     -------------------------------------------------------------------------- */
+  --color-zinc-50: oklch(0.985 0.002 247.8);
+  --color-zinc-100: oklch(0.967 0.003 264.5);
+  --color-zinc-200: oklch(0.920 0.006 264.5);
+  --color-zinc-300: oklch(0.869 0.008 260.8);
+  --color-zinc-400: oklch(0.705 0.015 258.3);
+  --color-zinc-500: oklch(0.551 0.023 264.4);
+  --color-zinc-600: oklch(0.442 0.020 265.6);
+  --color-zinc-700: oklch(0.370 0.016 264.5);
+  --color-zinc-800: oklch(0.274 0.012 265.0);
+  --color-zinc-900: oklch(0.208 0.010 265.8);
+  --color-zinc-950: oklch(0.141 0.008 266.2);
+
+  /* --------------------------------------------------------------------------
+     1.4 Slate Palette (Cool Gray with Slate-Blue Undertone)
+     -------------------------------------------------------------------------- */
+  --color-slate-50: oklch(0.984 0.006 247.8);
+  --color-slate-100: oklch(0.968 0.007 247.8);
+  --color-slate-200: oklch(0.923 0.013 247.8);
+  --color-slate-300: oklch(0.869 0.022 252.9);
+  --color-slate-400: oklch(0.704 0.040 256.8);
+  --color-slate-500: oklch(0.554 0.046 257.4);
+  --color-slate-600: oklch(0.446 0.043 257.3);
+  --color-slate-700: oklch(0.372 0.044 257.3);
+  --color-slate-800: oklch(0.279 0.041 260.0);
+  --color-slate-900: oklch(0.208 0.042 265.8);
+  --color-slate-950: oklch(0.129 0.042 264.7);
+
+  /* --------------------------------------------------------------------------
+     1.5 Stone Palette (Warm Earthy Gray Undertone)
+     -------------------------------------------------------------------------- */
+  --color-stone-50: oklch(0.985 0.002 60.5);
+  --color-stone-100: oklch(0.967 0.003 60.5);
+  --color-stone-200: oklch(0.922 0.005 60.5);
+  --color-stone-300: oklch(0.869 0.008 60.5);
+  --color-stone-400: oklch(0.707 0.018 60.5);
+  --color-stone-500: oklch(0.553 0.020 60.5);
+  --color-stone-600: oklch(0.444 0.017 60.5);
+  --color-stone-700: oklch(0.371 0.015 60.5);
+  --color-stone-800: oklch(0.276 0.012 60.5);
+  --color-stone-900: oklch(0.210 0.010 60.5);
+  --color-stone-950: oklch(0.147 0.007 60.5);
+
+  /* --------------------------------------------------------------------------
+     1.6 Gray Palette (Balanced Cool Gray)
+     -------------------------------------------------------------------------- */
+  --color-gray-50: oklch(0.985 0.002 247.8);
+  --color-gray-100: oklch(0.967 0.003 260.0);
+  --color-gray-200: oklch(0.920 0.005 260.0);
+  --color-gray-300: oklch(0.871 0.008 260.0);
+  --color-gray-400: oklch(0.705 0.015 260.0);
+  --color-gray-500: oklch(0.551 0.020 260.0);
+  --color-gray-600: oklch(0.446 0.018 260.0);
+  --color-gray-700: oklch(0.373 0.016 260.0);
+  --color-gray-800: oklch(0.278 0.013 260.0);
+  --color-gray-900: oklch(0.210 0.010 260.0);
+  --color-gray-950: oklch(0.140 0.008 260.0);
+
+  /* --------------------------------------------------------------------------
+     1.7 Violet Palette (Theme Accent)
+     -------------------------------------------------------------------------- */
+  --color-violet-50: oklch(0.975 0.018 290.0);
+  --color-violet-100: oklch(0.945 0.040 290.0);
+  --color-violet-200: oklch(0.890 0.075 290.0);
+  --color-violet-300: oklch(0.800 0.130 290.0);
+  --color-violet-400: oklch(0.700 0.190 290.0);
+  --color-violet-500: oklch(0.600 0.230 290.0);
+  --color-violet-600: oklch(0.520 0.240 290.0);
+  --color-violet-700: oklch(0.440 0.210 290.0);
+  --color-violet-800: oklch(0.350 0.160 290.0);
+  --color-violet-900: oklch(0.260 0.110 290.0);
+  --color-violet-950: oklch(0.170 0.070 290.0);
+
+  /* --------------------------------------------------------------------------
+     1.8 Emerald Palette (Theme Accent & Success)
+     -------------------------------------------------------------------------- */
+  --color-emerald-50: oklch(0.978 0.025 160.0);
+  --color-emerald-100: oklch(0.950 0.055 160.0);
+  --color-emerald-200: oklch(0.900 0.100 160.0);
+  --color-emerald-300: oklch(0.825 0.150 160.0);
+  --color-emerald-400: oklch(0.740 0.185 160.0);
+  --color-emerald-500: oklch(0.650 0.195 160.0);
+  --color-emerald-600: oklch(0.560 0.175 160.0);
+  --color-emerald-700: oklch(0.460 0.140 160.0);
+  --color-emerald-800: oklch(0.370 0.105 160.0);
+  --color-emerald-900: oklch(0.280 0.075 160.0);
+  --color-emerald-950: oklch(0.180 0.045 160.0);
+
+  /* --------------------------------------------------------------------------
+     1.9 Amber Palette (Theme Accent & Warning)
+     -------------------------------------------------------------------------- */
+  --color-amber-50: oklch(0.985 0.025 85.0);
+  --color-amber-100: oklch(0.960 0.060 85.0);
+  --color-amber-200: oklch(0.915 0.110 85.0);
+  --color-amber-300: oklch(0.850 0.150 85.0);
+  --color-amber-400: oklch(0.780 0.170 85.0);
+  --color-amber-500: oklch(0.720 0.175 85.0);
+  --color-amber-600: oklch(0.620 0.160 85.0);
+  --color-amber-700: oklch(0.520 0.135 85.0);
+  --color-amber-800: oklch(0.420 0.105 85.0);
+  --color-amber-900: oklch(0.320 0.075 85.0);
+  --color-amber-950: oklch(0.200 0.045 85.0);
+
+  /* --------------------------------------------------------------------------
+     1.10 Rose Palette (Theme Accent)
+     -------------------------------------------------------------------------- */
+  --color-rose-50: oklch(0.975 0.020 18.0);
+  --color-rose-100: oklch(0.940 0.050 18.0);
+  --color-rose-200: oklch(0.885 0.095 18.0);
+  --color-rose-300: oklch(0.800 0.150 18.0);
+  --color-rose-400: oklch(0.700 0.200 18.0);
+  --color-rose-500: oklch(0.610 0.225 18.0);
+  --color-rose-600: oklch(0.530 0.220 18.0);
+  --color-rose-700: oklch(0.440 0.185 18.0);
+  --color-rose-800: oklch(0.350 0.140 18.0);
+  --color-rose-900: oklch(0.260 0.095 18.0);
+  --color-rose-950: oklch(0.170 0.060 18.0);
+
+  /* --------------------------------------------------------------------------
+     1.11 Red / Destructive Palette
+     -------------------------------------------------------------------------- */
+  --color-red-50: oklch(0.975 0.020 27.0);
+  --color-red-100: oklch(0.940 0.050 27.0);
+  --color-red-200: oklch(0.885 0.100 27.0);
+  --color-red-300: oklch(0.790 0.170 27.0);
+  --color-red-400: oklch(0.690 0.220 27.0);
+  --color-red-500: oklch(0.600 0.240 27.0);
+  --color-red-600: oklch(0.520 0.230 27.0);
+  --color-red-700: oklch(0.440 0.190 27.0);
+  --color-red-800: oklch(0.350 0.145 27.0);
+  --color-red-900: oklch(0.260 0.100 27.0);
+  --color-red-950: oklch(0.170 0.065 27.0);
+
+  /* --------------------------------------------------------------------------
+     1.12 Blue / Info Palette
+     -------------------------------------------------------------------------- */
+  --color-blue-50: oklch(0.975 0.020 250.0);
+  --color-blue-100: oklch(0.945 0.045 250.0);
+  --color-blue-200: oklch(0.885 0.085 250.0);
+  --color-blue-300: oklch(0.800 0.140 250.0);
+  --color-blue-400: oklch(0.700 0.190 250.0);
+  --color-blue-500: oklch(0.600 0.220 250.0);
+  --color-blue-600: oklch(0.520 0.210 250.0);
+  --color-blue-700: oklch(0.440 0.175 250.0);
+  --color-blue-800: oklch(0.350 0.130 250.0);
+  --color-blue-900: oklch(0.260 0.090 250.0);
+  --color-blue-950: oklch(0.170 0.055 250.0);
+
+  /* --------------------------------------------------------------------------
+     1.13 Green Palette
+     -------------------------------------------------------------------------- */
+  --color-green-50: oklch(0.978 0.025 145.0);
+  --color-green-100: oklch(0.950 0.055 145.0);
+  --color-green-200: oklch(0.900 0.100 145.0);
+  --color-green-300: oklch(0.825 0.150 145.0);
+  --color-green-400: oklch(0.740 0.185 145.0);
+  --color-green-500: oklch(0.650 0.195 145.0);
+  --color-green-600: oklch(0.560 0.175 145.0);
+  --color-green-700: oklch(0.460 0.140 145.0);
+  --color-green-800: oklch(0.370 0.105 145.0);
+  --color-green-900: oklch(0.280 0.075 145.0);
+  --color-green-950: oklch(0.180 0.045 145.0);
+
+  /* --------------------------------------------------------------------------
+     1.14 Cyan Palette
+     -------------------------------------------------------------------------- */
+  --color-cyan-50: oklch(0.978 0.020 200.0);
+  --color-cyan-100: oklch(0.950 0.045 200.0);
+  --color-cyan-200: oklch(0.895 0.080 200.0);
+  --color-cyan-300: oklch(0.815 0.125 200.0);
+  --color-cyan-400: oklch(0.720 0.160 200.0);
+  --color-cyan-500: oklch(0.630 0.175 200.0);
+  --color-cyan-600: oklch(0.540 0.165 200.0);
+  --color-cyan-700: oklch(0.450 0.135 200.0);
+  --color-cyan-800: oklch(0.360 0.100 200.0);
+  --color-cyan-900: oklch(0.270 0.070 200.0);
+  --color-cyan-950: oklch(0.175 0.045 200.0);
+
+  /* --------------------------------------------------------------------------
+     1.15 Orange Palette
+     -------------------------------------------------------------------------- */
+  --color-orange-50: oklch(0.980 0.020 50.0);
+  --color-orange-100: oklch(0.950 0.055 50.0);
+  --color-orange-200: oklch(0.900 0.100 50.0);
+  --color-orange-300: oklch(0.830 0.150 50.0);
+  --color-orange-400: oklch(0.740 0.190 50.0);
+  --color-orange-500: oklch(0.660 0.210 50.0);
+  --color-orange-600: oklch(0.570 0.195 50.0);
+  --color-orange-700: oklch(0.470 0.160 50.0);
+  --color-orange-800: oklch(0.370 0.120 50.0);
+  --color-orange-900: oklch(0.280 0.080 50.0);
+  --color-orange-950: oklch(0.180 0.050 50.0);
+
+  /* --------------------------------------------------------------------------
+     1.16 Corner Radii Scale
+     -------------------------------------------------------------------------- */
+  --radius-none: 0px;
+  --radius-xs: 0.125rem;   /* 2px */
+  --radius-sm: 0.25rem;    /* 4px */
+  --radius-md: 0.375rem;   /* 6px */
+  --radius-lg: 0.5rem;     /* 8px */
+  --radius-xl: 0.75rem;    /* 12px */
+  --radius-2xl: 1rem;      /* 16px */
+  --radius-3xl: 1.5rem;    /* 24px */
+  --radius-full: 9999px;
+
+  /* Default base radius variable */
+  --radius: var(--radius-lg);
+
+  /* --------------------------------------------------------------------------
+     1.17 Elevation & Shadows (Perceptually Calibrated)
+     -------------------------------------------------------------------------- */
+  --shadow-2xs: 0 1px 2px 0 oklch(0 0 0 / 0.05);
+  --shadow-xs: 0 1px 3px 0 oklch(0 0 0 / 0.07), 0 1px 2px -1px oklch(0 0 0 / 0.07);
+  --shadow-sm: 0 2px 4px -1px oklch(0 0 0 / 0.06), 0 1px 2px -1px oklch(0 0 0 / 0.06);
+  --shadow-md: 0 4px 6px -1px oklch(0 0 0 / 0.08), 0 2px 4px -2px oklch(0 0 0 / 0.08);
+  --shadow-lg: 0 10px 15px -3px oklch(0 0 0 / 0.08), 0 4px 6px -4px oklch(0 0 0 / 0.08);
+  --shadow-xl: 0 20px 25px -5px oklch(0 0 0 / 0.10), 0 8px 10px -6px oklch(0 0 0 / 0.10);
+  --shadow-2xl: 0 25px 50px -12px oklch(0 0 0 / 0.20);
+  --shadow-inner: inset 0 2px 4px 0 oklch(0 0 0 / 0.06);
+
+  /* --------------------------------------------------------------------------
+     1.18 Spacing Scale
+     -------------------------------------------------------------------------- */
+  --spacing-0: 0px;
+  --spacing-0-5: 0.125rem; /* 2px */
+  --spacing-1: 0.25rem;    /* 4px */
+  --spacing-1-5: 0.375rem; /* 6px */
+  --spacing-2: 0.5rem;     /* 8px */
+  --spacing-2-5: 0.625rem; /* 10px */
+  --spacing-3: 0.75rem;    /* 12px */
+  --spacing-3-5: 0.875rem; /* 14px */
+  --spacing-4: 1rem;       /* 16px */
+  --spacing-5: 1.25rem;    /* 20px */
+  --spacing-6: 1.5rem;     /* 24px */
+  --spacing-7: 1.75rem;    /* 28px */
+  --spacing-8: 2rem;       /* 32px */
+  --spacing-9: 2.25rem;    /* 36px */
+  --spacing-10: 2.5rem;    /* 40px */
+  --spacing-11: 2.75rem;   /* 44px */
+  --spacing-12: 3rem;      /* 48px */
+  --spacing-14: 3.5rem;    /* 56px */
+  --spacing-16: 4rem;      /* 64px */
+  --spacing-20: 5rem;      /* 80px */
+  --spacing-24: 6rem;      /* 96px */
+  --spacing-28: 7rem;      /* 112px */
+  --spacing-32: 8rem;      /* 128px */
+  --spacing-36: 9rem;      /* 144px */
+  --spacing-40: 10rem;     /* 160px */
+  --spacing-44: 11rem;     /* 176px */
+  --spacing-48: 12rem;     /* 192px */
+  --spacing-56: 14rem;     /* 224px */
+  --spacing-64: 16rem;     /* 256px */
+  --spacing-72: 18rem;     /* 288px */
+  --spacing-80: 20rem;     /* 320px */
+  --spacing-96: 24rem;     /* 384px */
+
+  /* --------------------------------------------------------------------------
+     1.19 Typography Tokens
+     -------------------------------------------------------------------------- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  --font-size-2xs: 0.6875rem; /* 11px */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-6xl: 3.75rem;   /* 60px */
+
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --leading-none: 1;
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  --leading-loose: 2;
+
+  --tracking-tighter: -0.05em;
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+
+  /* --------------------------------------------------------------------------
+     1.20 Motion & Transitions
+     -------------------------------------------------------------------------- */
+  --ease-linear: cubic-bezier(0, 0, 1, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  --duration-fastest: 75ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slowest: 500ms;
+
+  /* --------------------------------------------------------------------------
+     1.21 Z-Index Layers
+     -------------------------------------------------------------------------- */
+  --z-hide: -1;
+  --z-auto: auto;
+  --z-base: 0;
+  --z-docked: 10;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-banner: 1200;
+  --z-overlay: 1300;
+  --z-modal: 1400;
+  --z-popover: 1500;
+  --z-toast: 1600;
+  --z-tooltip: 1700;
+  --z-max: 2147483647;
+}
+
+/* ==========================================================================
+   TIER 2: SEMANTIC DESIGN TOKENS (LIGHT THEME - DEFAULT)
+   ========================================================================== */
+
+:root {
+  /* Surface & Page */
+  --background: var(--color-white);
+  --foreground: var(--color-zinc-950);
+
+  /* Card / Container Elements */
+  --card: var(--color-white);
+  --card-foreground: var(--color-zinc-950);
+
+  /* Popover / Dropdown / Modal Surfaces */
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-zinc-950);
+
+  /* Primary Brand Action (Solid High-Contrast) */
+  --primary: var(--color-zinc-900);
+  --primary-foreground: var(--color-zinc-50);
+
+  /* Secondary Subdued Action */
+  --secondary: var(--color-zinc-100);
+  --secondary-foreground: var(--color-zinc-900);
+
+  /* Muted Text & Backgrounds */
+  --muted: var(--color-zinc-100);
+  --muted-foreground: var(--color-zinc-500);
+
+  /* Accent Highlight Surface */
+  --accent: var(--color-zinc-100);
+  --accent-foreground: var(--color-zinc-900);
+
+  /* Status Tokens (Destructive, Success, Warning, Info) */
+  --destructive: var(--color-red-600);
+  --destructive-foreground: var(--color-white);
+
+  --success: var(--color-emerald-600);
+  --success-foreground: var(--color-white);
+
+  --warning: var(--color-amber-500);
+  --warning-foreground: var(--color-zinc-950);
+
+  --info: var(--color-blue-600);
+  --info-foreground: var(--color-white);
+
+  /* Borders, Separators & Form Inputs */
+  --border: var(--color-zinc-200);
+  --input: var(--color-zinc-200);
+
+  /* Accessible Focus Rings */
+  --ring: var(--color-zinc-950);
+
+  /* Component Derived Radii */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Sidebar Tokens (for unified layout components) */
+  --sidebar-background: var(--color-zinc-50);
+  --sidebar-foreground: var(--color-zinc-950);
+  --sidebar-primary: var(--color-zinc-900);
+  --sidebar-primary-foreground: var(--color-zinc-50);
+  --sidebar-accent: var(--color-zinc-200);
+  --sidebar-accent-foreground: var(--color-zinc-900);
+  --sidebar-border: var(--color-zinc-200);
+  --sidebar-ring: var(--color-zinc-950);
+
+  /* Contrast Guardrail Properties */
+  --contrast-guardrail-min-ratio: 4.5;
+  --contrast-guardrail-apca-target: 60;
+}
+
+/* ==========================================================================
+   TIER 2: SEMANTIC DESIGN TOKENS (DARK THEME OVERRIDES)
+   ========================================================================== */
+
+.dark,
+[data-theme="dark"],
+[data-mode="dark"] {
+  /* Surface & Page */
+  --background: var(--color-zinc-950);
+  --foreground: var(--color-zinc-50);
+
+  /* Card / Container Elements */
+  --card: var(--color-zinc-900);
+  --card-foreground: var(--color-zinc-50);
+
+  /* Popover / Dropdown / Modal Surfaces */
+  --popover: var(--color-zinc-900);
+  --popover-foreground: var(--color-zinc-50);
+
+  /* Primary Action */
+  --primary: var(--color-zinc-50);
+  --primary-foreground: var(--color-zinc-900);
+
+  /* Secondary Subdued Action */
+  --secondary: var(--color-zinc-800);
+  --secondary-foreground: var(--color-zinc-50);
+
+  /* Muted Text & Backgrounds (APCA calibrated Lc > 60 against dark bg) */
+  --muted: var(--color-zinc-800);
+  --muted-foreground: var(--color-zinc-400);
+
+  /* Accent Highlight Surface */
+  --accent: var(--color-zinc-800);
+  --accent-foreground: var(--color-zinc-50);
+
+  /* Status Tokens */
+  --destructive: var(--color-red-600);
+  --destructive-foreground: var(--color-white);
+
+  --success: var(--color-emerald-500);
+  --success-foreground: var(--color-zinc-950);
+
+  --warning: var(--color-amber-400);
+  --warning-foreground: var(--color-zinc-950);
+
+  --info: var(--color-blue-500);
+  --info-foreground: var(--color-white);
+
+  /* Borders, Separators & Form Inputs */
+  --border: var(--color-zinc-800);
+  --input: var(--color-zinc-800);
+
+  /* Accessible Focus Rings */
+  --ring: var(--color-zinc-300);
+
+  /* Sidebar Tokens (Dark) */
+  --sidebar-background: var(--color-zinc-900);
+  --sidebar-foreground: var(--color-zinc-50);
+  --sidebar-primary: var(--color-zinc-50);
+  --sidebar-primary-foreground: var(--color-zinc-900);
+  --sidebar-accent: var(--color-zinc-800);
+  --sidebar-accent-foreground: var(--color-zinc-50);
+  --sidebar-border: var(--color-zinc-800);
+  --sidebar-ring: var(--color-zinc-300);
+}
+
+/* Fallback for OS-level dark mode preference when no manual theme class is applied */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-mode="light"]):not(.light) {
+    --background: var(--color-zinc-950);
+    --foreground: var(--color-zinc-50);
+
+    --card: var(--color-zinc-900);
+    --card-foreground: var(--color-zinc-50);
+
+    --popover: var(--color-zinc-900);
+    --popover-foreground: var(--color-zinc-50);
+
+    --primary: var(--color-zinc-50);
+    --primary-foreground: var(--color-zinc-900);
+
+    --secondary: var(--color-zinc-800);
+    --secondary-foreground: var(--color-zinc-50);
+
+    --muted: var(--color-zinc-800);
+    --muted-foreground: var(--color-zinc-400);
+
+    --accent: var(--color-zinc-800);
+    --accent-foreground: var(--color-zinc-50);
+
+    --destructive: var(--color-red-600);
+    --destructive-foreground: var(--color-white);
+
+    --success: var(--color-emerald-500);
+    --success-foreground: var(--color-zinc-950);
+
+    --warning: var(--color-amber-400);
+    --warning-foreground: var(--color-zinc-950);
+
+    --info: var(--color-blue-500);
+    --info-foreground: var(--color-white);
+
+    --border: var(--color-zinc-800);
+    --input: var(--color-zinc-800);
+
+    --ring: var(--color-zinc-300);
+
+    --sidebar-background: var(--color-zinc-900);
+    --sidebar-foreground: var(--color-zinc-50);
+    --sidebar-primary: var(--color-zinc-50);
+    --sidebar-primary-foreground: var(--color-zinc-900);
+    --sidebar-accent: var(--color-zinc-800);
+    --sidebar-accent-foreground: var(--color-zinc-50);
+    --sidebar-border: var(--color-zinc-800);
+    --sidebar-ring: var(--color-zinc-300);
+  }
+}
+
+/* ==========================================================================
+   TIER 3: ACCESSIBILITY & CONTRAST GUARDRAILS (APCA & WCAG 2.2 AA)
+   ========================================================================== */
+
+/**
+ * Contrast Guardrails Summary:
+ * - WCAG 2.2 AA SC 1.4.3 (Contrast Minimum):
+ *   * Body / Normal Text (< 18pt / < 14pt bold): >= 4.5:1 ratio
+ *   * Large Text (>= 18pt / >= 14pt bold): >= 3.0:1 ratio
+ * - WCAG 2.2 AA SC 1.4.11 (Non-text Contrast):
+ *   * UI boundaries, icons, active controls: >= 3.0:1 ratio
+ * - WCAG 2.2 AA SC 2.4.11 & 2.4.13 (Focus Appearance):
+ *   * Minimum 2px perimeter with 3.0:1 contrast difference
+ * - APCA (Advanced Perceptual Contrast Algorithm):
+ *   * Body text: Target Lc >= 60 (Plain UI standard is Lc 75-105)
+ *   * Secondary/Muted text: Target Lc >= 60
+ *   * Large Headings: Target Lc >= 45
+ */
+:root {
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+  --focus-ring-style: solid;
+  --focus-ring-color: var(--ring);
+
+  --disabled-opacity: 0.5;
+  --disabled-cursor: not-allowed;
+}

@@ -1,0 +1,56 @@
+<!-- Plain UI: Toast Component (Light-DOM, Accessible, Zero-Dependency) -->
+<div class="flex flex-wrap items-center gap-3">
+  <!-- Interactive Trigger Buttons (Light-DOM data attributes or JS API) -->
+  <button
+    type="button"
+    data-toast="Changes saved successfully."
+    data-toast-type="success"
+    data-toast-description="Your workspace settings are now up to date."
+    class="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-900 dark:text-zinc-100 shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-800/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300"
+  >
+    <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+    <span>Success Toast</span>
+  </button>
+
+  <button
+    type="button"
+    data-toast="Something went wrong."
+    data-toast-type="error"
+    data-toast-description="Could not connect to the remote cluster. Please retry."
+    class="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-900 dark:text-zinc-100 shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-800/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300"
+  >
+    <span class="h-2 w-2 rounded-full bg-rose-500"></span>
+    <span>Error Toast</span>
+  </button>
+
+  <button
+    type="button"
+    data-toast="Deployment in progress"
+    data-toast-type="info"
+    data-toast-description="Your edge functions are being propagated globally."
+    class="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-900 dark:text-zinc-100 shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-800/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300"
+  >
+    <span class="h-2 w-2 rounded-full bg-sky-500"></span>
+    <span>Info Toast</span>
+  </button>
+
+  <button
+    type="button"
+    data-toast="Storage limit warning"
+    data-toast-type="warning"
+    data-toast-description="You have used 85% of your allocated disk storage."
+    class="inline-flex items-center gap-2 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 px-4 py-2 text-sm font-medium text-zinc-900 dark:text-zinc-100 shadow-sm hover:bg-zinc-50 dark:hover:bg-zinc-800/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-950 dark:focus-visible:ring-zinc-300"
+  >
+    <span class="h-2 w-2 rounded-full bg-amber-500"></span>
+    <span>Warning Toast</span>
+  </button>
+
+  <!-- Native Light-DOM Popover Manual Toast Container -->
+  <div
+    id="plain-toast-container"
+    popover="manual"
+    aria-live="polite"
+    aria-atomic="true"
+    class="fixed bottom-4 right-4 z-50 flex flex-col gap-2 pointer-events-none p-0 m-0 border-0 bg-transparent overflow-visible"
+  ></div>
+</div>

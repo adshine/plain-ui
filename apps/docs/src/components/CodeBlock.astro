@@ -1,0 +1,55 @@
+---
+interface Props {
+  code: string;
+  lang?: string;
+  filename?: string;
+}
+
+const { code, lang = "bash", filename } = Astro.props;
+---
+
+<div class="relative group my-4 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-950 text-zinc-100 overflow-hidden shadow-md">
+  {filename && (
+    <div class="flex items-center justify-between px-4 py-2 border-b border-zinc-800 text-xs text-zinc-400 font-mono bg-zinc-900/50">
+      <span>{filename}</span>
+      <span class="text-[11px] uppercase tracking-wider text-zinc-500">{lang}</span>
+    </div>
+  )}
+
+  <div class="relative p-4 overflow-x-auto font-mono text-xs md:text-sm leading-relaxed">
+    <pre><code>{code}</code></pre>
+
+    <!-- Copy Button -->
+    <button 
+      type="button" 
+      class="copy-code-btn absolute top-3 right-3 p-1.5 rounded-lg bg-zinc-800/80 hover:bg-zinc-700 text-zinc-400 hover:text-zinc-100 opacity-0 group-hover:opacity-100 transition-all cursor-pointer"
+      data-code={code}
+      aria-label="Copy code to clipboard"
+    >
+      <svg class="w-4 h-4 copy-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+      <svg class="w-4 h-4 check-icon hidden text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+    </button>
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('.copy-code-btn').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const code = btn.getAttribute('data-code');
+      if (!code) return;
+      await navigator.clipboard.writeText(code);
+
+      const copyIcon = btn.querySelector('.copy-icon');
+      const checkIcon = btn.querySelector('.check-icon');
+
+      if (copyIcon && checkIcon) {
+        copyIcon.classList.add('hidden');
+        checkIcon.classList.remove('hidden');
+        setTimeout(() => {
+          copyIcon.classList.remove('hidden');
+          checkIcon.classList.add('hidden');
+        }, 2000);
+      }
+    });
+  });
+</script>

@@ -1,0 +1,417 @@
+/**
+ * @plain-ui/tokens - themes.css
+ * 
+ * Multi-Theme Presets (Zinc, Violet, Emerald, Amber, Rose, Slate, Stone, Gray, Blue, Cyan, Orange, Neutral)
+ * Supporting Light & Dark Modes via:
+ * - [data-theme="<name>"]
+ * - .theme-<name>
+ * - [data-theme="<name>"].dark, .dark [data-theme="<name>"], .dark .theme-<name>
+ *
+ * Part of Plain UI Design System.
+ */
+
+/* ==========================================================================
+   THEME 1: ZINC (Default Neutral Palette)
+   ========================================================================== */
+
+:root,
+[data-theme="zinc"],
+.theme-zinc {
+  --primary: var(--color-zinc-900);
+  --primary-foreground: var(--color-zinc-50);
+  --ring: var(--color-zinc-950);
+  --accent: var(--color-zinc-100);
+  --accent-foreground: var(--color-zinc-900);
+  --sidebar-primary: var(--color-zinc-900);
+  --sidebar-primary-foreground: var(--color-zinc-50);
+}
+
+.dark,
+[data-theme="zinc"].dark,
+.dark [data-theme="zinc"],
+[data-theme="zinc"][data-mode="dark"],
+.theme-zinc.dark,
+.dark .theme-zinc {
+  --primary: var(--color-zinc-50);
+  --primary-foreground: var(--color-zinc-900);
+  --ring: var(--color-zinc-300);
+  --accent: var(--color-zinc-800);
+  --accent-foreground: var(--color-zinc-50);
+  --sidebar-primary: var(--color-zinc-50);
+  --sidebar-primary-foreground: var(--color-zinc-900);
+}
+
+/* ==========================================================================
+   THEME 2: VIOLET (Vibrant Purple Palette)
+   ========================================================================== */
+
+[data-theme="violet"],
+.theme-violet {
+  --primary: var(--color-violet-600);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-violet-600);
+  --accent: var(--color-violet-100);
+  --accent-foreground: var(--color-violet-900);
+  --sidebar-primary: var(--color-violet-600);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+[data-theme="violet"].dark,
+.dark [data-theme="violet"],
+[data-theme="violet"][data-mode="dark"],
+.theme-violet.dark,
+.dark .theme-violet {
+  --primary: var(--color-violet-500);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-violet-400);
+  --accent: var(--color-violet-950);
+  --accent-foreground: var(--color-violet-200);
+  --sidebar-primary: var(--color-violet-500);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+/* ==========================================================================
+   THEME 3: EMERALD (Vibrant Fresh Green Palette)
+   ========================================================================== */
+
+[data-theme="emerald"],
+.theme-emerald {
+  --primary: var(--color-emerald-600);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-emerald-600);
+  --accent: var(--color-emerald-100);
+  --accent-foreground: var(--color-emerald-900);
+  --sidebar-primary: var(--color-emerald-600);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+[data-theme="emerald"].dark,
+.dark [data-theme="emerald"],
+[data-theme="emerald"][data-mode="dark"],
+.theme-emerald.dark,
+.dark .theme-emerald {
+  --primary: var(--color-emerald-500);
+  --primary-foreground: var(--color-zinc-950);
+  --ring: var(--color-emerald-400);
+  --accent: var(--color-emerald-950);
+  --accent-foreground: var(--color-emerald-200);
+  --sidebar-primary: var(--color-emerald-500);
+  --sidebar-primary-foreground: var(--color-zinc-950);
+}
+
+/* ==========================================================================
+   THEME 4: AMBER (Warm Energetic Gold Palette)
+   ========================================================================== */
+
+[data-theme="amber"],
+.theme-amber {
+  --primary: var(--color-amber-500);
+  --primary-foreground: var(--color-zinc-950);
+  --ring: var(--color-amber-500);
+  --accent: var(--color-amber-100);
+  --accent-foreground: var(--color-amber-950);
+  --sidebar-primary: var(--color-amber-500);
+  --sidebar-primary-foreground: var(--color-zinc-950);
+}
+
+[data-theme="amber"].dark,
+.dark [data-theme="amber"],
+[data-theme="amber"][data-mode="dark"],
+.theme-amber.dark,
+.dark .theme-amber {
+  --primary: var(--color-amber-400);
+  --primary-foreground: var(--color-zinc-950);
+  --ring: var(--color-amber-400);
+  --accent: var(--color-amber-950);
+  --accent-foreground: var(--color-amber-200);
+  --sidebar-primary: var(--color-amber-400);
+  --sidebar-primary-foreground: var(--color-zinc-950);
+}
+
+/* ==========================================================================
+   THEME 5: ROSE (Vibrant Rose / Pink Palette)
+   ========================================================================== */
+
+[data-theme="rose"],
+.theme-rose {
+  --primary: var(--color-rose-600);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-rose-600);
+  --accent: var(--color-rose-100);
+  --accent-foreground: var(--color-rose-900);
+  --sidebar-primary: var(--color-rose-600);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+[data-theme="rose"].dark,
+.dark [data-theme="rose"],
+[data-theme="rose"][data-mode="dark"],
+.theme-rose.dark,
+.dark .theme-rose {
+  --primary: var(--color-rose-500);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-rose-400);
+  --accent: var(--color-rose-950);
+  --accent-foreground: var(--color-rose-200);
+  --sidebar-primary: var(--color-rose-500);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+/* ==========================================================================
+   THEME 6: SLATE (Cool Tech Slate Palette)
+   ========================================================================== */
+
+[data-theme="slate"],
+.theme-slate {
+  --primary: var(--color-slate-900);
+  --primary-foreground: var(--color-slate-50);
+  --ring: var(--color-slate-950);
+  --accent: var(--color-slate-100);
+  --accent-foreground: var(--color-slate-900);
+  --border: var(--color-slate-200);
+  --input: var(--color-slate-200);
+  --sidebar-background: var(--color-slate-50);
+  --sidebar-foreground: var(--color-slate-950);
+  --sidebar-primary: var(--color-slate-900);
+  --sidebar-primary-foreground: var(--color-slate-50);
+}
+
+[data-theme="slate"].dark,
+.dark [data-theme="slate"],
+[data-theme="slate"][data-mode="dark"],
+.theme-slate.dark,
+.dark .theme-slate {
+  --background: var(--color-slate-950);
+  --foreground: var(--color-slate-50);
+  --card: var(--color-slate-900);
+  --card-foreground: var(--color-slate-50);
+  --popover: var(--color-slate-900);
+  --popover-foreground: var(--color-slate-50);
+  --primary: var(--color-slate-50);
+  --primary-foreground: var(--color-slate-900);
+  --secondary: var(--color-slate-800);
+  --secondary-foreground: var(--color-slate-50);
+  --muted: var(--color-slate-800);
+  --muted-foreground: var(--color-slate-400);
+  --accent: var(--color-slate-800);
+  --accent-foreground: var(--color-slate-50);
+  --border: var(--color-slate-800);
+  --input: var(--color-slate-800);
+  --ring: var(--color-slate-300);
+  --sidebar-background: var(--color-slate-900);
+  --sidebar-foreground: var(--color-slate-50);
+  --sidebar-primary: var(--color-slate-50);
+  --sidebar-primary-foreground: var(--color-slate-900);
+}
+
+/* ==========================================================================
+   THEME 7: STONE (Warm Earthy Organic Palette)
+   ========================================================================== */
+
+[data-theme="stone"],
+.theme-stone {
+  --primary: var(--color-stone-900);
+  --primary-foreground: var(--color-stone-50);
+  --ring: var(--color-stone-950);
+  --accent: var(--color-stone-100);
+  --accent-foreground: var(--color-stone-900);
+  --border: var(--color-stone-200);
+  --input: var(--color-stone-200);
+  --sidebar-background: var(--color-stone-50);
+  --sidebar-foreground: var(--color-stone-950);
+  --sidebar-primary: var(--color-stone-900);
+  --sidebar-primary-foreground: var(--color-stone-50);
+}
+
+[data-theme="stone"].dark,
+.dark [data-theme="stone"],
+[data-theme="stone"][data-mode="dark"],
+.theme-stone.dark,
+.dark .theme-stone {
+  --background: var(--color-stone-950);
+  --foreground: var(--color-stone-50);
+  --card: var(--color-stone-900);
+  --card-foreground: var(--color-stone-50);
+  --popover: var(--color-stone-900);
+  --popover-foreground: var(--color-stone-50);
+  --primary: var(--color-stone-50);
+  --primary-foreground: var(--color-stone-900);
+  --secondary: var(--color-stone-800);
+  --secondary-foreground: var(--color-stone-50);
+  --muted: var(--color-stone-800);
+  --muted-foreground: var(--color-stone-400);
+  --accent: var(--color-stone-800);
+  --accent-foreground: var(--color-stone-50);
+  --border: var(--color-stone-800);
+  --input: var(--color-stone-800);
+  --ring: var(--color-stone-300);
+  --sidebar-background: var(--color-stone-900);
+  --sidebar-foreground: var(--color-stone-50);
+  --sidebar-primary: var(--color-stone-50);
+  --sidebar-primary-foreground: var(--color-stone-900);
+}
+
+/* ==========================================================================
+   THEME 8: GRAY (Classic Balanced Cool Gray)
+   ========================================================================== */
+
+[data-theme="gray"],
+.theme-gray {
+  --primary: var(--color-gray-900);
+  --primary-foreground: var(--color-gray-50);
+  --ring: var(--color-gray-950);
+  --accent: var(--color-gray-100);
+  --accent-foreground: var(--color-gray-900);
+  --border: var(--color-gray-200);
+  --input: var(--color-gray-200);
+}
+
+[data-theme="gray"].dark,
+.dark [data-theme="gray"],
+[data-theme="gray"][data-mode="dark"],
+.theme-gray.dark,
+.dark .theme-gray {
+  --background: var(--color-gray-950);
+  --foreground: var(--color-gray-50);
+  --card: var(--color-gray-900);
+  --card-foreground: var(--color-gray-50);
+  --popover: var(--color-gray-900);
+  --popover-foreground: var(--color-gray-50);
+  --primary: var(--color-gray-50);
+  --primary-foreground: var(--color-gray-900);
+  --secondary: var(--color-gray-800);
+  --secondary-foreground: var(--color-gray-50);
+  --muted: var(--color-gray-800);
+  --muted-foreground: var(--color-gray-400);
+  --accent: var(--color-gray-800);
+  --accent-foreground: var(--color-gray-50);
+  --border: var(--color-gray-800);
+  --input: var(--color-gray-800);
+  --ring: var(--color-gray-300);
+}
+
+/* ==========================================================================
+   THEME 9: NEUTRAL (Pure Achromatic Stark Palette)
+   ========================================================================== */
+
+[data-theme="neutral"],
+.theme-neutral {
+  --primary: var(--color-neutral-900);
+  --primary-foreground: var(--color-neutral-50);
+  --ring: var(--color-neutral-950);
+  --accent: var(--color-neutral-100);
+  --accent-foreground: var(--color-neutral-900);
+  --border: var(--color-neutral-200);
+  --input: var(--color-neutral-200);
+}
+
+[data-theme="neutral"].dark,
+.dark [data-theme="neutral"],
+[data-theme="neutral"][data-mode="dark"],
+.theme-neutral.dark,
+.dark .theme-neutral {
+  --background: var(--color-neutral-950);
+  --foreground: var(--color-neutral-50);
+  --card: var(--color-neutral-900);
+  --card-foreground: var(--color-neutral-50);
+  --popover: var(--color-neutral-900);
+  --popover-foreground: var(--color-neutral-50);
+  --primary: var(--color-neutral-50);
+  --primary-foreground: var(--color-neutral-900);
+  --secondary: var(--color-neutral-800);
+  --secondary-foreground: var(--color-neutral-50);
+  --muted: var(--color-neutral-800);
+  --muted-foreground: var(--color-neutral-400);
+  --accent: var(--color-neutral-800);
+  --accent-foreground: var(--color-neutral-50);
+  --border: var(--color-neutral-800);
+  --input: var(--color-neutral-800);
+  --ring: var(--color-neutral-300);
+}
+
+/* ==========================================================================
+   THEME 10: BLUE (Classic Corporate Blue Palette)
+   ========================================================================== */
+
+[data-theme="blue"],
+.theme-blue {
+  --primary: var(--color-blue-600);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-blue-600);
+  --accent: var(--color-blue-100);
+  --accent-foreground: var(--color-blue-900);
+  --sidebar-primary: var(--color-blue-600);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+[data-theme="blue"].dark,
+.dark [data-theme="blue"],
+[data-theme="blue"][data-mode="dark"],
+.theme-blue.dark,
+.dark .theme-blue {
+  --primary: var(--color-blue-500);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-blue-400);
+  --accent: var(--color-blue-950);
+  --accent-foreground: var(--color-blue-200);
+  --sidebar-primary: var(--color-blue-500);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+/* ==========================================================================
+   THEME 11: CYAN (Electric Tech Cyan Palette)
+   ========================================================================== */
+
+[data-theme="cyan"],
+.theme-cyan {
+  --primary: var(--color-cyan-600);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-cyan-600);
+  --accent: var(--color-cyan-100);
+  --accent-foreground: var(--color-cyan-900);
+  --sidebar-primary: var(--color-cyan-600);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+[data-theme="cyan"].dark,
+.dark [data-theme="cyan"],
+[data-theme="cyan"][data-mode="dark"],
+.theme-cyan.dark,
+.dark .theme-cyan {
+  --primary: var(--color-cyan-500);
+  --primary-foreground: var(--color-zinc-950);
+  --ring: var(--color-cyan-400);
+  --accent: var(--color-cyan-950);
+  --accent-foreground: var(--color-cyan-200);
+  --sidebar-primary: var(--color-cyan-500);
+  --sidebar-primary-foreground: var(--color-zinc-950);
+}
+
+/* ==========================================================================
+   THEME 12: ORANGE (Creative Dynamic Orange Palette)
+   ========================================================================== */
+
+[data-theme="orange"],
+.theme-orange {
+  --primary: var(--color-orange-600);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-orange-600);
+  --accent: var(--color-orange-100);
+  --accent-foreground: var(--color-orange-950);
+  --sidebar-primary: var(--color-orange-600);
+  --sidebar-primary-foreground: var(--color-white);
+}
+
+[data-theme="orange"].dark,
+.dark [data-theme="orange"],
+[data-theme="orange"][data-mode="dark"],
+.theme-orange.dark,
+.dark .theme-orange {
+  --primary: var(--color-orange-500);
+  --primary-foreground: var(--color-white);
+  --ring: var(--color-orange-400);
+  --accent: var(--color-orange-950);
+  --accent-foreground: var(--color-orange-200);
+  --sidebar-primary: var(--color-orange-500);
+  --sidebar-primary-foreground: var(--color-white);
+}

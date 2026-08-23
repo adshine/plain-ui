@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "script-combobox",
+  "type": "registry:script",
+  "title": "Combobox Script",
+  "description": "Light-DOM ESM vanilla JavaScript micro-controller (<1KB) for combobox.",
+  "version": "1.0.0",
+  "dependencies": [],
+  "devDependencies": [],
+  "registryDependencies": [],
+  "files": [
+    {
+      "name": "combobox.js",
+      "path": "scripts/combobox.js",
+      "content": "/**\n * Plain UI - Light-DOM Combobox Micro-controller (<1KB)\n * Searchable dropdown with arrow keys and aria-activedescendant.\n * Idempotent init(root) for Static HTML, Astro, and htmx.\n */\n\nconst seen = new WeakSet();\n\nexport function init(root = document) {\n  const boxes = root.matches?.('[data-combobox]') ? [root] : Array.from(root.querySelectorAll?.('[data-combobox]') || []);\n  boxes.forEach((box) => {\n    if (seen.has(box)) return;\n    seen.add(box);\n\n    const input = box.querySelector('input[role=\"combobox\"], [data-combobox-input]');\n    const list = box.querySelector('[role=\"listbox\"], [data-combobox-list]');\n    const empty = box.querySelector('[data-combobox-empty]');\n    if (!input || !list) return;\n\n    let active = -1;\n    let isSelecting = false;\n\n    const visibleOpts = () => Array.from(list.querySelectorAll('[role=\"option\"]:not([hidden]):not([aria-disabled=\"true\"])'));\n\n    const setOpen = (open) => {\n      input.setAttribute(\"aria-expanded\", String(open));\n      list.hidden = !open;\n      box.dataset.state = open ? \"open\" : \"closed\";\n      if (!open) setActive(-1);\n    };\n\n    const setActive = (idx) => {\n      const opts = visibleOpts();\n      opts.forEach((o) => {\n        o.removeAttribute(\"data-active\");\n        o.classList.remove(\"is-active\");\n      });\n      if (idx >= 0 && idx < opts.length) {\n        active = idx;\n        const opt = opts[idx];\n        opt.setAttribute(\"data-active\", \"true\");\n        opt.classList.add(\"is-active\");\n        input.setAttribute(\"aria-activedescendant\", opt.id || \"\");\n        opt.scrollIntoView({ block: \"nearest\" });\n      } else {\n        active = -1;\n        input.removeAttribute(\"aria-activedescendant\");\n      }\n    };\n\n    const filter = (q = \"\") => {\n      const query = q.trim().toLowerCase();\n      let count = 0;\n      list.querySelectorAll('[role=\"option\"]').forEach((opt) => {\n        const txt = (opt.dataset.label || opt.dataset.value || opt.textContent || \"\").toLowerCase();\n        const hit = !query || txt.includes(query);\n        opt.hidden = !hit;\n        if (hit) count++;\n      });\n      if (empty) empty.hidden = count > 0;\n      setActive(count > 0 ? 0 : -1);\n    };\n\n    const select = (opt) => {\n      if (!opt) return;\n      isSelecting = true;\n      const val = opt.dataset.value ?? opt.textContent.trim();\n      const label = opt.dataset.label ?? opt.textContent.trim();\n      input.value = label;\n      list.querySelectorAll('[role=\"option\"]').forEach((o) => {\n        const sel = o === opt;\n        o.setAttribute(\"aria-selected\", String(sel));\n        o.dataset.selected = String(sel);\n      });\n      setOpen(false);\n      input.dispatchEvent(new Event(\"input\", { bubbles: true }));\n      input.dispatchEvent(new Event(\"change\", { bubbles: true }));\n      box.dispatchEvent(new CustomEvent(\"combobox-select\", { bubbles: true, detail: { value: val, label, option: opt } }));\n      isSelecting = false;\n    };\n\n    input.addEventListener(\"focus\", () => { filter(input.value); setOpen(true); });\n    input.addEventListener(\"input\", () => {\n      if (isSelecting) return;\n      setOpen(true);\n      filter(input.value);\n    });\n\n    input.addEventListener(\"keydown\", (e) => {\n      const open = input.getAttribute(\"aria-expanded\") === \"true\";\n      const opts = visibleOpts();\n      if (e.key === \"ArrowDown\" || e.key === \"ArrowUp\") {\n        e.preventDefault();\n        if (!open) {\n          setOpen(true);\n          filter(input.value);\n        } else {\n          const step = e.key === \"ArrowDown\" ? 1 : -1;\n          setActive((active + step + opts.length) % (opts.length || 1));\n        }\n      } else if (e.key === \"Home\" && open) {\n        e.preventDefault();\n        setActive(0);\n      } else if (e.key === \"End\" && open) {\n        e.preventDefault();\n        setActive(opts.length - 1);\n      } else if (e.key === \"Enter\") {\n        if (open && active >= 0 && opts[active]) {\n          e.preventDefault();\n          select(opts[active]);\n        }\n      } else if (e.key === \"Escape\" || e.key === \"Tab\") {\n        setOpen(false);\n      }\n    });\n\n    list.addEventListener(\"click\", (e) => {\n      const opt = e.target.closest('[role=\"option\"]');\n      if (opt && !opt.hasAttribute(\"aria-disabled\")) select(opt);\n    });\n\n    document.addEventListener(\"click\", (e) => {\n      if (!box.contains(e.target)) setOpen(false);\n    });\n  });\n}\n\nexport const initCombobox = init;\nexport default { init };",
+      "type": "registry:script",
+      "target": "src/scripts/combobox.js"
+    }
+  ],
+  "categories": [
+    "scripts",
+    "controller"
+  ],
+  "meta": {
+    "zeroJs": false,
+    "esm": true,
+    "lightDom": true
+  }
+}

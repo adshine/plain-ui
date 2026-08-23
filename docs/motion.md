@@ -1,0 +1,399 @@
+---
+title: "Motion & Physics Tokens"
+description: "Houdini CSS properties, asymmetric easing curves, scroll-driven animations, and view transition rules."
+category: "motion"
+type: "registry:style"
+zeroJs: true
+version: "1.0.0"
+dependencies: []
+registryDependencies: ["tokens"]
+modernApis: []
+---
+
+# Motion & Physics Tokens
+
+> Houdini CSS properties, asymmetric easing curves, scroll-driven animations, and view transition rules.
+
+## Overview
+
+- **Type**: `registry:style`
+- **Zero JavaScript**: ✅ Yes (Pure HTML5 & Modern CSS)
+- **Category**: `motion`
+- **Modern Browser APIs**: Standard HTML5/CSS
+- **Tailwind Version**: Tailwind CSS v4 (@theme tokens)
+
+---
+
+## Installation
+
+### CLI Command
+
+```bash
+# Add using Plain UI CLI
+npx plain-ui add motion
+
+# Or using pnpm dlx
+pnpm dlx plain-ui add motion
+```
+
+### Manual Installation
+
+Copy the source files below directly into your project structure:
+- **`src/styles/motion.css`** (`registry:style`)
+- **`src/styles/motion.ts`** (`registry:lib`)
+
+---
+
+## Source Code
+
+### `motion.css` (`src/styles/motion.css`)
+
+```css
+/**
+ * Plain UI - Motion & Physics Engine Tokens and Utilities
+ * Standardized motion curves, Houdini properties, scroll-driven animations,
+ * and view transition rules.
+ */
+
+/* ==========================================================================
+   1. Houdini CSS @property Registrations
+   ========================================================================== */
+
+/* Animated Angle Properties for Beams, Shimmers, and Conic Glows */
+@property --plain-beam-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --plain-shimmer-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@property --plain-glow-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* Color Interpolation Properties */
+@property --plain-beam-color-from {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --plain-beam-color-to {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --plain-glow-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+
+@property --plain-shimmer-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: transparent;
+}
+
+
+/* ==========================================================================
+   2. Root Interpolation & Motion Tokens
+   ========================================================================== */
+
+:root {
+  /* Enable smooth keyword sizing transitions (e.g., width/height: auto) */
+  interpolate-size: allow-keywords;
+
+  /* Duration Tokens */
+  --motion-dur-feedback: 120ms;
+  --motion-dur-exit: 140ms;
+  --motion-dur-enter: 200ms;
+  --motion-dur-expand: 260ms;
+  --motion-dur-morph: 320ms;
+
+  /* Asymmetric Easing Tokens */
+  /* Deceleration curve for entering elements: energetic start with a smooth settle */
+  --motion-ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Acceleration curve for exiting elements: sharp, responsive departure */
+  --motion-ease-exit: cubic-bezier(0.4, 0, 1, 1);
+  /* Standard smooth easing for moving/repositioning elements */
+  --motion-ease-move: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Supplementary Springs & Easing Curves */
+  --motion-ease-spring-snappy: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --motion-ease-spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+/* ==========================================================================
+   3. Houdini Animation Keyframes & Presets
+   ========================================================================== */
+
+@keyframes plain-beam-rotate {
+  from {
+    --plain-beam-angle: 0deg;
+  }
+  to {
+    --plain-beam-angle: 360deg;
+  }
+}
+
+@keyframes plain-shimmer-sweep {
+  from {
+    --plain-shimmer-angle: 0deg;
+  }
+  to {
+    --plain-shimmer-angle: 360deg;
+  }
+}
+
+@keyframes plain-glow-pulse {
+  0% {
+    --plain-glow-angle: 0deg;
+  }
+  100% {
+    --plain-glow-angle: 360deg;
+  }
+}
+
+
+/* ==========================================================================
+   4. Scroll-Driven Animation Utilities (CSS Native)
+   ========================================================================== */
+
+/* Progress bar tied to root page scrolling */
+@keyframes plain-scroll-progress-anim {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.plain-scroll-progress {
+  transform-origin: 0 50%;
+  animation: plain-scroll-progress-anim auto linear;
+  animation-timeline: scroll(root);
+}
+
+/* Reveal cards on scroll into viewport */
+@keyframes plain-view-reveal-anim {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.plain-view-reveal {
+  animation: plain-view-reveal-anim auto cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 30%;
+}
+
+/* Fade in elements as they enter viewport */
+@keyframes plain-view-fade-anim {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.plain-view-fade {
+  animation: plain-view-fade-anim auto linear both;
+  animation-timeline: view();
+  animation-range: entry 0% cover 25%;
+}
+
+
+/* ==========================================================================
+   5. Cross-Document View Transitions
+   ========================================================================== */
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: var(--motion-dur-exit) var(--motion-ease-exit) both plain-vt-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: var(--motion-dur-enter) var(--motion-ease-enter) both plain-vt-fade-in;
+}
+
+@keyframes plain-vt-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes plain-vt-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+/* ==========================================================================
+   6. General Motion Utility Classes
+   ========================================================================== */
+
+.plain-motion-enter {
+  transition-property: opacity, transform;
+  transition-duration: var(--motion-dur-enter);
+  transition-timing-function: var(--motion-ease-enter);
+}
+
+.plain-motion-exit {
+  transition-property: opacity, transform;
+  transition-duration: var(--motion-dur-exit);
+  transition-timing-function: var(--motion-ease-exit);
+}
+
+.plain-motion-move {
+  transition-property: transform, width, height, margin, padding;
+  transition-duration: var(--motion-dur-morph);
+  transition-timing-function: var(--motion-ease-move);
+}
+
+.plain-motion-feedback {
+  transition-property: transform, background-color, border-color, box-shadow;
+  transition-duration: var(--motion-dur-feedback);
+  transition-timing-function: var(--motion-ease-enter);
+}
+
+.plain-motion-expand {
+  transition-property: height, max-height, grid-template-rows;
+  transition-duration: var(--motion-dur-expand);
+  transition-timing-function: var(--motion-ease-enter);
+}
+
+
+/* ==========================================================================
+   7. Accessibility & Reduced Motion Overrides
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-dur-feedback: 0ms;
+    --motion-dur-exit: 0ms;
+    --motion-dur-enter: 0ms;
+    --motion-dur-expand: 0ms;
+    --motion-dur-morph: 0ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  .plain-scroll-progress,
+  .plain-view-reveal,
+  .plain-view-fade {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+```
+
+### `motion.ts` (`src/styles/motion.ts`)
+
+```typescript
+/**
+ * Plain UI Motion Tokens & Easing Constants
+ */
+
+export const motionDurations = {
+  feedback: '120ms',
+  exit: '140ms',
+  enter: '200ms',
+  expand: '260ms',
+  morph: '320ms',
+} as const;
+
+export const motionEasings = {
+  enter: 'cubic-bezier(0.16, 1, 0.3, 1)',
+  exit: 'cubic-bezier(0.4, 0, 1, 1)',
+  move: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  springSnappy: 'cubic-bezier(0.2, 0.8, 0.2, 1)',
+  springBounce: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+  inOut: 'cubic-bezier(0.65, 0, 0.35, 1)',
+} as const;
+
+export const motionProperties = {
+  beamAngle: '--plain-beam-angle',
+  shimmerAngle: '--plain-shimmer-angle',
+  glowAngle: '--plain-glow-angle',
+  beamColorFrom: '--plain-beam-color-from',
+  beamColorTo: '--plain-beam-color-to',
+  glowColor: '--plain-glow-color',
+  shimmerColor: '--plain-shimmer-color',
+} as const;
+
+export type MotionDuration = keyof typeof motionDurations;
+export type MotionEasing = keyof typeof motionEasings;
+```
+
+---
+
+## Component Anatomy & Architecture
+
+This component uses zero runtime JavaScript. All interactions, styling transitions, and state changes are handled natively by the browser engine via:
+
+
+### State Management
+- States like `:hover`, `:active`, `:focus-visible`, `:checked`, `:has()`, and `[open]` are handled declaratively in HTML and Tailwind CSS v4 utility classes.
+
+---
+
+## Accessibility & Keyboard Shortcuts
+
+- **WCAG 2.2 AA Compliant**: All color pairings adhere to APCA / WCAG contrast standards in both light and dark themes.
+- **Focus Indicators**: Includes high-contrast `focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none` rings for keyboard users.
+- **Reduced Motion**: All animations and transitions automatically pause or degrade to instant state changes when `prefers-reduced-motion: reduce` is detected.
+
+---
+
+## Customization & Tokens
+
+This component relies on Plain UI design tokens defined in `tokens.css`:
+- Backgrounds: `var(--background)`, `var(--card)`, `var(--popover)`
+- Foregrounds: `var(--foreground)`, `var(--primary)`, `var(--muted-foreground)`
+- Borders & Rings: `var(--border)`, `var(--ring)`, `var(--radius)`
+- Motion Timing: `var(--motion-dur-enter)`, `var(--motion-ease-enter)`

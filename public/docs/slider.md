@@ -1,0 +1,276 @@
+---
+title: "Slider / Range"
+description: "Custom HTML5 range input sliders with tick marks, multi-step intervals, and numeric badges."
+category: "inputs"
+type: "registry:ui"
+zeroJs: true
+version: "1.0.0"
+dependencies: []
+registryDependencies: ["tokens"]
+modernApis: ["::-webkit-slider-thumb","::-moz-range-thumb"]
+---
+
+# Slider / Range
+
+> Custom HTML5 range input sliders with tick marks, multi-step intervals, and numeric badges.
+
+## Overview
+
+- **Type**: `registry:ui`
+- **Zero JavaScript**: ✅ Yes (Pure HTML5 & Modern CSS)
+- **Category**: `inputs`
+- **Modern Browser APIs**: `::-webkit-slider-thumb`, `::-moz-range-thumb`
+- **Tailwind Version**: Tailwind CSS v4 (@theme tokens)
+
+---
+
+## Installation
+
+### CLI Command
+
+```bash
+# Add using Plain UI CLI
+npx plain-ui add slider
+
+# Or using pnpm dlx
+pnpm dlx plain-ui add slider
+```
+
+### Manual Installation
+
+Copy the source files below directly into your project structure:
+- **`src/components/ui/slider.html`** (`registry:ui`)
+
+---
+
+## Source Code
+
+### `slider.html` (`src/components/ui/slider.html`)
+
+```html
+<!-- 
+  Plain UI - Sliders & Range Controls (Origin UI Inspired)
+  Zero-JS HTML5 + Tailwind CSS v4 Range Inputs, Tick Marks, Badges & Multi-Step Intervals
+-->
+<div class="flex flex-col gap-10 p-6 max-w-4xl mx-auto font-sans text-zinc-900 dark:text-zinc-100">
+
+  <!-- Section Header -->
+  <div class="space-y-1 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+    <div class="flex items-center gap-2">
+      <span class="inline-flex items-center rounded-md bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5 text-xs font-medium text-zinc-600 dark:text-zinc-400">Form Controls</span>
+      <span class="text-xs text-zinc-400">•</span>
+      <span class="text-xs text-zinc-500">Range & Sliders</span>
+    </div>
+    <h2 class="text-2xl font-bold tracking-tight">Sliders & Range Inputs</h2>
+    <p class="text-sm text-zinc-500 dark:text-zinc-400">
+      Custom styled <code>&lt;input type="range"&gt;</code> controls with tick marks, numbered milestone intervals (0–100%), real-time output badges, and media level tracks.
+    </p>
+  </div>
+
+  <!-- Variant 1: Modern Styled Range Slider with Value Display -->
+  <div class="flex flex-col gap-2 max-w-md">
+    <div class="flex items-center justify-between text-sm">
+      <label for="slider-basic" class="font-medium text-zinc-700 dark:text-zinc-300">01. Default Range Slider</label>
+      <span class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400">50%</span>
+    </div>
+    <input
+      type="range"
+      id="slider-basic"
+      min="0"
+      max="100"
+      value="50"
+      class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-200 accent-zinc-900 dark:bg-zinc-800 dark:accent-zinc-100"
+    />
+  </div>
+
+  <!-- Variant 2: Slider with Tick Marks (0% - 100%) -->
+  <div class="flex flex-col gap-3 max-w-md">
+    <div class="flex items-center justify-between text-sm">
+      <label for="slider-ticks" class="font-medium text-zinc-700 dark:text-zinc-300">02. Slider with Discrete Tick Marks</label>
+      <span class="font-mono text-xs font-semibold text-zinc-500 dark:text-zinc-400">Step 2 of 4</span>
+    </div>
+    <div class="relative flex flex-col gap-2">
+      <input
+        type="range"
+        id="slider-ticks"
+        min="0"
+        max="100"
+        step="25"
+        value="50"
+        class="z-10 h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-200 accent-zinc-900 dark:bg-zinc-800 dark:accent-zinc-100"
+      />
+      <!-- Ticks -->
+      <div class="flex justify-between px-1 text-zinc-300 dark:text-zinc-700 select-none">
+        <span class="h-1.5 w-0.5 bg-current rounded-full"></span>
+        <span class="h-1.5 w-0.5 bg-current rounded-full"></span>
+        <span class="h-1.5 w-0.5 bg-current rounded-full"></span>
+        <span class="h-1.5 w-0.5 bg-current rounded-full"></span>
+        <span class="h-1.5 w-0.5 bg-current rounded-full"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 3: Slider with Numbered Percentage Intervals -->
+  <div class="flex flex-col gap-2 max-w-md">
+    <div class="flex items-center justify-between text-sm">
+      <label for="slider-intervals" class="font-medium text-zinc-700 dark:text-zinc-300">03. Slider with Numbered Intervals</label>
+    </div>
+    <div class="relative flex flex-col gap-1.5">
+      <input
+        type="range"
+        id="slider-intervals"
+        min="0"
+        max="100"
+        step="25"
+        value="75"
+        class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-200 accent-zinc-900 dark:bg-zinc-800 dark:accent-zinc-100"
+      />
+      <div class="flex justify-between text-[11px] font-mono text-zinc-400 dark:text-zinc-500">
+        <span>0%</span>
+        <span>25%</span>
+        <span>50%</span>
+        <span class="font-semibold text-zinc-900 dark:text-zinc-100">75%</span>
+        <span>100%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 4: Slider with Dynamic Output Badge -->
+  <div class="flex flex-col gap-2 max-w-md">
+    <div class="flex items-center justify-between text-sm">
+      <label for="slider-badge" class="font-medium text-zinc-700 dark:text-zinc-300">04. Slider with Output Tooltip Badge</label>
+      <output for="slider-badge" class="inline-flex items-center rounded-md bg-zinc-900 px-2 py-0.5 font-mono text-xs font-medium text-white dark:bg-zinc-100 dark:text-zinc-900">
+         / mo
+      </output>
+    </div>
+    <input
+      type="range"
+      id="slider-badge"
+      min="10"
+      max="200"
+      value="75"
+      class="h-2 w-full cursor-pointer appearance-none rounded-lg bg-zinc-200 accent-zinc-900 dark:bg-zinc-800 dark:accent-zinc-100"
+    />
+  </div>
+
+  <!-- Variant 5: Volume & Brightness Media Controls with Min/Max Icons -->
+  <div class="flex flex-col gap-4 max-w-md">
+    <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">05. Media Level Controls (Volume)</span>
+    <div class="flex items-center gap-3 rounded-lg border border-zinc-200 bg-white p-3 shadow-xs dark:border-zinc-800 dark:bg-zinc-900">
+      <!-- Min Icon -->
+      <button type="button" aria-label="Mute volume" class="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        </svg>
+      </button>
+      <input
+        type="range"
+        aria-label="Adjust Volume"
+        min="0"
+        max="100"
+        value="65"
+        class="h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-zinc-200 accent-zinc-900 dark:bg-zinc-800 dark:accent-zinc-100"
+      />
+      <!-- Max Icon -->
+      <button type="button" aria-label="Max volume" class="text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200">
+        <svg class="size-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Variant 6: Stepped Pricing Tier Selector -->
+  <div class="flex flex-col gap-3 max-w-md">
+    <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">06. Stepped Pricing Tier Milestone Slider</span>
+    <div class="space-y-2">
+      <input
+        type="range"
+        min="1"
+        max="4"
+        step="1"
+        value="2"
+        aria-label="Pricing Tier"
+        class="h-2.5 w-full cursor-pointer appearance-none rounded-lg bg-zinc-200 accent-zinc-900 dark:bg-zinc-800 dark:accent-zinc-100"
+      />
+      <div class="grid grid-cols-4 text-center text-xs">
+        <div>
+          <span class="font-semibold text-zinc-700 dark:text-zinc-300">Free</span>
+          <p class="text-[10px] text-zinc-400">zsh</p>
+        </div>
+        <div>
+          <span class="font-semibold text-zinc-900 dark:text-zinc-100">Pro</span>
+          <p class="text-[10px] text-zinc-500 font-medium">/mo</p>
+        </div>
+        <div>
+          <span class="font-semibold text-zinc-700 dark:text-zinc-300">Team</span>
+          <p class="text-[10px] text-zinc-400">/mo</p>
+        </div>
+        <div>
+          <span class="font-semibold text-zinc-700 dark:text-zinc-300">Scale</span>
+          <p class="text-[10px] text-zinc-400">/mo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Variant 7: Color Spectrum Gradient Slider -->
+  <div class="flex flex-col gap-2 max-w-md">
+    <label for="slider-gradient" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">07. Color Hue Spectrum Slider</label>
+    <input
+      type="range"
+      id="slider-gradient"
+      min="0"
+      max="360"
+      value="180"
+      class="h-3 w-full cursor-pointer appearance-none rounded-lg bg-gradient-to-r from-red-500 via-yellow-500 via-green-500 via-blue-500 to-purple-500 accent-white dark:accent-zinc-900 shadow-inner"
+    />
+  </div>
+
+  <!-- Variant 8: Vertical Range Slider -->
+  <div class="flex flex-col gap-2">
+    <label for="slider-vertical" class="text-sm font-medium text-zinc-700 dark:text-zinc-300">08. Vertical Equalizer Slider</label>
+    <div class="flex items-center gap-4 h-36">
+      <input
+        type="range"
+        id="slider-vertical"
+        min="0"
+        max="100"
+        value="70"
+        class="h-32 w-2 cursor-pointer appearance-none rounded-lg bg-zinc-200 accent-zinc-900 dark:bg-zinc-800 dark:accent-zinc-100 [writing-mode:vertical-lr] [direction:rtl]"
+      />
+      <span class="font-mono text-xs font-semibold text-zinc-500">+4.5 dB</span>
+    </div>
+  </div>
+
+</div>
+```
+
+---
+
+## Component Anatomy & Architecture
+
+This component uses zero runtime JavaScript. All interactions, styling transitions, and state changes are handled natively by the browser engine via:
+- **::-webkit-slider-thumb**: Native browser execution without script parsing overhead.
+- **::-moz-range-thumb**: Native browser execution without script parsing overhead.
+
+### State Management
+- States like `:hover`, `:active`, `:focus-visible`, `:checked`, `:has()`, and `[open]` are handled declaratively in HTML and Tailwind CSS v4 utility classes.
+
+---
+
+## Accessibility & Keyboard Shortcuts
+
+- **WCAG 2.2 AA Compliant**: All color pairings adhere to APCA / WCAG contrast standards in both light and dark themes.
+- **Focus Indicators**: Includes high-contrast `focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none` rings for keyboard users.
+- **Reduced Motion**: All animations and transitions automatically pause or degrade to instant state changes when `prefers-reduced-motion: reduce` is detected.
+
+---
+
+## Customization & Tokens
+
+This component relies on Plain UI design tokens defined in `tokens.css`:
+- Backgrounds: `var(--background)`, `var(--card)`, `var(--popover)`
+- Foregrounds: `var(--foreground)`, `var(--primary)`, `var(--muted-foreground)`
+- Borders & Rings: `var(--border)`, `var(--ring)`, `var(--radius)`
+- Motion Timing: `var(--motion-dur-enter)`, `var(--motion-ease-enter)`

@@ -1,0 +1,67 @@
+---
+interface Props {
+  tabs: { id: string; label: string }[];
+  defaultTab?: string;
+  class?: string;
+}
+
+const { tabs, defaultTab = tabs[0]?.id, class: className = "" } = Astro.props;
+---
+
+<div class={`plain-tabs-component w-full ${className}`} data-active-tab={defaultTab}>
+  <!-- Tab Header List -->
+  <div 
+    role="tablist" 
+    class="flex items-center gap-1 p-1 rounded-xl bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700/80 text-sm max-w-md"
+  >
+    {tabs.map((tab, idx) => (
+      <button 
+        type="button" 
+        role="tab"
+        id={`tab-${tab.id}`}
+        aria-controls={`panel-${tab.id}`}
+        aria-selected={tab.id === defaultTab ? "true" : "false"}
+        data-tab-target={tab.id}
+        class={`flex-1 py-1.5 px-3 rounded-lg font-medium text-center transition-all cursor-pointer text-xs md:text-sm ${
+          tab.id === defaultTab 
+            ? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-sm" 
+            : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
+        }`}
+      >
+        {tab.label}
+      </button>
+    ))}
+  </div>
+
+  <!-- Tab Panels Slot -->
+  <div class="mt-4">
+    <slot />
+  </div>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('.plain-tabs-component').forEach(container => {
+    const buttons = container.querySelectorAll('button[role="tab"]');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-tab-target');
+        
+        buttons.forEach(b => {
+          b.setAttribute('aria-selected', 'false');
+          b.className = 'flex-1 py-1.5 px-3 rounded-lg font-medium text-center transition-all cursor-pointer text-xs md:text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100';
+        });
+
+        btn.setAttribute('aria-selected', 'true');
+        btn.className = 'flex-1 py-1.5 px-3 rounded-lg font-medium text-center transition-all cursor-pointer text-xs md:text-sm bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-sm';
+
+        container.querySelectorAll('[role="tabpanel"]').forEach(panel => {
+          if (panel.id === `panel-${targetId}`) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+      });
+    });
+  });
+</script>

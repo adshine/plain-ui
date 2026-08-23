@@ -1,0 +1,464 @@
+---
+title: "Dialog / Modal"
+description: "Zero-JS modal dialog built on HTML5 native <dialog> with @starting-style entrance animations and backdrop blur."
+category: "overlay"
+type: "registry:ui"
+zeroJs: true
+version: "1.0.0"
+dependencies: []
+registryDependencies: ["tokens","motion"]
+modernApis: ["<dialog>","@starting-style","::backdrop","allow-discrete"]
+---
+
+# Dialog / Modal
+
+> Zero-JS modal dialog built on HTML5 native <dialog> with @starting-style entrance animations and backdrop blur.
+
+## Overview
+
+- **Type**: `registry:ui`
+- **Zero JavaScript**: ✅ Yes (Pure HTML5 & Modern CSS)
+- **Category**: `overlay`
+- **Modern Browser APIs**: `<dialog>`, `@starting-style`, `::backdrop`, `allow-discrete`
+- **Tailwind Version**: Tailwind CSS v4 (@theme tokens)
+
+---
+
+## Installation
+
+### CLI Command
+
+```bash
+# Add using Plain UI CLI
+npx plain-ui add dialog
+
+# Or using pnpm dlx
+pnpm dlx plain-ui add dialog
+```
+
+### Manual Installation
+
+Copy the source files below directly into your project structure:
+- **`src/components/ui/dialog.html`** (`registry:ui`)
+- **`src/styles/dialog.css`** (`registry:style`)
+
+---
+
+## Source Code
+
+### `dialog.html` (`src/components/ui/dialog.html`)
+
+```html
+<!--
+  Plain UI - Dialog Component
+  Pure HTML5 / Tailwind v4 Zero-JS Native <dialog> Primitives
+  Includes @starting-style entrance/exit animations, ::backdrop blur, method='dialog' dismiss
+-->
+
+<!-- Include Dialog Stylesheet or link to dialog.css -->
+<style>
+  /* Zero-JS Dialog Transitions & Backdrop Blur */
+  dialog {
+    display: none;
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+    transition: 
+      opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+      display 0.2s allow-discrete,
+      overlay 0.2s allow-discrete;
+    margin: auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 2rem);
+    overflow: visible;
+  }
+
+  dialog[open] {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      transform: scale(0.96) translateY(8px);
+    }
+  }
+
+  dialog::backdrop {
+    background-color: rgb(0 0 0 / 0);
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    transition: 
+      opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      backdrop-filter 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      display 0.25s allow-discrete,
+      overlay 0.25s allow-discrete;
+  }
+
+  dialog[open]::backdrop {
+    opacity: 1;
+    background-color: rgb(0 0 0 / 0.55);
+    backdrop-filter: blur(8px);
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      opacity: 0;
+      background-color: rgb(0 0 0 / 0);
+      backdrop-filter: blur(0px);
+    }
+  }
+</style>
+
+<div class="space-y-12 p-6 max-w-5xl mx-auto font-sans">
+  <!-- Section 1: Standard Form Dialog -->
+  <section class="space-y-4">
+    <div>
+      <h3 class="text-lg font-semibold text-foreground">Standard Dialog (Modal)</h3>
+      <p class="text-sm text-muted-foreground">Native HTML5 &lt;dialog&gt; triggered via HTML Invoker Commands (<code>commandfor="dialog-id" command="show-modal"</code>) with native <code>method="dialog"</code> form submission.</p>
+    </div>
+
+    <!-- Trigger Button -->
+    <button 
+      type="button"
+      commandfor="edit-profile-dialog"
+      command="show-modal"
+      class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-xs hover:bg-primary/90 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 cursor-pointer"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+      </svg>
+      Edit Profile
+    </button>
+
+    <!-- Modal Dialog Element -->
+    <dialog 
+      id="edit-profile-dialog" 
+      aria-labelledby="edit-profile-title"
+      aria-describedby="edit-profile-desc"
+      class="fixed inset-0 z-50 m-auto"
+    >
+      <div class="w-full max-w-lg bg-card text-card-foreground border border-border rounded-xl shadow-2xl overflow-hidden">
+        <!-- Dialog Header -->
+        <div class="flex items-center justify-between px-6 py-4 border-b border-border/60 bg-muted/20">
+          <div class="space-y-0.5">
+            <h4 id="edit-profile-title" class="text-base font-semibold text-foreground">Edit Profile</h4>
+            <p id="edit-profile-desc" class="text-xs text-muted-foreground">Make changes to your public profile settings here.</p>
+          </div>
+          <!-- Close Icon (method='dialog') -->
+          <form method="dialog" class="inline-flex">
+            <button 
+              type="submit" 
+              aria-label="Close dialog"
+              class="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <!-- Dialog Body / Form -->
+        <form method="dialog" class="p-6 space-y-4">
+          <div class="space-y-2">
+            <label for="dialog-name" class="text-xs font-medium text-foreground">Name</label>
+            <input 
+              id="dialog-name" 
+              type="text" 
+              value="Alex Mercer" 
+              placeholder="Your name" 
+              class="w-full px-3 py-2 text-sm bg-background border border-input rounded-lg shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
+            />
+          </div>
+
+          <div class="space-y-2">
+            <label for="dialog-username" class="text-xs font-medium text-foreground">Username</label>
+            <input 
+              id="dialog-username" 
+              type="text" 
+              value="@alexmercer" 
+              placeholder="@username" 
+              class="w-full px-3 py-2 text-sm bg-background border border-input rounded-lg shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
+            />
+          </div>
+
+          <div class="space-y-2">
+            <label for="dialog-bio" class="text-xs font-medium text-foreground">Bio</label>
+            <textarea 
+              id="dialog-bio" 
+              rows="3" 
+              placeholder="Tell us a little bit about yourself" 
+              class="w-full px-3 py-2 text-sm bg-background border border-input rounded-lg shadow-2xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors resize-none"
+            >Senior systems designer passionate about zero-JS HTML primitives and design systems.</textarea>
+          </div>
+
+          <!-- Dialog Footer Actions -->
+          <div class="flex items-center justify-end gap-3 pt-4 border-t border-border/60">
+            <button 
+              type="submit" 
+              value="cancel"
+              class="px-4 py-2 text-sm font-medium text-foreground bg-background border border-input rounded-lg shadow-2xs hover:bg-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
+            >
+              Cancel
+            </button>
+            <button 
+              type="submit" 
+              value="save"
+              class="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-xs hover:bg-primary/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
+            >
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </section>
+
+  <!-- Section 2: Alert / Destructive Confirmation Dialog -->
+  <section class="space-y-4">
+    <div>
+      <h3 class="text-lg font-semibold text-foreground">Destructive Confirmation Dialog</h3>
+      <p class="text-sm text-muted-foreground">Alert dialog for confirming irreversible actions like account deletion or resource termination.</p>
+    </div>
+
+    <!-- Trigger Button -->
+    <button 
+      type="button"
+      commandfor="delete-account-dialog"
+      command="show-modal"
+      class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-destructive-foreground bg-destructive rounded-lg shadow-xs hover:bg-destructive/90 active:scale-[0.98] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-destructive cursor-pointer"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+      </svg>
+      Delete Project
+    </button>
+
+    <!-- Destructive Dialog Element -->
+    <dialog 
+      id="delete-account-dialog" 
+      aria-labelledby="delete-dialog-title"
+      aria-describedby="delete-dialog-desc"
+      class="fixed inset-0 z-50 m-auto"
+    >
+      <div class="w-full max-w-md bg-card text-card-foreground border border-border rounded-xl shadow-2xl p-6 space-y-4">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-destructive/10 text-destructive flex items-center justify-center">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <div class="space-y-1">
+            <h4 id="delete-dialog-title" class="text-base font-semibold text-foreground">Are you absolutely sure?</h4>
+            <p id="delete-dialog-desc" class="text-xs text-muted-foreground leading-relaxed">
+              This action cannot be undone. This will permanently delete your project repository and remove all connected API keys and deployment pipelines.
+            </p>
+          </div>
+        </div>
+
+        <form method="dialog" class="flex items-center justify-end gap-3 pt-2">
+          <button 
+            type="submit" 
+            value="cancel"
+            class="px-4 py-2 text-sm font-medium text-foreground bg-background border border-input rounded-lg shadow-2xs hover:bg-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring cursor-pointer"
+          >
+            Cancel
+          </button>
+          <button 
+            type="submit" 
+            value="confirm-delete"
+            class="px-4 py-2 text-sm font-medium text-destructive-foreground bg-destructive rounded-lg shadow-xs hover:bg-destructive/90 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-destructive cursor-pointer"
+          >
+            Yes, delete project
+          </button>
+        </form>
+      </div>
+    </dialog>
+  </section>
+
+  <!-- Section 3: Scrollable Long Content Dialog -->
+  <section class="space-y-4">
+    <div>
+      <h3 class="text-lg font-semibold text-foreground">Scrollable Content Dialog</h3>
+      <p class="text-sm text-muted-foreground">Modal dialog with pinned header & footer and scrollable central viewport.</p>
+    </div>
+
+    <!-- Trigger Button -->
+    <button 
+      type="button"
+      commandfor="terms-dialog"
+      command="show-modal"
+      class="inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-foreground bg-background border border-input rounded-lg shadow-2xs hover:bg-accent hover:text-accent-foreground transition-all cursor-pointer"
+    >
+      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+      Terms & Privacy Policy
+    </button>
+
+    <!-- Scrollable Dialog Element -->
+    <dialog 
+      id="terms-dialog" 
+      aria-labelledby="terms-title"
+      class="fixed inset-0 z-50 m-auto"
+    >
+      <div class="w-full max-w-2xl bg-card text-card-foreground border border-border rounded-xl shadow-2xl flex flex-col max-h-[80vh]">
+        <div class="flex items-center justify-between px-6 py-4 border-b border-border/60 flex-shrink-0">
+          <h4 id="terms-title" class="text-base font-semibold text-foreground">Terms of Service & Licensing</h4>
+          <form method="dialog" class="inline-flex">
+            <button 
+              type="submit" 
+              aria-label="Close terms"
+              class="p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent transition-colors cursor-pointer"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </form>
+        </div>
+
+        <div class="p-6 overflow-y-auto space-y-4 text-xs text-muted-foreground leading-relaxed">
+          <p class="font-medium text-foreground">1. Open Source License</p>
+          <p>Plain UI is provided as a zero-JS component primitive collection licensed under the MIT license. You are free to copy, modify, and distribute these components in any personal or commercial project.</p>
+          <p class="font-medium text-foreground">2. Zero-JS Guarantee</p>
+          <p>All component primitives in this registry are built strictly with semantic HTML5 elements, CSS Anchor Positioning, Modern Popover API, Details-content transitions, and CSS @starting-style animations.</p>
+          <p class="font-medium text-foreground">3. Browser Support & Progressive Enhancement</p>
+          <p>Features such as CSS Anchor Positioning and Invoker Commands provide clean fallbacks across standard evergreen engines. By default, all elements degrade gracefully to accessible HTML5 structures.</p>
+          <p class="font-medium text-foreground">4. Privacy & Telemetry</p>
+          <p>No analytics or telemetry scripts are embedded into component source code. What you see is what you build.</p>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-border/60 bg-muted/10 flex-shrink-0">
+          <form method="dialog" class="flex items-center gap-3">
+            <button 
+              type="submit" 
+              value="decline"
+              class="px-4 py-2 text-sm font-medium text-foreground bg-background border border-input rounded-lg shadow-2xs hover:bg-accent transition-colors cursor-pointer"
+            >
+              Decline
+            </button>
+            <button 
+              type="submit" 
+              value="accept"
+              class="px-4 py-2 text-sm font-medium text-primary-foreground bg-primary rounded-lg shadow-xs hover:bg-primary/90 transition-colors cursor-pointer"
+            >
+              I Accept
+            </button>
+          </form>
+        </div>
+      </div>
+    </dialog>
+  </section>
+</div>
+```
+
+### `dialog.css` (`src/styles/dialog.css`)
+
+```css
+/*
+  Plain UI - Dialog Stylesheet
+  Zero-JS transitions with @starting-style, backdrop blur & discrete transitions
+*/
+
+@layer components {
+  /* Base Dialog Reset & Default Styling */
+  dialog {
+    display: none;
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+    transition: 
+      opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+      display 0.2s allow-discrete,
+      overlay 0.2s allow-discrete;
+    margin: auto;
+    padding: 0;
+    border: none;
+    background: transparent;
+    max-width: calc(100vw - 2rem);
+    max-height: calc(100vh - 2rem);
+    overflow: visible;
+  }
+
+  /* Open State */
+  dialog[open] {
+    display: block;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  /* Entrance Animation with @starting-style */
+  @starting-style {
+    dialog[open] {
+      opacity: 0;
+      transform: scale(0.95) translateY(10px);
+    }
+  }
+
+  /* Backdrop Styling & Animation */
+  dialog::backdrop {
+    background-color: rgb(0 0 0 / 0);
+    backdrop-filter: blur(0px);
+    opacity: 0;
+    transition: 
+      opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      backdrop-filter 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+      display 0.25s allow-discrete,
+      overlay 0.25s allow-discrete;
+  }
+
+  dialog[open]::backdrop {
+    opacity: 1;
+    background-color: rgb(0 0 0 / 0.55);
+    backdrop-filter: blur(8px);
+  }
+
+  @starting-style {
+    dialog[open]::backdrop {
+      opacity: 0;
+      background-color: rgb(0 0 0 / 0);
+      backdrop-filter: blur(0px);
+    }
+  }
+}
+```
+
+---
+
+## Component Anatomy & Architecture
+
+This component uses zero runtime JavaScript. All interactions, styling transitions, and state changes are handled natively by the browser engine via:
+- **<dialog>**: Native browser execution without script parsing overhead.
+- **@starting-style**: Native browser execution without script parsing overhead.
+- **::backdrop**: Native browser execution without script parsing overhead.
+- **allow-discrete**: Native browser execution without script parsing overhead.
+
+### State Management
+- States like `:hover`, `:active`, `:focus-visible`, `:checked`, `:has()`, and `[open]` are handled declaratively in HTML and Tailwind CSS v4 utility classes.
+
+---
+
+## Accessibility & Keyboard Shortcuts
+
+- **WCAG 2.2 AA Compliant**: All color pairings adhere to APCA / WCAG contrast standards in both light and dark themes.
+- **Focus Indicators**: Includes high-contrast `focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none` rings for keyboard users.
+- **Reduced Motion**: All animations and transitions automatically pause or degrade to instant state changes when `prefers-reduced-motion: reduce` is detected.
+
+---
+
+## Customization & Tokens
+
+This component relies on Plain UI design tokens defined in `tokens.css`:
+- Backgrounds: `var(--background)`, `var(--card)`, `var(--popover)`
+- Foregrounds: `var(--foreground)`, `var(--primary)`, `var(--muted-foreground)`
+- Borders & Rings: `var(--border)`, `var(--ring)`, `var(--radius)`
+- Motion Timing: `var(--motion-dur-enter)`, `var(--motion-ease-enter)`

@@ -1,0 +1,36 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Sidebar from '../components/Sidebar.astro';
+import SearchDialog from '../components/SearchDialog.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  activeSlug?: string;
+}
+
+const { title, description, activeSlug } = Astro.props;
+---
+
+<BaseLayout title={title ? `${title} - Plain UI Docs` : "Plain UI Documentation"} description={description}>
+  <Header />
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex">
+    <!-- Sidebar Navigation -->
+    <Sidebar activeSlug={activeSlug} />
+
+    <!-- Main Content Area -->
+    <main class="flex-1 lg:pl-64 py-10 px-0 sm:px-6 min-w-0">
+      <div class="flex items-start justify-between gap-10">
+        <div class="flex-1 min-w-0 max-w-4xl">
+          <slot />
+        </div>
+        <TableOfContents />
+      </div>
+    </main>
+  </div>
+
+  <SearchDialog />
+</BaseLayout>

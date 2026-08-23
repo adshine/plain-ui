@@ -1,0 +1,135 @@
+<!-- Plain UI: Combobox Component (Light-DOM, Accessible, Zero-Dependency) -->
+<div class="w-full max-w-sm mx-auto">
+  <label for="framework-combobox-input" class="block text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-1.5">
+    Select Framework
+  </label>
+
+  <div data-combobox class="relative w-full">
+    <!-- Combobox Input Trigger -->
+    <div class="relative flex items-center">
+      <svg class="absolute left-3 w-4 h-4 text-zinc-400 pointer-events-none" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="9" cy="9" r="6" />
+        <path d="M13.5 13.5L17 17" />
+      </svg>
+      <input
+        type="text"
+        id="framework-combobox-input"
+        role="combobox"
+        aria-expanded="false"
+        aria-autocomplete="list"
+        aria-haspopup="listbox"
+        aria-controls="framework-listbox"
+        placeholder="Search frameworks..."
+        autocomplete="off"
+        class="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 pl-9 pr-8 py-2 text-sm text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 dark:placeholder-zinc-500 shadow-sm outline-none transition-all focus:border-zinc-900 focus:ring-2 focus:ring-zinc-950/10 dark:focus:border-zinc-100 dark:focus:ring-zinc-100/10"
+      />
+      <svg class="absolute right-3 w-4 h-4 text-zinc-400 pointer-events-none" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
+      </svg>
+    </div>
+
+    <!-- Dropdown Listbox -->
+    <div
+      role="listbox"
+      id="framework-listbox"
+      tabindex="-1"
+      hidden
+      class="absolute left-0 top-full z-50 mt-1.5 max-h-60 w-full overflow-y-auto rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-1.5 text-sm shadow-xl focus:outline-none"
+    >
+      <div
+        role="option"
+        id="opt-astro"
+        data-value="astro"
+        data-label="Astro"
+        aria-selected="false"
+        tabindex="-1"
+        class="relative flex cursor-pointer select-none items-center justify-between rounded-lg px-3 py-2 text-zinc-800 dark:text-zinc-200 transition-colors data-[active=true]:bg-zinc-100 dark:data-[active=true]:bg-zinc-800/80 data-[selected=true]:font-semibold data-[selected=true]:text-zinc-950 dark:data-[selected=true]:text-white"
+      >
+        <span class="flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-orange-500"></span>
+          <span>Astro</span>
+        </span>
+      </div>
+
+      <div
+        role="option"
+        id="opt-nextjs"
+        data-value="nextjs"
+        data-label="Next.js"
+        aria-selected="false"
+        tabindex="-1"
+        class="relative flex cursor-pointer select-none items-center justify-between rounded-lg px-3 py-2 text-zinc-800 dark:text-zinc-200 transition-colors data-[active=true]:bg-zinc-100 dark:data-[active=true]:bg-zinc-800/80 data-[selected=true]:font-semibold data-[selected=true]:text-zinc-950 dark:data-[selected=true]:text-white"
+      >
+        <span class="flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-zinc-900 dark:bg-zinc-100"></span>
+          <span>Next.js</span>
+        </span>
+      </div>
+
+      <div
+        role="option"
+        id="opt-svelte"
+        data-value="svelte"
+        data-label="Svelte / SvelteKit"
+        aria-selected="false"
+        tabindex="-1"
+        class="relative flex cursor-pointer select-none items-center justify-between rounded-lg px-3 py-2 text-zinc-800 dark:text-zinc-200 transition-colors data-[active=true]:bg-zinc-100 dark:data-[active=true]:bg-zinc-800/80 data-[selected=true]:font-semibold data-[selected=true]:text-zinc-950 dark:data-[selected=true]:text-white"
+      >
+        <span class="flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-red-500"></span>
+          <span>Svelte / SvelteKit</span>
+        </span>
+      </div>
+
+      <div
+        role="option"
+        id="opt-vite"
+        data-value="vite"
+        data-label="Vite + Vanilla JS"
+        aria-selected="false"
+        tabindex="-1"
+        class="relative flex cursor-pointer select-none items-center justify-between rounded-lg px-3 py-2 text-zinc-800 dark:text-zinc-200 transition-colors data-[active=true]:bg-zinc-100 dark:data-[active=true]:bg-zinc-800/80 data-[selected=true]:font-semibold data-[selected=true]:text-zinc-950 dark:data-[selected=true]:text-white"
+      >
+        <span class="flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-purple-500"></span>
+          <span>Vite + Vanilla JS</span>
+        </span>
+      </div>
+
+      <div
+        role="option"
+        id="opt-htmx"
+        data-value="htmx"
+        data-label="htmx + Tailwind"
+        aria-selected="false"
+        tabindex="-1"
+        class="relative flex cursor-pointer select-none items-center justify-between rounded-lg px-3 py-2 text-zinc-800 dark:text-zinc-200 transition-colors data-[active=true]:bg-zinc-100 dark:data-[active=true]:bg-zinc-800/80 data-[selected=true]:font-semibold data-[selected=true]:text-zinc-950 dark:data-[selected=true]:text-white"
+      >
+        <span class="flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-sky-500"></span>
+          <span>htmx + Tailwind</span>
+        </span>
+      </div>
+
+      <div
+        role="option"
+        id="opt-hono"
+        data-value="hono"
+        data-label="Hono"
+        aria-selected="false"
+        tabindex="-1"
+        class="relative flex cursor-pointer select-none items-center justify-between rounded-lg px-3 py-2 text-zinc-800 dark:text-zinc-200 transition-colors data-[active=true]:bg-zinc-100 dark:data-[active=true]:bg-zinc-800/80 data-[selected=true]:font-semibold data-[selected=true]:text-zinc-950 dark:data-[selected=true]:text-white"
+      >
+        <span class="flex items-center gap-2">
+          <span class="h-2 w-2 rounded-full bg-amber-500"></span>
+          <span>Hono</span>
+        </span>
+      </div>
+
+      <!-- Empty Result Notice -->
+      <div data-combobox-empty hidden class="px-3 py-6 text-center text-sm text-zinc-400 dark:text-zinc-500">
+        No framework found.
+      </div>
+    </div>
+  </div>
+</div>

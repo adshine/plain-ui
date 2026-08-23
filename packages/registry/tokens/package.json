@@ -1,0 +1,38 @@
+{
+  "name": "@plain-ui/tokens",
+  "version": "0.1.0",
+  "description": "3-tier OKLCH token system, base semantic reset, and theme presets for Plain UI",
+  "type": "module",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "style": "./index.css",
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "types": "./index.ts",
+      "style": "./index.css"
+    },
+    "./tokens.css": "./tokens.css",
+    "./base.css": "./base.css",
+    "./themes.css": "./themes.css",
+    "./index.css": "./index.css"
+  },
+  "files": [
+    "tokens.css",
+    "base.css",
+    "themes.css",
+    "index.css",
+    "index.ts"
+  ],
+  "keywords": [
+    "plain-ui",
+    "tokens",
+    "oklch",
+    "design-system",
+    "css",
+    "themes",
+    "wcag",
+    "apca"
+  ],
+  "license": "MIT"
+}

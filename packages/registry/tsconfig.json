@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": [
+    "motion/**/*",
+    "tokens/**/*",
+    "ui/**/*",
+    "index.ts"
+  ]
+}
