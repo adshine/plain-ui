@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "plain-ui",
+  "main": "src/worker.ts",
+  "compatibility_date": "2026-08-20",
+  "account_id": "a368b67129b338cccd8c3260b341d3f5",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
