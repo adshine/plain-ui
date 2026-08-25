@@ -1,0 +1,467 @@
+{
+  "timeline": [
+    {
+      "label": "start",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-0",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": [
+        {
+          "t": 0,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        },
+        {
+          "t": 0,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        }
+      ]
+    },
+    {
+      "label": "fwd-1",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": [
+        {
+          "t": 99.99999999999997,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        },
+        {
+          "t": 99.99999999999997,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        }
+      ]
+    },
+    {
+      "label": "fwd-2",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-3",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-4",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-5",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-6",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-7",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-8",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-9",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-10",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-11",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "fwd-settled",
+      "h": [
+        54,
+        143.25,
+        54
+      ],
+      "open": [
+        false,
+        true,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-0",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": [
+        {
+          "t": 0,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        },
+        {
+          "t": 0,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        }
+      ]
+    },
+    {
+      "label": "rev-1",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": [
+        {
+          "t": 100.00000000000009,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        },
+        {
+          "t": 100.00000000000009,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        }
+      ]
+    },
+    {
+      "label": "rev-2",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": [
+        {
+          "t": 199.89999999999998,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        },
+        {
+          "t": 199.89999999999998,
+          "dur": 200,
+          "state": "running",
+          "target": "svg"
+        }
+      ]
+    },
+    {
+      "label": "rev-3",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-4",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-5",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-6",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-7",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-8",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-9",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-10",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-11",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    },
+    {
+      "label": "rev-settled",
+      "h": [
+        143.25,
+        54,
+        54
+      ],
+      "open": [
+        true,
+        false,
+        false
+      ],
+      "anims": []
+    }
+  ],
+  "heightChanges": [
+    {
+      "from": "start",
+      "to": "fwd-0",
+      "dh": [
+        89.25,
+        89.25,
+        0
+      ]
+    },
+    {
+      "from": "fwd-settled",
+      "to": "rev-0",
+      "dh": [
+        89.25,
+        89.25,
+        0
+      ]
+    }
+  ]
+}

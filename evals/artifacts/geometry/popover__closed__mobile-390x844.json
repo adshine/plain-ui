@@ -1,0 +1,343 @@
+{
+  "slug": "popover",
+  "state": "closed",
+  "viewport": {
+    "name": "mobile-390x844",
+    "width": 390,
+    "height": 844
+  },
+  "url": "http://127.0.0.1:4321/docs/components/popover",
+  "devicePixelRatio": 1,
+  "scroll": {
+    "x": 0,
+    "y": 162
+  },
+  "playgroundBox": {
+    "x": 16,
+    "y": 307,
+    "width": 358,
+    "height": 538
+  },
+  "geometry": {
+    "iframeInnerSize": {
+      "width": 322,
+      "height": 358
+    },
+    "htmlInterpolateSize": "allow-keywords",
+    "targets": {
+      "button": [
+        {
+          "index": 0,
+          "tag": "button",
+          "id": null,
+          "className": "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg shadow-sm hover:bg-zinc-800 c",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 81.90625,
+            "y": 161,
+            "width": 158.171875,
+            "height": 36,
+            "top": 161,
+            "left": 81.90625,
+            "bottom": 197,
+            "right": 240.078125
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "8px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Toggle Popover"
+        }
+      ],
+      "[popover]": [
+        {
+          "index": 0,
+          "tag": "div",
+          "id": "demo-popover",
+          "className": "m-0 mt-2 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-xl max-w-xs w-72 backdrop:",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "left": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "display": "none",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "8px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "auto",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "\n    \n      \n        \n          AU\n        \n        \n          Antigravity UI\n  "
+        }
+      ],
+      "#demo-popover": [
+        {
+          "index": 0,
+          "tag": "div",
+          "id": "demo-popover",
+          "className": "m-0 mt-2 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-xl max-w-xs w-72 backdrop:",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "left": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "display": "none",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "8px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "auto",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "\n    \n      \n        \n          AU\n        \n        \n          Antigravity UI\n  "
+        }
+      ]
+    },
+    "buttonRects": [
+      {
+        "tag": "button",
+        "id": null,
+        "className": "inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg shadow-sm hover:bg-zinc-800 c",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 81.90625,
+          "y": 161,
+          "width": 158.171875,
+          "height": 36,
+          "top": 161,
+          "left": 81.90625,
+          "bottom": 197,
+          "right": 240.078125
+        },
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "8px",
+        "rowGap": "8px",
+        "columnGap": "8px",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "center",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      }
+    ],
+    "details": [],
+    "dialogs": [],
+    "popovers": [
+      {
+        "id": "demo-popover",
+        "matchesOpen": false,
+        "tag": "div",
+        "className": "m-0 mt-2 p-4 rounded-xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 text-zinc-900 dark:text-zinc-100 shadow-xl max-w-xs w-72 backdrop:",
+        "open": null,
+        "disabled": null,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "left": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "display": "none",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "8px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "16px",
+          "16px",
+          "16px",
+          "16px"
+        ],
+        "border": [
+          "1px",
+          "1px",
+          "1px",
+          "1px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "auto",
+        "lineHeight": "24px",
+        "fontSize": "16px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      }
+    ],
+    "animations": []
+  },
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    }
+  ],
+  "screenshots": {
+    "playground": "/workspace/evals/artifacts/raw/popover__closed__mobile-390x844.png",
+    "viewport": "/workspace/evals/artifacts/raw/popover__closed__mobile-390x844__viewport.png",
+    "iframe": "/workspace/evals/artifacts/raw/popover__closed__mobile-390x844__iframe.png"
+  },
+  "loadedAt": "2026-08-25T22:59:32.339Z"
+}

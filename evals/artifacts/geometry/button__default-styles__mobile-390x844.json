@@ -1,0 +1,516 @@
+{
+  "slug": "button",
+  "state": "default-styles",
+  "viewport": {
+    "name": "mobile-390x844",
+    "width": 390,
+    "height": 844
+  },
+  "url": "http://127.0.0.1:4321/docs/components/button",
+  "devicePixelRatio": 1,
+  "scroll": {
+    "x": 0,
+    "y": 162
+  },
+  "playgroundBox": {
+    "x": 16,
+    "y": 307,
+    "width": 358,
+    "height": 538
+  },
+  "geometry": {
+    "iframeInnerSize": {
+      "width": 322,
+      "height": 358
+    },
+    "htmlInterpolateSize": "allow-keywords",
+    "targets": {
+      "button": [
+        {
+          "index": 0,
+          "tag": "button",
+          "id": null,
+          "className": "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg shadow-sm hove",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 94.8125,
+            "y": 108,
+            "width": 132.359375,
+            "height": 36,
+            "top": 108,
+            "left": 94.8125,
+            "bottom": 144,
+            "right": 227.171875
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "8px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Primary Button"
+        },
+        {
+          "index": 1,
+          "tag": "button",
+          "id": null,
+          "className": "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-zinc-900 bg-zinc-100 hover:bg-zinc-200 dark:text-zinc-100 dark:bg-zinc-800 dark",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 61.375,
+            "y": 161,
+            "width": 100.8125,
+            "height": 36,
+            "top": 161,
+            "left": 61.375,
+            "bottom": 197,
+            "right": 162.1875
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "8px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Secondary"
+        },
+        {
+          "index": 2,
+          "tag": "button",
+          "id": null,
+          "className": "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 bg-tran",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 178.1875,
+            "y": 160,
+            "width": 82.421875,
+            "height": 38,
+            "top": 160,
+            "left": 178.1875,
+            "bottom": 198,
+            "right": 260.609375
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "8px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Outline"
+        },
+        {
+          "index": 3,
+          "tag": "button",
+          "id": null,
+          "className": "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 active:scale-[0.98] rounded-lg shadow-sm tran",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 107.640625,
+            "y": 214,
+            "width": 106.71875,
+            "height": 36,
+            "top": 214,
+            "left": 107.640625,
+            "bottom": 250,
+            "right": 214.359375
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "8px",
+          "rowGap": "8px",
+          "columnGap": "8px",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "center",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Destructive"
+        }
+      ]
+    },
+    "buttonRects": [
+      {
+        "tag": "button",
+        "id": null,
+        "className": "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg shadow-sm hove",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 94.8125,
+          "y": 108,
+          "width": 132.359375,
+          "height": 36,
+          "top": 108,
+          "left": 94.8125,
+          "bottom": 144,
+          "right": 227.171875
+        },
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "8px",
+        "rowGap": "8px",
+        "columnGap": "8px",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0.15s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-zinc-900 bg-zinc-100 hover:bg-zinc-200 dark:text-zinc-100 dark:bg-zinc-800 dark",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 61.375,
+          "y": 161,
+          "width": 100.8125,
+          "height": 36,
+          "top": 161,
+          "left": 61.375,
+          "bottom": 197,
+          "right": 162.1875
+        },
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "8px",
+        "rowGap": "8px",
+        "columnGap": "8px",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0.15s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-zinc-900 dark:text-zinc-100 border border-zinc-300 dark:border-zinc-700 bg-tran",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 178.1875,
+          "y": 160,
+          "width": 82.421875,
+          "height": 38,
+          "top": 160,
+          "left": 178.1875,
+          "bottom": 198,
+          "right": 260.609375
+        },
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "8px",
+        "rowGap": "8px",
+        "columnGap": "8px",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "1px",
+          "1px",
+          "1px",
+          "1px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0.15s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "inline-flex items-center justify-center gap-2 px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 active:scale-[0.98] rounded-lg shadow-sm tran",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 107.640625,
+          "y": 214,
+          "width": 106.71875,
+          "height": 36,
+          "top": 214,
+          "left": 107.640625,
+          "bottom": 250,
+          "right": 214.359375
+        },
+        "display": "flex",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "8px",
+        "rowGap": "8px",
+        "columnGap": "8px",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0.15s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      }
+    ],
+    "buttonCenterIntervals": [
+      -49.2109375,
+      107.6171875,
+      -58.3984375
+    ],
+    "buttonEdgeGaps": [
+      -165.796875,
+      16,
+      -152.96875
+    ],
+    "details": [],
+    "dialogs": [],
+    "popovers": [],
+    "animations": []
+  },
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    }
+  ],
+  "screenshots": {
+    "playground": "/workspace/evals/artifacts/raw/button__default-styles__mobile-390x844.png",
+    "viewport": "/workspace/evals/artifacts/raw/button__default-styles__mobile-390x844__viewport.png",
+    "iframe": "/workspace/evals/artifacts/raw/button__default-styles__mobile-390x844__iframe.png"
+  },
+  "loadedAt": "2026-08-25T22:59:10.423Z"
+}

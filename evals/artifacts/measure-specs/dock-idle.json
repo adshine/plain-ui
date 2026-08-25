@@ -1,0 +1,45 @@
+{
+  "device_pixel_ratio": 1,
+  "regions": [
+    {
+      "name": "icon-0",
+      "box": [
+        193.5,
+        181,
+        241.5,
+        229
+      ],
+      "threshold": 40
+    },
+    {
+      "name": "icon-1",
+      "box": [
+        249.5,
+        181,
+        297.5,
+        229
+      ],
+      "threshold": 40
+    },
+    {
+      "name": "icon-2",
+      "box": [
+        305.5,
+        181,
+        353.5,
+        229
+      ],
+      "threshold": 40
+    },
+    {
+      "name": "icon-3",
+      "box": [
+        378.5,
+        181,
+        426.5,
+        229
+      ],
+      "threshold": 40
+    }
+  ]
+}

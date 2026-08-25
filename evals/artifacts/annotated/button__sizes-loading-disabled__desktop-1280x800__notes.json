@@ -1,0 +1,28 @@
+{
+  "gates": [
+    {
+      "name": "size-row-centerY-spread",
+      "value": 0.0,
+      "pass": true,
+      "toleranceCssPx": 1
+    }
+  ],
+  "owner_causes": [],
+  "centerYs": [
+    209.0,
+    209.0,
+    209.0,
+    209.0,
+    209.0
+  ],
+  "disabled": [
+    {
+      "opacity": "0.75",
+      "h": 36
+    },
+    {
+      "opacity": "1",
+      "h": 36
+    }
+  ]
+}

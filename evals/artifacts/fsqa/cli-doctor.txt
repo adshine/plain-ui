@@ -1,0 +1,13 @@
+- Auditing design tokens, orphan variables, accessibility tags, and lockfile...
+
+Plain UI Doctor Diagnostic Report
+════════════════════════════════════════════════════════════
+
+ ERROR  components.json:1
+       Rule: config/missing
+       components.json configuration file is missing.
+       Fix:  Run npx plain init to configure Plain UI.
+
+────────────────────────────────────────────────────────────
+Audit Summary: 1 error(s), 0 warnings, 0 info notice(s)
+

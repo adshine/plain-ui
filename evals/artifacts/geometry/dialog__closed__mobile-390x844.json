@@ -1,0 +1,676 @@
+{
+  "slug": "dialog",
+  "state": "closed",
+  "viewport": {
+    "name": "mobile-390x844",
+    "width": 390,
+    "height": 844
+  },
+  "url": "http://127.0.0.1:4321/docs/components/dialog",
+  "devicePixelRatio": 1,
+  "scroll": {
+    "x": 0,
+    "y": 177
+  },
+  "playgroundBox": {
+    "x": 16,
+    "y": 307,
+    "width": 358,
+    "height": 538
+  },
+  "geometry": {
+    "iframeInnerSize": {
+      "width": 322,
+      "height": 358
+    },
+    "htmlInterpolateSize": "allow-keywords",
+    "targets": {
+      "button": [
+        {
+          "index": 0,
+          "tag": "button",
+          "id": null,
+          "className": "px-4 py-2.5 text-sm font-medium text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg shadow-sm hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 81.5,
+            "y": 159,
+            "width": 159,
+            "height": 40,
+            "top": 159,
+            "left": 81.5,
+            "bottom": 199,
+            "right": 240.5
+          },
+          "display": "inline-block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "10px",
+            "16px",
+            "10px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Open Dialog Modal"
+        },
+        {
+          "index": 1,
+          "tag": "button",
+          "id": null,
+          "className": "p-1 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 rounded-md cursor-pointer",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "left": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "4px",
+            "4px",
+            "4px",
+            "4px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "\n          \n        "
+        },
+        {
+          "index": 2,
+          "tag": "button",
+          "id": null,
+          "className": "px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg cursor-pointer",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "left": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "\n          Cancel\n        "
+        },
+        {
+          "index": 3,
+          "tag": "button",
+          "id": null,
+          "className": "px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg cursor-pointer",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "left": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "\n          Save Changes\n        "
+        }
+      ],
+      "dialog": [
+        {
+          "index": 0,
+          "tag": "dialog",
+          "id": "demo-modal",
+          "className": "p-0 rounded-2xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 backdrop:bg-black/60 backdrop:",
+          "open": false,
+          "disabled": null,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "left": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "display": "none",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "auto",
+            "auto",
+            "auto",
+            "auto"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "\n    \n      \n        Edit Profile\n        \n          \n        \n      \n\n      \n  "
+        }
+      ],
+      "#demo-modal": [
+        {
+          "index": 0,
+          "tag": "dialog",
+          "id": "demo-modal",
+          "className": "p-0 rounded-2xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 backdrop:bg-black/60 backdrop:",
+          "open": false,
+          "disabled": null,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "left": 0,
+            "bottom": 0,
+            "right": 0
+          },
+          "display": "none",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "auto",
+            "auto",
+            "auto",
+            "auto"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "\n    \n      \n        Edit Profile\n        \n          \n        \n      \n\n      \n  "
+        }
+      ]
+    },
+    "buttonRects": [
+      {
+        "tag": "button",
+        "id": null,
+        "className": "px-4 py-2.5 text-sm font-medium text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg shadow-sm hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 81.5,
+          "y": 159,
+          "width": 159,
+          "height": 40,
+          "top": 159,
+          "left": 81.5,
+          "bottom": 199,
+          "right": 240.5
+        },
+        "display": "inline-block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "10px",
+          "16px",
+          "10px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0.15s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "p-1 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 rounded-md cursor-pointer",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "left": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "4px",
+          "4px",
+          "4px",
+          "4px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "24px",
+        "fontSize": "16px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg cursor-pointer",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "left": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg cursor-pointer",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "left": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      }
+    ],
+    "buttonCenterIntervals": [
+      -161,
+      0,
+      0
+    ],
+    "buttonEdgeGaps": [
+      -240.5,
+      0,
+      0
+    ],
+    "details": [],
+    "dialogs": [
+      {
+        "open": false,
+        "tag": "dialog",
+        "id": "demo-modal",
+        "className": "p-0 rounded-2xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 backdrop:bg-black/60 backdrop:",
+        "disabled": null,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "left": 0,
+          "bottom": 0,
+          "right": 0
+        },
+        "display": "none",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "auto",
+          "auto",
+          "auto",
+          "auto"
+        ],
+        "padding": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "border": [
+          "1px",
+          "1px",
+          "1px",
+          "1px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "24px",
+        "fontSize": "16px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      }
+    ],
+    "popovers": [],
+    "animations": []
+  },
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    }
+  ],
+  "screenshots": {
+    "playground": "/workspace/evals/artifacts/raw/dialog__closed__mobile-390x844.png",
+    "viewport": "/workspace/evals/artifacts/raw/dialog__closed__mobile-390x844__viewport.png",
+    "iframe": "/workspace/evals/artifacts/raw/dialog__closed__mobile-390x844__iframe.png"
+  },
+  "loadedAt": "2026-08-25T22:59:15.473Z"
+}

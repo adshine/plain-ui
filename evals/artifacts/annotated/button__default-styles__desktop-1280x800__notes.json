@@ -1,0 +1,71 @@
+{
+  "gates": [
+    {
+      "name": "gap[0]==16",
+      "value": 16,
+      "pass": true,
+      "toleranceCssPx": 1
+    },
+    {
+      "name": "gap[1]==16",
+      "value": 16,
+      "pass": true,
+      "toleranceCssPx": 1
+    },
+    {
+      "name": "gap[2]==16",
+      "value": 16,
+      "pass": true,
+      "toleranceCssPx": 1
+    },
+    {
+      "name": "height[0]~primary",
+      "value": 36,
+      "primary": 36,
+      "delta": 0,
+      "pass": true
+    },
+    {
+      "name": "height[1]~primary",
+      "value": 36,
+      "primary": 36,
+      "delta": 0,
+      "pass": true
+    },
+    {
+      "name": "height[outline]=38",
+      "value": 38,
+      "primary": 36,
+      "delta": 2,
+      "pass": false,
+      "note": "FAIL under skill 1 CSS px box-geometry gate (delta 2). Border adds 2px without compensation.",
+      "toleranceCssPx": 1
+    },
+    {
+      "name": "height[3]~primary",
+      "value": 36,
+      "primary": 36,
+      "delta": 0,
+      "pass": true
+    }
+  ],
+  "owner_causes": [
+    {
+      "gate": "outline-height",
+      "class": "border-width-not-compensated",
+      "detail": "Outline button height 38 vs filled 36 (delta 2). Owning cause: 1px border on outline without matching height token; not a transform issue.",
+      "severity": "fail"
+    }
+  ],
+  "buttonEdgeGaps": [
+    16,
+    16,
+    16
+  ],
+  "heights": [
+    36,
+    36,
+    38,
+    36
+  ]
+}

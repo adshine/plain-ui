@@ -1,0 +1,13 @@
+{
+  "budgets": {
+    "pending_ms": 10000,
+    "truth_ms": 15000
+  },
+  "case_id": "happy-filter",
+  "created_at": "2026-08-25T23:03:43.973Z",
+  "mode": "live",
+  "run_id": "run_96d0de0d400740a2a4e1c5e31c656a1e",
+  "scenario_id": "docs-search",
+  "seed": "679f5b61b381a8c1",
+  "v": 1
+}

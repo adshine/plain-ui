@@ -1,0 +1,25 @@
+{
+  "gates": [
+    {
+      "name": "dialog-horizontal-center",
+      "value": 0.0,
+      "pass": true,
+      "iframe_w": 322
+    }
+  ],
+  "owner_causes": [],
+  "dialog": {
+    "open": true,
+    "display": "block",
+    "rect": {
+      "x": 16,
+      "y": 19,
+      "width": 290,
+      "height": 320,
+      "top": 19,
+      "left": 16,
+      "bottom": 339,
+      "right": 306
+    }
+  }
+}

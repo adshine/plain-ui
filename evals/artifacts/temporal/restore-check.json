@@ -1,0 +1,30 @@
+{
+  "openStart": [
+    true,
+    false,
+    false
+  ],
+  "openRestored": [
+    true,
+    false,
+    false
+  ],
+  "hStart": [
+    143.25,
+    54,
+    54
+  ],
+  "hRestored": [
+    143.25,
+    54,
+    54
+  ],
+  "heightDeltasCssPx": [
+    0,
+    0,
+    0
+  ],
+  "maxDelta": 0,
+  "passGate1px": true,
+  "passOpenState": true
+}
