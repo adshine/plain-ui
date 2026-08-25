@@ -1,269 +1,250 @@
 # Skills Visual QA Eval — Plain UI (2026-08-25)
 
-Eval of [measured-visual-qa](https://github.com/adshine/skills/tree/master/measured-visual-qa) and [full-stack-interaction-qa](https://github.com/adshine/skills/tree/master/full-stack-interaction-qa) against **this** repo (`adshine/plain-ui`), not a rewrite of Plain UI.
+Revised gate set (follow-up alignment with Antigravity / `agy` skill-fitness eval). **No Plain UI rewrites.**
+
+Skills under test:
+- [measured-visual-qa](https://github.com/adshine/skills/tree/master/measured-visual-qa) — **STATIC geometry (blocking)**
+- [full-stack-interaction-qa](https://github.com/adshine/skills/tree/master/full-stack-interaction-qa) — **OUT of blocking set** (optional smoke / evidence gaps only)
+
+## Repo layout (corrected)
+
+| Path | Role |
+|---|---|
+| `apps/docs` | Astro docs + playground (`pnpm --filter @plain-ui/docs dev`) |
+| `packages/registry/ui` | **Source-of-truth primitives** (HTML + companion CSS) |
+| `packages/registry/motion/motion.css` | Houdini `@property`, motion tokens, PRM overrides |
+| `packages/registry/tokens` | Design tokens |
+
+There is **no** `packages/apps/docs`.
+
+**Important:** `apps/docs` playground demos are simplified. Blocking gates were measured against **registry fixtures** served from `packages/registry/ui` at `http://127.0.0.1:4391/ui/<name>` (ephemeral fixture server), plus integrity probes on `apps/docs` at `http://127.0.0.1:4321`.
+
+---
 
 ## Executive verdict
 
-| Surface | Static (1 CSS px / 2 CSS px gates) | Temporal | Notes |
+### Blocking gates (measured-visual-qa STATIC + platform behavior)
+
+| # | Gate | Verdict | Evidence |
 |---|---|---|---|
-| **Button** default + primary + disabled | **FAIL** (outline height) / PASS gaps & disabled | n/a | Outline `38×` vs filled `36×` (Δ **2.0 CSS px**). Owning cause: **box model mismatch** (1px border on outline without height compensation). Desktop `gap-4` edge gaps = **16.0** (PASS). Size-row centerY spread **0** (PASS). |
-| **Dialog** open + closed | **PASS** | restore **PASS** | Open dialog centered in iframe (center Δ **0**). Closed → `display:none` / 0×0 box. Trigger geometry restored after close (Δ **0**). |
-| **Accordion** open/closed | **PASS** (settled states) | **FAIL** claimed height motion | Settled open/closed heights PASS rhythm. Forward/reverse **snap** in ≤16ms; only chevron WAAPI transitions (200ms). `interpolate-size: allow-keywords` is set but **height does not interpolate** in the playground demo. |
-| **Floating label input** | **PASS** | n/a | Empty labels sit inside inputs; focused/filled state captured. |
-| **Dock** (motion/layout) | **PASS** | n/a | Icons **44×44**; gap-3 = **12**. Divider widens third center interval (intentional). |
-| **Border-beam** | **PASS** (running animation) | adapter note | CSS `spin` exposed via `getAnimations()`; this demo is **not** Houdini `@property`-driven. |
-| **Popover** open/closed | **PASS** (state) | adapter gap | Native `popover` top-layer works; no animation-adapter for popover/`@starting-style`. |
+| 1 | Anchor tethering (split-button / popover) DOM vs expected ≤ **1 CSS px** | **PASS** | Split Δtop **0**; settings popover Δtop **0**, Δleft **0** |
+| 2 | Dialog top-layer: `showModal`, focus trap, `::backdrop`, Escape | **PASS** | All four checks true |
+| 3 | Discrete enter/exit: no 1-frame flash (`@starting-style` + `allow-discrete`) | **PASS** | rAF opacity 0 → 0.43 → 0.69 → 1; no sync full-opacity flash. **WAAPI seeking SKIPPED/INCOMPLETE** |
+| 4 | Accordion `interpolate-size` / `::details-content`; exclusive `details[name]`; sibling X shift ≤1px | **PASS** | Exclusive open=1; sibling X maxΔ **0**; height changed across real-time samples. Seeking **SKIPPED** |
+| 5 | `prefers-reduced-motion` zeroes transitions/keyframes in `motion.css` | **PASS** | Isolated motion.css: tokens **0ms**; transition/animation **1e-05s** under PRM |
+| 6 | Zero-runtime integrity: no client JS errors / Astro hydration mismatch on core primitives | **PASS** | 0 pageerrors on fixtures + `apps/docs` button/dialog/popover/accordion |
 
-| Skill | Fitness on Plain UI |
+**Blocking summary: PASS** (0 hard fails).
+
+### Temporal seeking (explicit)
+
+| Mode | Status |
 |---|---|
-| **measured-visual-qa** | **Useful** for static geometry + restore checks; **partially poor fit** for zero-runtime CSS motion (`interpolate-size`, `@starting-style`, `@property`, native popover). Scripts assume brightness-based paint bounds and WAAPI/GSAP seeking. |
-| **full-stack-interaction-qa** | **Mostly poor fit** — no backend. Correctly forces **evidence gaps**. Applicable lanes: docs search (client filter), clipboard copy, CLI `doctor`/`add`. G2 machine gate fails without a custom machine (expected). |
+| WAAPI / rAF-loop / GSAP / browser-clock seeking | **SKIPPED / INCOMPLETE** |
+| Reason | `animation-adapters.md` does not cover `@starting-style`, `interpolate-size`/`::details-content`, native Popover top-layer, or CSS `@property`. **Do not block the eval** on missing CSS-native adapters. |
+| What we did instead | Real-time DOM geometry + rAF opacity sampling + settled-state STATIC gates |
 
-**Do not declare pass from CSS alignment alone:** outline buttons report normal flex centering while measured border-box heights disagree by 2 CSS px.
+### full-stack-interaction-qa
+
+| Status | Detail |
+|---|---|
+| **OUT OF BLOCKING SET** | Optional smoke only |
+| Optional smoke | Native dialog/popover/`details[name]` covered by gates 2–4; Light-DOM toast/command/combobox fixtures load (companion scripts may be required for full interactivity) |
+| HTTP / trace / DB | **Evidence gaps** (static design system) — **not a pass** |
+
+### Warning-only (non-blocking)
+
+| Item | Status |
+|---|---|
+| Anchor flip near edges | WARNING_ONLY — `position-try-fallbacks: flip-block` present; edge probe recorded |
+| SDA reverse restore | WARNING_ONLY_INCOMPLETE — not fully measured |
+| Houdini `@property` loop paint health | WARNING_ONLY — shimmer-button fixture; paint loop not blocking |
+| Combobox/toast orphan nodes | WARNING_ONLY — best-effort; scripts may be absent in fixture wrapper |
+| Component `:root` redefines `--motion-dur-*` outside PRM | WARNING_ONLY — tokens can stay non-zero on some UI pages; `!important` still kills transitions/animations |
 
 ---
 
-## Environment & commands
+## Commands & URLs
 
-```text
-Repo:     /workspace (plain-ui monorepo)
-Branch:   cursor/skills-visual-qa-eval-8bf7
-Install:  pnpm install
-Dev:      pnpm --filter @plain-ui/docs dev -- --port 4321
-Playground: http://127.0.0.1:4321/  (Astro v5.18.2)
-Component URLs:
-  http://127.0.0.1:4321/docs/components/button
-  http://127.0.0.1:4321/docs/components/dialog
-  http://127.0.0.1:4321/docs/components/accordion
-  http://127.0.0.1:4321/docs/components/floating-label-input
-  http://127.0.0.1:4321/docs/components/border-beam
-  http://127.0.0.1:4321/docs/components/dock
-  http://127.0.0.1:4321/docs/components/popover
-Viewports: 1280×800 (desktop), 390×844 (mobile), devicePixelRatio=1, light theme
-Skills fetched: https://raw.githubusercontent.com/adshine/skills/master/{measured-visual-qa,full-stack-interaction-qa}/…
-Harness (ephemeral): /tmp/skills-eval/  (scripts + capture_*.mjs; not committed)
-Python measure: python3 measured-visual-qa/scripts/measure_visual.py …
-CLI probe: node packages/cli/dist/index.js doctor  (cwd=/tmp/plain-fsqa-probe)
+```bash
+pnpm install
+pnpm --filter @plain-ui/docs dev -- --port 4321
+# Docs playground: http://127.0.0.1:4321/docs/components/{button,dialog,popover,accordion,...}
+
+# Registry fixture server (eval harness, not committed):
+node /tmp/skills-eval/fixture_server.mjs   # http://127.0.0.1:4391/ui/<primitive>
+
+# Gate capture:
+NODE_PATH=/tmp/node_modules node /tmp/skills-eval/capture_gates.mjs
+
+# Official skill scripts (fetched from adshine/skills, not vendored):
+python3 measured-visual-qa/scripts/measure_visual.py --help
+python3 full-stack-interaction-qa/scripts/fsqa.py --help
 ```
 
-Playground demos render inside `.plain-playground iframe.sandboxed-preview-iframe` (`srcdoc` + Tailwind browser CDN). Geometry was measured **inside the iframe document**.
+Viewports used for STATIC: **1280×800** (primary). Mobile **390×844** used for edge-flip warning only.
+
+Skills source: `https://github.com/adshine/skills/tree/master/{measured-visual-qa,full-stack-interaction-qa}`
 
 ---
 
-## Measurements table (CSS px, DPR=1)
+## Measurements table
 
-### Button — default styles (desktop)
+### G1 — Anchor tethering ≤1 CSS px
 
-| Metric | Values | Gate | Verdict |
+| Pair | Expected | Measured Δ (CSS px) | Verdict |
 |---|---|---|---|
-| Heights (Primary, Secondary, Outline, Destructive) | 36, 36, **38**, 36 | equal within **1** CSS px | **FAIL** outline |
-| Edge gaps between buttons | 16, 16, 16 | ==16 ±1 | **PASS** |
-| Owning cause | Outline uses `border` (+1 top/bottom) without matching height token | `box model mismatch` | — |
+| Split-button chevron → `#split-menu-demo` | top ≈ trigger.bottom + 4 | **0.0** | PASS |
+| Split horizontal | pop.right ≈ trigger.right (`span-left`) | **0.0** | PASS |
+| Settings popover → trigger | top ≈ trigger.bottom + 8; left-aligned | **0.0 / 0.0** | PASS |
 
-Annotated: [`artifacts/annotated/button__default-styles__desktop-1280x800__annotated.png`](artifacts/annotated/button__default-styles__desktop-1280x800__annotated.png)
+Source: `packages/registry/ui/button.html` (split), `packages/registry/ui/popover.html`  
+Artifact: `evals/artifacts/gates-2026-08-25/annotated/g1-anchor-tether.png`  
+Geometry: `evals/artifacts/gates-2026-08-25/geometry/g1-anchor.json`
 
-### Button — sizes / loading / disabled (desktop)
+### G2 — Dialog top-layer
 
-| Metric | Values | Gate | Verdict |
-|---|---|---|---|
-| Heights | 28, 36, 48, 36 (loading), 36 (disabled) | intentional size scale | PASS (by design) |
-| Disabled flags | loading `disabled=true` opacity **0.75**; disabled opacity **1** with muted colors | state present | PASS |
-| Size-row centerY spread | **0.0** | ≤1 | **PASS** |
-| WAAPI | 1 running `svg` spin (loading) | observed | PASS |
-
-### Dialog
-
-| State | display | box (w×h @ x,y) | Center Δ vs iframe | Verdict |
-|---|---|---|---|---|
-| closed | `none` | 0×0 | n/a | PASS |
-| open | `block` | 448×343 @ (86.0, 37.5) | **0.0** | **PASS** |
-| restore after close | trigger Δ x/y/w/h = **0** | — | — | **PASS** |
-
-Annotated: [`artifacts/annotated/dialog__open__desktop-1280x800__annotated.png`](artifacts/annotated/dialog__open__desktop-1280x800__annotated.png)
-
-### Accordion (`<details>` / `interpolate-size`)
-
-| State | item heights | closed rhythm | Verdict |
-|---|---|---|---|
-| item1 open | **143.25**, 54, 54 | closed spread **0** | PASS settled |
-| item2 open | 54, **143.25**, 54 | closed spread **0** | PASS settled |
-| `html { interpolate-size }` | `allow-keywords` | set in iframe | present |
-| Temporal forward (PNG @ ~16ms) | heights jump **89.25** in one sample | continuous height motion | **FAIL** (snap) |
-| Reverse restore | open flags + heights Δ **0** vs start | ≤1 | **PASS** restore |
-| WAAPI during toggle | 2× `svg` transitions, duration **200**, not height | chevron only | — |
-
-Annotated: [`artifacts/annotated/accordion__item1-open__desktop-1280x800__annotated.png`](artifacts/annotated/accordion__item1-open__desktop-1280x800__annotated.png)
-
-**Measurement trap:** closed `details` still report body `getBoundingClientRect().height ≈ 89.25` while the details box is 54. Skill guidance to separate trigger from expanded body is required; measuring the body alone misleads.
-
-### Floating label input
-
-| State | Observation | Gate | Verdict |
-|---|---|---|---|
-| empty | labels inside input boxes; `transform: none` | label ⊆ input | **PASS** |
-| focused-filled | value set + focus captured | state change | PASS (geometry file) |
-
-Annotated: [`artifacts/annotated/floating-label-input__empty__desktop-1280x800__annotated.png`](artifacts/annotated/floating-label-input__empty__desktop-1280x800__annotated.png)
-
-### Dock
-
-| Metric | Values | Gate | Verdict |
-|---|---|---|---|
-| Icon sizes | 44×44 ×4 | ±1 | **PASS** |
-| Edge gaps | 12, 12, 29 (divider) | first two ==12 ±1 | **PASS** |
-| Painted centers (measure_visual) | (217,205), (273,205), (329,205), (402,205) | y aligned | PASS |
-| Center-X intervals | 56, 56, 73 | divider explains 73 | PASS (intentional) |
-
-Annotated: [`artifacts/annotated/dock__idle__desktop-1280x800__annotated.png`](artifacts/annotated/dock__idle__desktop-1280x800__annotated.png) · measure_visual: [`artifacts/annotated/dock__idle__measure_visual.png`](artifacts/annotated/dock__idle__measure_visual.png)
-
-### Border-beam
-
-| Metric | Value | Verdict |
-|---|---|---|
-| `getAnimations()` | 1 running, duration 4000 (spin) | PASS running |
-| `@property` usage in this playground HTML | **not present** (conic-gradient + `animate-[spin_…]`) | Hypothesis partially discarded for this demo |
-
-Annotated: [`artifacts/annotated/border-beam__animating__desktop-1280x800__annotated.png`](artifacts/annotated/border-beam__animating__desktop-1280x800__annotated.png)
-
-### Mobile 390×844 (selected)
-
-| Component | Result |
+| Check | Result |
 |---|---|
-| Button gaps | Edge-gap gate **FAIL** numerically (−166 / 16 / −153) because **flex-wrap** stacks buttons; classification = **responsive wrap**, not a spacing bug. Heights still 36/36/38/36. |
-| Accordion / Dialog | Settled gates **PASS** (same as desktop within iframe). |
+| `showModal()` opens | true |
+| Native focus stays inside dialog across Tab | true |
+| `::backdrop` present (opacity/bg) | true |
+| Escape closes | true |
+
+Source: `packages/registry/ui/dialog.html` + `dialog.css`  
+Artifact: `evals/artifacts/gates-2026-08-25/annotated/g2-dialog-top-layer.png`
+
+### G3 — Discrete enter/exit (no 1-frame flash)
+
+| Sample | opacity | transform (abbrev) |
+|---|---|---|
+| sync-after-showModal | **0** | scale≈0.96 |
+| raf1 | **0** | scale≈0.96 |
+| raf2 | **0.431** | interpolating |
+| raf3 | **0.686** | interpolating |
+| settled | **1** | identity |
+
+No sync-tick full-opacity flash.  
+`CSS.supports('selector(@starting-style)')` returned **false** in this Chromium even though behavior works — do not trust supports() alone.  
+**Temporal seeking: SKIPPED/INCOMPLETE.**
+
+### G4 — Accordion
+
+| Check | Result |
+|---|---|
+| `html` / root `interpolate-size` | `allow-keywords` |
+| Exclusive `details[name=faq-group]` | exactly one open after toggle |
+| Sibling X shift on expand | maxΔ **0** (≤1) |
+| Height motion | changed across real-time samples (`::details-content` path in registry CSS) |
+| Seeking height timeline | **SKIPPED/INCOMPLETE** |
+
+Source: `packages/registry/ui/accordion.html` (`details::details-content` transitions)  
+Note vs playground: `apps/docs` accordion demo lacks `::details-content` rules — registry is authoritative for this gate.
+
+### G5 — prefers-reduced-motion / `motion.css`
+
+| Check | Result |
+|---|---|
+| Source `@media (prefers-reduced-motion: reduce)` | present; tokens → `0ms`; `animation-duration`/`transition-duration` → `0.01ms !important` |
+| Isolated motion.css runtime under PRM | feedback/enter/exit **0ms**; transition/animation **1e-05s** |
+| Component token override (warning) | e.g. `border-beam.html` redeclares `--motion-dur-feedback/enter` on `:root` outside PRM |
+
+### G6 — Zero-runtime integrity
+
+| Surface | pageerror / console error | hydration mismatch logs |
+|---|---|---|
+| fixtures: button, dialog, popover, accordion | 0 | 0 |
+| `apps/docs`: same four slugs | 0 | 0 |
 
 ---
 
 ## Annotated screenshot references
 
-Minimum required stills (committed):
+1. `evals/artifacts/gates-2026-08-25/annotated/g1-anchor-tether.png`
+2. `evals/artifacts/gates-2026-08-25/annotated/g2-dialog-top-layer.png`
+3. `evals/artifacts/gates-2026-08-25/annotated/g3-immediate-open-ann.png` / `g3-settled-open-ann.png`
+4. `evals/artifacts/gates-2026-08-25/annotated/g4-accordion.png`
 
-1. `evals/artifacts/annotated/button__default-styles__desktop-1280x800__annotated.png` — outline height fail
-2. `evals/artifacts/annotated/accordion__item1-open__desktop-1280x800__annotated.png` — open/closed boxes
-3. `evals/artifacts/annotated/dialog__open__desktop-1280x800__annotated.png` — centered modal
-4. `evals/artifacts/annotated/dock__idle__desktop-1280x800__annotated.png` — icon rhythm
-5. (+ bonus) floating-label, border-beam, measure_visual accordion/dock overlays
+Prior playground-slice stills remain under `evals/artifacts/annotated/` (button outline, dock, etc.) as supplementary STATIC context — **not** used as blocking fails under this revised gate set.
 
-Raw iframe counterparts: `evals/artifacts/raw-selected/`.
-
----
-
-## Temporal notes (accordion expand/collapse)
-
-**Path:** start (item0 open) → click item1 summary → settled → click item0 summary → restored.
-
-| Evidence | Result |
-|---|---|
-| Playwright webm | `evals/artifacts/temporal/video/ba714cf278c7af9c80fe2752550597ca.webm` during run (~492KB) — **not committed**; see `video-path.json` |
-| `extract_video_frames.py` | 106 real frames @ ~25fps / 40ms (script nests under `output/frames/`) |
-| `analyze_motion.py` | Peak changed-ratio **0.68** — **unusable** on lossy webm (whole-frame compression noise). OpenCV/SSIM unavailable in env (`opencv_available: false`) |
-| PNG sequence (authoritative) | Heights change only once per direction (`start→fwd-0`, `fwd-settled→rev-0`), Δh=**89.25**; no intermediate heights across 12×16ms samples |
-| Restore | `passGate1px: true`, `passOpenState: true` (`restore-check.json`) |
-| Deterministic seek | `document.getAnimations()` pauses 2 chevron transitions; seeking 0–200ms **does not** change details heights (already settled). **No adapter** for `interpolate-size` height/`::details-content` |
-
-**Verdict:** Reverse motion restores start geometry (**PASS**). Claimed smooth height animation is **not observed** (**FAIL** temporal expectation vs docs copy). Chevron rotation is the only timed motion.
-
-Dialog open/close restore also Δ0 (`temporal/png-sequence/dialog-restore.json`).
+Machine-readable rollup: `evals/artifacts/gates-2026-08-25/gate-report.json`
 
 ---
 
-## Interaction QA (full-stack-interaction-qa)
+## Temporal notes
 
-Plain UI is mostly zero-runtime HTML/CSS. Applied only where interaction exists.
+- **SKIPPED/INCOMPLETE** for deterministic WAAPI/timeline seeking on CSS-native motion.
+- Dialog enter proven via **rAF opacity samples** (discovery), not seek replay.
+- Accordion height continuity observed in real time only; reverse exclusive restore implied by `details[name]` + settled PASS (sibling X Δ0).
+- Prior playground-only accordion snap finding applies to **docs demos without `::details-content`**, not to registry `accordion.html`.
 
-### Docs search (`Ctrl+K`)
-
-| Lane | Evidence |
-|---|---|
-| browser | Dialog `open: true`; filter `accordion` → **1** visible item; navigation to `/docs/components/accordion` |
-| frontend-state | Client-side `style.display` filter |
-| http / db / traces | **Evidence gaps** recorded (no API, DB, or tracing) |
-| fsqa gates | G1 PASS; **G2 FAIL** (`no machine assertion`) — expected without custom `machine-*.json` |
-
-Pack: `evals/artifacts/fsqa/run-docs-search/` (see `report.md`, `timeline.jsonl`).
-
-### Copy to clipboard
-
-Clipboard preview: `npx plain-ui add button` (`matched: true`). Local-only; HTTP evidence gap noted.
-
-### CLI (`plain doctor` / `plain add`)
-
-```text
-node packages/cli/dist/index.js doctor   # cwd=/tmp/plain-fsqa-probe
-→ ERROR config/missing components.json (expected)
-node packages/cli/dist/index.js add --help  # lists add options
-```
-
-No production fault injection. No backend to fault.
-
-**Skill verdict:** Correlation pack + gap discipline is valuable; stock machines (`machine-search.json`, payment, upload) do not map cleanly to static docs/CLI. Treat G2 failure as **skill/product mismatch**, not a Plain UI product defect.
+Raw webm / extracted frames remain excluded from git (see `evals/artifacts/EXCLUDED_LARGE_FILES.md`).
 
 ---
 
-## Skill fitness (meta-eval)
+## Interaction QA (non-blocking)
 
-### What measured-visual-qa caught that a casual screenshot would miss
+`full-stack-interaction-qa` packs from the earlier pass stay under `evals/artifacts/fsqa/` as optional context:
 
-1. **Outline button +2 CSS px height** vs siblings despite “visually fine” flex alignment.
-2. **Accordion height snap** (no intermediate frames) despite marketing/`interpolate-size` setup.
-3. **Closed-details body rect trap** (descendant height ≠ visible box).
-4. **Restore geometry** after dialog/accordion reverse (numeric Δ0, not vibes).
-5. **Webm compression** false motion — skill’s own anti-pattern guidance validated.
+- Docs search + clipboard: browser-lane evidence; HTTP/DB/trace = **gaps**
+- `plain doctor` on empty cwd: `config/missing` terminal truth
+- FSQA G2 machine gate failure = skill mismatch for static DS, **not** a Plain UI product fail
 
-### Poor fit areas (zero-runtime CSS / platform features)
+**Do not treat FSQA evidence gaps as PASS.**
 
-| Platform feature | Adapter coverage today | Observed |
+---
+
+## Skill fitness
+
+### What measured-visual-qa caught that casual screenshots miss
+
+1. Exact **0 CSS px** anchor tether deltas (split-button + popover).
+2. Dialog enter opacity timeline proving no 1-frame full flash.
+3. Accordion sibling **X** stability (0px) under exclusive expand.
+4. PRM isolation vs component token override (warning).
+
+### Poor fit / incomplete on this DS
+
+| Platform feature | Adapter status | Eval handling |
 |---|---|---|
-| `interpolate-size` / height `auto` | **Missing** | Set on `<html>` but no height transition samples |
-| `@starting-style` / discrete dialog transitions | **Missing** (`CSS.supports('selector(@starting-style)')` → false in Chromium used here) | Dialog appear/disappear without seekable timeline |
-| Native `popover` top-layer | **Missing** | Open/closed measurable via `:popover-open`; no seek API |
-| Houdini `@property` | **Missing** (hypothesis) | Border-beam demo uses ordinary CSS spin via WAAPI — **hypothesis discarded for this demo**; still a real gap for registry motion tokens that do use `@property` |
-| Scroll-driven animations | Mentioned only as scroll sampling | Not in evaluated slice |
+| `@starting-style` + `allow-discrete` | Missing from `animation-adapters.md` | STATIC + rAF samples; seeking **SKIPPED** |
+| `interpolate-size` / `::details-content` | Missing | Settled + real-time height; seeking **SKIPPED** |
+| Native Popover / top-layer | Missing | Open/closed DOM + anchor geometry |
+| CSS `@property` (Houdini) | Missing | Warning-only paint health |
+| Scroll-driven animations | Partial (scroll sampling only) | Warning-only |
 
-`references/animation-adapters.md` covers browser clock, WAAPI, GSAP, rAF, scroll, springs — **not** the Plain UI stack above.
+### Recommended skill patches (do **not** patch skills from this run; do **not** change Plain UI)
 
-### Script / tooling gaps
+1. Extend `animation-adapters.md` with CSS-native adapters: `@starting-style`, discrete `display`/`overlay`/`content-visibility`, `interpolate-size` + `::details-content`, Popover top-layer sampling, `@property` paint sampling — mark seekability limits explicitly.
+2. Treat `CSS.supports('selector(@starting-style)')` as advisory; prefer rAF opacity/transform samples.
+3. Keep FSQA machines optional for static/CLI design systems; document `backend: none` so missing HTTP/DB/trace is gap, not fail, and keep FSQA out of DS blocking gates.
+4. `measure_visual.py`: DOM-rect overlay mode for dark-on-light zinc UIs (brightness bbox remains brittle).
 
-| Tool | Gap on this design system |
-|---|---|
-| `measure_visual.py` | Brightness≥threshold bbox favors light paint; dark zinc buttons need inverted logic or DOM-rect overlays (we added DOM annotations). Accordion `horizontal_rules` latched onto text baselines (interval_spread **89**) — thresholds brittle. |
-| `analyze_motion.py` | Needs OpenCV/skimage for strong metrics; webm recordings dominate noise without PNG sequences / masks. |
-| `extract_video_frames.py` | Writes to `output/frames/` (easy to double-nest if `--output` already ends in `frames`). |
-| Playwright clock | Unlikely to drive compositor-only CSS / top-layer native transitions (skill already warns). |
-| FSQA `gates` G2 | Requires `assert-machine` with `machine_event` payloads — docs/CLI need a bespoke machine DSL. |
+### full-stack-interaction-qa fitness
 
----
-
-## Recommended skill patches (do **not** apply in this run)
-
-1. **animation-adapters.md:** add sections for `@starting-style`, `interpolate-size` + `::details-content` / `transition-behavior: allow-discrete`, CSS `@property`, and native Popover/Top Layer sampling (open/closed + computed top-layer rects; document non-seekability).
-2. **measure_visual.py:** optional `mode: "dark-on-light" | "light-on-dark"`; DOM-rect import from JSON for annotation when paint thresholds fail.
-3. **temporal-playbook.md:** prefer PNG rAF bursts for discrete CSS; treat webm as discovery-only when peak changed-ratio ≫ expected region.
-4. **full-stack-interaction-qa:** ship `machine-docs-search.json` and `machine-cli-doctor.json` for static-site/CLI products; allow G2 skip when scenario declares `backend: none`.
-5. **extract_video_frames.py:** if `--output` already named `frames`, do not nest another `frames/`.
+Poor primary fit for zero-runtime Plain UI. Useful only as optional correlation discipline for docs search/clipboard/CLI. **Excluded from blocking gates** by design in this revision.
 
 ---
 
-## Defects found (document, not fixed)
+## Defects / notes (document only — no Plain UI code changes)
 
-| ID | Severity | Spec | Evidence |
-|---|---|---|---|
-| B1 | Medium | Equal-height button row within **1 CSS px** | Outline 38 vs 36; classification **box model mismatch** |
-| A1 | Medium | Docs claim smooth accordion height via `interpolate-size` | PNG temporal: single-frame height jump; only chevron animates |
-
-No one-liner fix applied (would need before/after under same spec; prefer documenting for this eval).
+| ID | Severity | Note |
+|---|---|---|
+| W-PRM-TOKEN | Warning | Some `packages/registry/ui/*.html` redeclare `--motion-dur-feedback/enter` outside PRM media query |
+| DOCS-DEMO-GAP | Info | Playground accordion/dialog demos omit registry `::details-content` / full `@starting-style` CSS — measure registry for platform gates |
+| B1 (prior) | Info (non-blocking here) | Playground outline button 38 vs 36 height — outside revised blocking set |
 
 ---
 
 ## Artifact index
 
 ```text
-evals/skills-visual-qa-2026-08-25.md          ← this report
-evals/artifacts/annotated/*.png|*.json        ← annotated stills + gate notes
-evals/artifacts/geometry/*.json               ← getBoundingClientRect + computed styles
-evals/artifacts/measure-reports/*.json        ← official measure_visual.py output
-evals/artifacts/temporal/                     ← restore checks, timeline, selected stills
-evals/artifacts/fsqa/                         ← interaction packs + CLI doctor log
-evals/artifacts/raw-selected/                 ← unannotated iframe stills
-evals/artifacts/EXCLUDED_LARGE_FILES.md       ← video/frames paths omitted from git
+evals/skills-visual-qa-2026-08-25.md
+evals/artifacts/gates-2026-08-25/gate-report.json
+evals/artifacts/gates-2026-08-25/geometry/g1..g6*.json
+evals/artifacts/gates-2026-08-25/annotated/*.png
+evals/artifacts/gates-2026-08-25/raw/*.png
+evals/artifacts/annotated/          # earlier playground STATIC stills
+evals/artifacts/fsqa/               # optional FSQA packs (non-blocking)
+evals/artifacts/EXCLUDED_LARGE_FILES.md
 ```
