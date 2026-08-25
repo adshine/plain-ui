@@ -1,0 +1,159 @@
+{
+  "dialogMeta": [
+    {
+      "label": "closed-start",
+      "open": false,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "display": "none"
+      },
+      "trigger": {
+        "x": 230.5,
+        "y": 189,
+        "w": 159,
+        "h": 40
+      },
+      "anims": 0
+    },
+    {
+      "label": "open-50ms",
+      "open": true,
+      "dialog": {
+        "x": 86,
+        "y": 37.5,
+        "w": 448,
+        "h": 343,
+        "display": "block"
+      },
+      "trigger": {
+        "x": 230.5,
+        "y": 189,
+        "w": 159,
+        "h": 40
+      },
+      "anims": 0
+    },
+    {
+      "label": "open-settled",
+      "open": true,
+      "dialog": {
+        "x": 86,
+        "y": 37.5,
+        "w": 448,
+        "h": 343,
+        "display": "block"
+      },
+      "trigger": {
+        "x": 230.5,
+        "y": 189,
+        "w": 159,
+        "h": 40
+      },
+      "anims": 0
+    },
+    {
+      "label": "closed-50ms",
+      "open": false,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "display": "none"
+      },
+      "trigger": {
+        "x": 230.5,
+        "y": 189,
+        "w": 159,
+        "h": 40
+      },
+      "anims": 0
+    },
+    {
+      "label": "closed-restored",
+      "open": false,
+      "dialog": {
+        "x": 0,
+        "y": 0,
+        "w": 0,
+        "h": 0,
+        "display": "none"
+      },
+      "trigger": {
+        "x": 230.5,
+        "y": 189,
+        "w": 159,
+        "h": 40
+      },
+      "anims": 0
+    }
+  ],
+  "restore": {
+    "triggerDelta": {
+      "x": 0,
+      "y": 0,
+      "w": 0,
+      "h": 0
+    },
+    "openStates": [
+      [
+        "closed-start",
+        false,
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "display": "none"
+        }
+      ],
+      [
+        "open-50ms",
+        true,
+        {
+          "x": 86,
+          "y": 37.5,
+          "w": 448,
+          "h": 343,
+          "display": "block"
+        }
+      ],
+      [
+        "open-settled",
+        true,
+        {
+          "x": 86,
+          "y": 37.5,
+          "w": 448,
+          "h": 343,
+          "display": "block"
+        }
+      ],
+      [
+        "closed-50ms",
+        false,
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "display": "none"
+        }
+      ],
+      [
+        "closed-restored",
+        false,
+        {
+          "x": 0,
+          "y": 0,
+          "w": 0,
+          "h": 0,
+          "display": "none"
+        }
+      ]
+    ]
+  }
+}

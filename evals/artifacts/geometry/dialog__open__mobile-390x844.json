@@ -1,0 +1,733 @@
+{
+  "slug": "dialog",
+  "state": "open",
+  "viewport": {
+    "name": "mobile-390x844",
+    "width": 390,
+    "height": 844
+  },
+  "url": "http://127.0.0.1:4321/docs/components/dialog",
+  "devicePixelRatio": 1,
+  "scroll": {
+    "x": 0,
+    "y": 177
+  },
+  "playgroundBox": {
+    "x": 16,
+    "y": 307,
+    "width": 358,
+    "height": 538
+  },
+  "geometry": {
+    "iframeInnerSize": {
+      "width": 322,
+      "height": 358
+    },
+    "htmlInterpolateSize": "allow-keywords",
+    "targets": {
+      "button": [
+        {
+          "index": 0,
+          "tag": "button",
+          "id": null,
+          "className": "px-4 py-2.5 text-sm font-medium text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg shadow-sm hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 81.5,
+            "y": 159,
+            "width": 159,
+            "height": 40,
+            "top": 159,
+            "left": 81.5,
+            "bottom": 199,
+            "right": 240.5
+          },
+          "display": "inline-block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "10px",
+            "16px",
+            "10px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Open Dialog Modal"
+        },
+        {
+          "index": 1,
+          "tag": "button",
+          "id": null,
+          "className": "p-1 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 rounded-md cursor-pointer",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 253,
+            "y": 44,
+            "width": 28,
+            "height": 28,
+            "top": 44,
+            "left": 253,
+            "bottom": 72,
+            "right": 281
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "4px",
+            "4px",
+            "4px",
+            "4px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": ""
+        },
+        {
+          "index": 2,
+          "tag": "button",
+          "id": null,
+          "className": "px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg cursor-pointer",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 70,
+            "y": 321,
+            "width": 75.59375,
+            "height": 36,
+            "top": 321,
+            "left": 70,
+            "bottom": 357,
+            "right": 145.59375
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Cancel"
+        },
+        {
+          "index": 3,
+          "tag": "button",
+          "id": null,
+          "className": "px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg cursor-pointer",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 157.59375,
+            "y": 321,
+            "width": 123.40625,
+            "height": 36,
+            "top": 321,
+            "left": 157.59375,
+            "bottom": 357,
+            "right": 281
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "8px",
+            "16px",
+            "8px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Save Changes"
+        }
+      ],
+      "dialog": [
+        {
+          "index": 0,
+          "tag": "dialog",
+          "id": "demo-modal",
+          "className": "p-0 rounded-2xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 backdrop:bg-black/60 backdrop:",
+          "open": true,
+          "disabled": null,
+          "rect": {
+            "x": 16,
+            "y": 19,
+            "width": 290,
+            "height": 320,
+            "top": 19,
+            "left": 16,
+            "bottom": 339,
+            "right": 306
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "19px",
+            "16px",
+            "19px",
+            "16px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "auto",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Edit Profile\n\nMake changes to your profile details here. Click save when you are"
+        }
+      ],
+      "#demo-modal": [
+        {
+          "index": 0,
+          "tag": "dialog",
+          "id": "demo-modal",
+          "className": "p-0 rounded-2xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 backdrop:bg-black/60 backdrop:",
+          "open": true,
+          "disabled": null,
+          "rect": {
+            "x": 16,
+            "y": 19,
+            "width": 290,
+            "height": 320,
+            "top": 19,
+            "left": 16,
+            "bottom": 339,
+            "right": 306
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "19px",
+            "16px",
+            "19px",
+            "16px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "auto",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Edit Profile\n\nMake changes to your profile details here. Click save when you are"
+        }
+      ],
+      "dialog h3": [
+        {
+          "index": 0,
+          "tag": "h3",
+          "id": null,
+          "className": "text-lg font-semibold",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 41,
+            "y": 44,
+            "width": 98.3125,
+            "height": 28,
+            "top": 44,
+            "left": 41,
+            "bottom": 72,
+            "right": 139.3125
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "28px",
+          "fontSize": "18px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Edit Profile"
+        }
+      ]
+    },
+    "buttonRects": [
+      {
+        "tag": "button",
+        "id": null,
+        "className": "px-4 py-2.5 text-sm font-medium text-white bg-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 rounded-lg shadow-sm hover:bg-zinc-800 dark:hover:bg-zinc-200 cursor-",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 81.5,
+          "y": 159,
+          "width": 159,
+          "height": 40,
+          "top": 159,
+          "left": 81.5,
+          "bottom": 199,
+          "right": 240.5
+        },
+        "display": "inline-block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "10px",
+          "16px",
+          "10px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0.15s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "p-1 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 rounded-md cursor-pointer",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 253,
+          "y": 44,
+          "width": 28,
+          "height": 28,
+          "top": 44,
+          "left": 253,
+          "bottom": 72,
+          "right": 281
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "4px",
+          "4px",
+          "4px",
+          "4px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "24px",
+        "fontSize": "16px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "px-4 py-2 text-sm font-medium text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg cursor-pointer",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 70,
+          "y": 321,
+          "width": 75.59375,
+          "height": 36,
+          "top": 321,
+          "left": 70,
+          "bottom": 357,
+          "right": 145.59375
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      },
+      {
+        "tag": "button",
+        "id": null,
+        "className": "px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg cursor-pointer",
+        "open": null,
+        "disabled": false,
+        "rect": {
+          "x": 157.59375,
+          "y": 321,
+          "width": 123.40625,
+          "height": 36,
+          "top": 321,
+          "left": 157.59375,
+          "bottom": 357,
+          "right": 281
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "padding": [
+          "8px",
+          "16px",
+          "8px",
+          "16px"
+        ],
+        "border": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "visible",
+        "lineHeight": "20px",
+        "fontSize": "14px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      }
+    ],
+    "buttonCenterIntervals": [
+      106,
+      -159.203125,
+      111.5
+    ],
+    "buttonEdgeGaps": [
+      12.5,
+      -211,
+      12
+    ],
+    "details": [],
+    "dialogs": [
+      {
+        "open": true,
+        "tag": "dialog",
+        "id": "demo-modal",
+        "className": "p-0 rounded-2xl bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100 shadow-2xl border border-zinc-200 dark:border-zinc-800 backdrop:bg-black/60 backdrop:",
+        "disabled": null,
+        "rect": {
+          "x": 16,
+          "y": 19,
+          "width": 290,
+          "height": 320,
+          "top": 19,
+          "left": 16,
+          "bottom": 339,
+          "right": 306
+        },
+        "display": "block",
+        "visibility": "visible",
+        "opacity": "1",
+        "gap": "normal",
+        "rowGap": "normal",
+        "columnGap": "normal",
+        "margin": [
+          "19px",
+          "16px",
+          "19px",
+          "16px"
+        ],
+        "padding": [
+          "0px",
+          "0px",
+          "0px",
+          "0px"
+        ],
+        "border": [
+          "1px",
+          "1px",
+          "1px",
+          "1px"
+        ],
+        "boxSizing": "border-box",
+        "alignItems": "normal",
+        "justifyContent": "normal",
+        "transform": "none",
+        "overflow": "auto",
+        "lineHeight": "24px",
+        "fontSize": "16px",
+        "interpolateSize": "allow-keywords",
+        "transitionProperty": "all",
+        "transitionDuration": "0s",
+        "animationName": "none",
+        "animationDuration": "0s"
+      }
+    ],
+    "popovers": [],
+    "animations": []
+  },
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    }
+  ],
+  "screenshots": {
+    "playground": "/workspace/evals/artifacts/raw/dialog__open__mobile-390x844.png",
+    "viewport": "/workspace/evals/artifacts/raw/dialog__open__mobile-390x844__viewport.png",
+    "iframe": "/workspace/evals/artifacts/raw/dialog__open__mobile-390x844__iframe.png"
+  },
+  "loadedAt": "2026-08-25T22:59:18.059Z"
+}

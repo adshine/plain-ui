@@ -1,0 +1,399 @@
+{
+  "slug": "floating-label-input",
+  "state": "empty",
+  "viewport": {
+    "name": "mobile-390x844",
+    "width": 390,
+    "height": 844
+  },
+  "url": "http://127.0.0.1:4321/docs/components/floating-label-input",
+  "devicePixelRatio": 1,
+  "scroll": {
+    "x": 0,
+    "y": 179
+  },
+  "playgroundBox": {
+    "x": 16,
+    "y": 306.5,
+    "width": 358,
+    "height": 538
+  },
+  "geometry": {
+    "iframeInnerSize": {
+      "width": 322,
+      "height": 358
+    },
+    "htmlInterpolateSize": "allow-keywords",
+    "targets": {
+      "input": [
+        {
+          "index": 0,
+          "tag": "input",
+          "id": "username-input",
+          "className": "peer block w-full px-3.5 pt-4 pb-2 text-sm text-zinc-900 dark:text-zinc-100 bg-transparent rounded-lg border border-zinc-300 dark:border-zinc-700 appearance-non",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 45,
+            "y": 119,
+            "width": 232,
+            "height": 46,
+            "top": 119,
+            "left": 45,
+            "bottom": 165,
+            "right": 277
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "14px",
+            "8px",
+            "14px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "clip",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": ""
+        },
+        {
+          "index": 1,
+          "tag": "input",
+          "id": "email-input",
+          "className": "peer block w-full px-3.5 pt-5 pb-2 text-sm text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800/80 rounded-lg border-b-2 border-zinc-300 dark:border-zi",
+          "open": null,
+          "disabled": false,
+          "rect": {
+            "x": 45,
+            "y": 189,
+            "width": 232,
+            "height": 50,
+            "top": 189,
+            "left": 45,
+            "bottom": 239,
+            "right": 277
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "20px",
+            "14px",
+            "8px",
+            "14px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "2px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "clip",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": ""
+        }
+      ],
+      "label": [
+        {
+          "index": 0,
+          "tag": "label",
+          "id": null,
+          "className": "absolute text-sm text-zinc-500 dark:text-zinc-400 duration-200 transform -translate-y-3.5 scale-75 top-4 z-10 origin-[0] start-3.5 bg-white dark:bg-zinc-950 px-",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 59,
+            "y": 135,
+            "width": 74.265625,
+            "height": 20,
+            "top": 135,
+            "left": 59,
+            "bottom": 155,
+            "right": 133.265625
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "4px",
+            "0px",
+            "4px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.2s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Full Name"
+        },
+        {
+          "index": 1,
+          "tag": "label",
+          "id": null,
+          "className": "absolute text-sm text-zinc-500 dark:text-zinc-400 duration-200 transform -translate-y-3 scale-75 top-4 z-10 origin-[0] start-3.5 peer-placeholder-shown:scale-10",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 59,
+            "y": 205,
+            "width": 92.578125,
+            "height": 20,
+            "top": 205,
+            "left": 59,
+            "bottom": 225,
+            "right": 151.578125
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.2s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Email Address"
+        }
+      ],
+      ".relative": [
+        {
+          "index": 0,
+          "tag": "div",
+          "id": null,
+          "className": "relative",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 45,
+            "y": 119,
+            "width": 232,
+            "height": 46,
+            "top": 119,
+            "left": 45,
+            "bottom": 165,
+            "right": 277
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "24px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Full Name"
+        },
+        {
+          "index": 1,
+          "tag": "div",
+          "id": null,
+          "className": "relative",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 45,
+            "y": 189,
+            "width": 232,
+            "height": 50,
+            "top": 189,
+            "left": 45,
+            "bottom": 239,
+            "right": 277
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Email Address"
+        }
+      ]
+    },
+    "buttonRects": [],
+    "details": [],
+    "dialogs": [],
+    "popovers": [],
+    "animations": []
+  },
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    }
+  ],
+  "screenshots": {
+    "playground": "/workspace/evals/artifacts/raw/floating-label-input__empty__mobile-390x844.png",
+    "viewport": "/workspace/evals/artifacts/raw/floating-label-input__empty__mobile-390x844__viewport.png",
+    "iframe": "/workspace/evals/artifacts/raw/floating-label-input__empty__mobile-390x844__iframe.png"
+  },
+  "loadedAt": "2026-08-25T22:59:24.790Z"
+}

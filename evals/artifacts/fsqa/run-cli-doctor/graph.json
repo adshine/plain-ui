@@ -1,0 +1,25 @@
+{
+  "edges": [
+    {
+      "from": "evt_55be840e9a0542dfb4d760940a50cfa3",
+      "rel": "same_intent_id",
+      "to": "evt_153d7787ca7947b2b23bf85b06c632ae"
+    },
+    {
+      "from": "evt_153d7787ca7947b2b23bf85b06c632ae",
+      "rel": "same_intent_id",
+      "to": "evt_8a344708c6664697a20b293b32643aee"
+    },
+    {
+      "from": "evt_8a344708c6664697a20b293b32643aee",
+      "rel": "same_intent_id",
+      "to": "evt_884168c93377423cb9cd2b951c34eb3d"
+    }
+  ],
+  "nodes": [
+    "evt_55be840e9a0542dfb4d760940a50cfa3",
+    "evt_153d7787ca7947b2b23bf85b06c632ae",
+    "evt_8a344708c6664697a20b293b32643aee",
+    "evt_884168c93377423cb9cd2b951c34eb3d"
+  ]
+}

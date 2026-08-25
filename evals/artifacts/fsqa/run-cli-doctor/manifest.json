@@ -1,0 +1,13 @@
+{
+  "budgets": {
+    "pending_ms": 10000,
+    "truth_ms": 15000
+  },
+  "case_id": "missing-config",
+  "created_at": "2026-08-25T23:03:47.434Z",
+  "mode": "live",
+  "run_id": "run_89a67e416aec4cc08b9f234be3b0fd6f",
+  "scenario_id": "cli-doctor",
+  "seed": "561f4a9acfdb4fcf",
+  "v": 1
+}

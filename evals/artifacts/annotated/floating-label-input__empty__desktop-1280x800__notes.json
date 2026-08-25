@@ -1,0 +1,17 @@
+{
+  "gates": [
+    {
+      "name": "label0-inside-input-empty",
+      "pass": true,
+      "labelY": 165,
+      "inputY": 149
+    },
+    {
+      "name": "label1-inside-input-empty",
+      "pass": true,
+      "labelY": 235,
+      "inputY": 219
+    }
+  ],
+  "owner_causes": []
+}

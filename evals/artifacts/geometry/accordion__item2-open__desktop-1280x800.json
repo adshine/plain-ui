@@ -1,0 +1,1111 @@
+{
+  "slug": "accordion",
+  "state": "item2-open",
+  "viewport": {
+    "name": "desktop-1280x800",
+    "width": 1280,
+    "height": 800
+  },
+  "url": "http://127.0.0.1:4321/docs/components/accordion",
+  "devicePixelRatio": 1,
+  "scroll": {
+    "x": 0,
+    "y": 168
+  },
+  "playgroundBox": {
+    "x": 288,
+    "y": 226.5,
+    "width": 672,
+    "height": 574
+  },
+  "geometry": {
+    "iframeInnerSize": {
+      "width": 620,
+      "height": 418
+    },
+    "htmlInterpolateSize": "allow-keywords",
+    "targets": {
+      "details": [
+        {
+          "index": 0,
+          "tag": "details",
+          "id": null,
+          "className": "group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-all",
+          "open": false,
+          "disabled": null,
+          "rect": {
+            "x": 102,
+            "y": 71.375,
+            "width": 416,
+            "height": 54,
+            "top": 71.375,
+            "left": 102,
+            "bottom": 125.375,
+            "right": 518
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "12px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "hidden",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Is Plain UI free and open source?"
+        },
+        {
+          "index": 1,
+          "tag": "details",
+          "id": null,
+          "className": "group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-all",
+          "open": true,
+          "disabled": null,
+          "rect": {
+            "x": 102,
+            "y": 137.375,
+            "width": 416,
+            "height": 143.25,
+            "top": 137.375,
+            "left": 102,
+            "bottom": 280.625,
+            "right": 518
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "12px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "hidden",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Do I need React, Vue, or another framework?\nNo framework required! Plain UI is b"
+        },
+        {
+          "index": 2,
+          "tag": "details",
+          "id": null,
+          "className": "group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-all",
+          "open": false,
+          "disabled": null,
+          "rect": {
+            "x": 102,
+            "y": 292.625,
+            "width": 416,
+            "height": 54,
+            "top": 292.625,
+            "left": 102,
+            "bottom": 346.625,
+            "right": 518
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "hidden",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "How does the smooth height transition work?"
+        }
+      ],
+      "summary": [
+        {
+          "index": 0,
+          "tag": "summary",
+          "id": null,
+          "className": "flex items-center justify-between p-4 font-medium text-sm text-zinc-900 dark:text-zinc-100 cursor-pointer list-none select-none hover:bg-zinc-50 dark:hover:bg-z",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 72.375,
+            "width": 414,
+            "height": 52,
+            "top": 72.375,
+            "left": 103,
+            "bottom": 124.375,
+            "right": 517
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Is Plain UI free and open source?"
+        },
+        {
+          "index": 1,
+          "tag": "summary",
+          "id": null,
+          "className": "flex items-center justify-between p-4 font-medium text-sm text-zinc-900 dark:text-zinc-100 cursor-pointer list-none select-none hover:bg-zinc-50 dark:hover:bg-z",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 138.375,
+            "width": 414,
+            "height": 52,
+            "top": 138.375,
+            "left": 103,
+            "bottom": 190.375,
+            "right": 517
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Do I need React, Vue, or another framework?"
+        },
+        {
+          "index": 2,
+          "tag": "summary",
+          "id": null,
+          "className": "flex items-center justify-between p-4 font-medium text-sm text-zinc-900 dark:text-zinc-100 cursor-pointer list-none select-none hover:bg-zinc-50 dark:hover:bg-z",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 293.625,
+            "width": 414,
+            "height": 52,
+            "top": 293.625,
+            "left": 103,
+            "bottom": 345.625,
+            "right": 517
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "How does the smooth height transition work?"
+        }
+      ],
+      "details[open]": [
+        {
+          "index": 0,
+          "tag": "details",
+          "id": null,
+          "className": "group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-all",
+          "open": true,
+          "disabled": null,
+          "rect": {
+            "x": 102,
+            "y": 137.375,
+            "width": 416,
+            "height": 143.25,
+            "top": 137.375,
+            "left": 102,
+            "bottom": 280.625,
+            "right": 518
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "12px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "hidden",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "Do I need React, Vue, or another framework?\nNo framework required! Plain UI is b"
+        }
+      ],
+      "details > div": [
+        {
+          "index": 0,
+          "tag": "div",
+          "id": null,
+          "className": "px-4 pb-4 pt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-100 dark:border-zinc-800/60",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 124.375,
+            "width": 414,
+            "height": 89.25,
+            "top": 124.375,
+            "left": 103,
+            "bottom": 213.625,
+            "right": 517
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "4px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "22.75px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": ""
+        },
+        {
+          "index": 1,
+          "tag": "div",
+          "id": null,
+          "className": "px-4 pb-4 pt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-100 dark:border-zinc-800/60",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 190.375,
+            "width": 414,
+            "height": 89.25,
+            "top": 190.375,
+            "left": 103,
+            "bottom": 279.625,
+            "right": 517
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "4px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "22.75px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": "No framework required! Plain UI is built on pure HTML5 and Tailwind CSS v4. It w"
+        },
+        {
+          "index": 2,
+          "tag": "div",
+          "id": null,
+          "className": "px-4 pb-4 pt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-100 dark:border-zinc-800/60",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 345.625,
+            "width": 414,
+            "height": 89.25,
+            "top": 345.625,
+            "left": 103,
+            "bottom": 434.875,
+            "right": 517
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "4px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "22.75px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s",
+          "text": ""
+        }
+      ]
+    },
+    "buttonRects": [],
+    "details": [
+      {
+        "open": false,
+        "summary": {
+          "tag": "summary",
+          "id": null,
+          "className": "flex items-center justify-between p-4 font-medium text-sm text-zinc-900 dark:text-zinc-100 cursor-pointer list-none select-none hover:bg-zinc-50 dark:hover:bg-z",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 72.375,
+            "width": 414,
+            "height": 52,
+            "top": 72.375,
+            "left": 103,
+            "bottom": 124.375,
+            "right": 517
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "details": {
+          "tag": "details",
+          "id": null,
+          "className": "group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-all",
+          "open": false,
+          "disabled": null,
+          "rect": {
+            "x": 102,
+            "y": 71.375,
+            "width": 416,
+            "height": 54,
+            "top": 71.375,
+            "left": 102,
+            "bottom": 125.375,
+            "right": 518
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "12px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "hidden",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "body": {
+          "tag": "div",
+          "id": null,
+          "className": "px-4 pb-4 pt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-100 dark:border-zinc-800/60",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 124.375,
+            "width": 414,
+            "height": 89.25,
+            "top": 124.375,
+            "left": 103,
+            "bottom": 213.625,
+            "right": 517
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "4px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "22.75px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "height": 54
+      },
+      {
+        "open": true,
+        "summary": {
+          "tag": "summary",
+          "id": null,
+          "className": "flex items-center justify-between p-4 font-medium text-sm text-zinc-900 dark:text-zinc-100 cursor-pointer list-none select-none hover:bg-zinc-50 dark:hover:bg-z",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 138.375,
+            "width": 414,
+            "height": 52,
+            "top": 138.375,
+            "left": 103,
+            "bottom": 190.375,
+            "right": 517
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "details": {
+          "tag": "details",
+          "id": null,
+          "className": "group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-all",
+          "open": true,
+          "disabled": null,
+          "rect": {
+            "x": 102,
+            "y": 137.375,
+            "width": 416,
+            "height": 143.25,
+            "top": 137.375,
+            "left": 102,
+            "bottom": 280.625,
+            "right": 518
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "12px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "hidden",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "body": {
+          "tag": "div",
+          "id": null,
+          "className": "px-4 pb-4 pt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-100 dark:border-zinc-800/60",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 190.375,
+            "width": 414,
+            "height": 89.25,
+            "top": 190.375,
+            "left": 103,
+            "bottom": 279.625,
+            "right": 517
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "4px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "22.75px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "height": 143.25
+      },
+      {
+        "open": false,
+        "summary": {
+          "tag": "summary",
+          "id": null,
+          "className": "flex items-center justify-between p-4 font-medium text-sm text-zinc-900 dark:text-zinc-100 cursor-pointer list-none select-none hover:bg-zinc-50 dark:hover:bg-z",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 293.625,
+            "width": 414,
+            "height": 52,
+            "top": 293.625,
+            "left": 103,
+            "bottom": 345.625,
+            "right": 517
+          },
+          "display": "flex",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "16px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "center",
+          "justifyContent": "space-between",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "20px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "details": {
+          "tag": "details",
+          "id": null,
+          "className": "group rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden shadow-xs transition-all",
+          "open": false,
+          "disabled": null,
+          "rect": {
+            "x": 102,
+            "y": 292.625,
+            "width": 416,
+            "height": 54,
+            "top": 292.625,
+            "left": 102,
+            "bottom": 346.625,
+            "right": 518
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "border": [
+            "1px",
+            "1px",
+            "1px",
+            "1px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "hidden",
+          "lineHeight": "24px",
+          "fontSize": "16px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0.15s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "body": {
+          "tag": "div",
+          "id": null,
+          "className": "px-4 pb-4 pt-1 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed border-t border-zinc-100 dark:border-zinc-800/60",
+          "open": null,
+          "disabled": null,
+          "rect": {
+            "x": 103,
+            "y": 345.625,
+            "width": 414,
+            "height": 89.25,
+            "top": 345.625,
+            "left": 103,
+            "bottom": 434.875,
+            "right": 517
+          },
+          "display": "block",
+          "visibility": "visible",
+          "opacity": "1",
+          "gap": "normal",
+          "rowGap": "normal",
+          "columnGap": "normal",
+          "margin": [
+            "0px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "padding": [
+            "4px",
+            "16px",
+            "16px",
+            "16px"
+          ],
+          "border": [
+            "1px",
+            "0px",
+            "0px",
+            "0px"
+          ],
+          "boxSizing": "border-box",
+          "alignItems": "normal",
+          "justifyContent": "normal",
+          "transform": "none",
+          "overflow": "visible",
+          "lineHeight": "22.75px",
+          "fontSize": "14px",
+          "interpolateSize": "allow-keywords",
+          "transitionProperty": "all",
+          "transitionDuration": "0s",
+          "animationName": "none",
+          "animationDuration": "0s"
+        },
+        "height": 54
+      }
+    ],
+    "dialogs": [],
+    "popovers": [],
+    "animations": []
+  },
+  "consoleMessages": [
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    },
+    {
+      "type": "warning",
+      "text": "An iframe which has both allow-scripts and allow-same-origin for its sandbox attribute can escape its sandboxing."
+    }
+  ],
+  "screenshots": {
+    "playground": "/workspace/evals/artifacts/raw/accordion__item2-open__desktop-1280x800.png",
+    "viewport": "/workspace/evals/artifacts/raw/accordion__item2-open__desktop-1280x800__viewport.png",
+    "iframe": "/workspace/evals/artifacts/raw/accordion__item2-open__desktop-1280x800__iframe.png"
+  },
+  "loadedAt": "2026-08-25T22:58:55.512Z"
+}

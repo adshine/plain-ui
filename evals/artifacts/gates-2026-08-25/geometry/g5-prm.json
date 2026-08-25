@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS",
+  "sourceOk": true,
+  "isolated": {
+    "mm": true,
+    "feedback": "0ms",
+    "enter": "0ms",
+    "exit": "0ms",
+    "transitionDuration": "1e-05s",
+    "animationDuration": "1e-05s"
+  },
+  "withComponentTokenOverride": {
+    "feedback": "120ms",
+    "enter": "200ms",
+    "starTransition": "1e-05s",
+    "anyTransition": "1e-05s"
+  },
+  "note": "motion.css PRM block zeroes duration tokens and forces animation/transition to ~0 via !important. Some packages/registry/ui/*.html redeclare --motion-dur-feedback/enter on :root outside PRM (e.g. border-beam), which overrides tokens but not the !important transition/animation kill. Documented as warning."
+}

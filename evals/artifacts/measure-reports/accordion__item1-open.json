@@ -1,0 +1,64 @@
+{
+  "image": "/workspace/evals/artifacts/raw/accordion__item1-open__desktop-1280x800__iframe.png",
+  "size": [
+    622,
+    421
+  ],
+  "device_pixel_ratio": 1.0,
+  "regions": [
+    {
+      "name": "summary-0",
+      "search_box": [
+        103,
+        72.375,
+        517,
+        124.375
+      ],
+      "painted": {
+        "bounds": [
+          103,
+          72,
+          517,
+          124
+        ],
+        "center": [
+          310.0,
+          98.0
+        ],
+        "pixel_count": 20655
+      }
+    }
+  ],
+  "horizontal_rules": {
+    "rules": [
+      68.5,
+      85.5,
+      110.5,
+      131.5,
+      141.0,
+      144.0,
+      154.0,
+      164.0,
+      166.5,
+      244.0,
+      335.5
+    ],
+    "intervals": [
+      17.0,
+      25.0,
+      21.0,
+      9.5,
+      3.0,
+      10.0,
+      10.0,
+      2.5,
+      77.5,
+      91.5
+    ],
+    "interval_spread": 89.0,
+    "x_range": [
+      110,
+      510
+    ]
+  }
+}

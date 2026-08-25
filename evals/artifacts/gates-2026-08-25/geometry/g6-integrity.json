@@ -1,0 +1,53 @@
+{
+  "verdict": "PASS",
+  "errorCount": 0,
+  "hydrationMismatchCount": 0,
+  "allErrors": [],
+  "hydration": [],
+  "results": [
+    {
+      "surface": "fixture:button",
+      "errors": [],
+      "hydrationHints": []
+    },
+    {
+      "surface": "fixture:dialog",
+      "errors": [],
+      "hydrationHints": []
+    },
+    {
+      "surface": "fixture:popover",
+      "errors": [],
+      "hydrationHints": []
+    },
+    {
+      "surface": "fixture:accordion",
+      "errors": [],
+      "hydrationHints": []
+    },
+    {
+      "surface": "apps/docs:button",
+      "errors": [],
+      "hydrationHints": [],
+      "url": "http://127.0.0.1:4321/docs/components/button"
+    },
+    {
+      "surface": "apps/docs:dialog",
+      "errors": [],
+      "hydrationHints": [],
+      "url": "http://127.0.0.1:4321/docs/components/dialog"
+    },
+    {
+      "surface": "apps/docs:popover",
+      "errors": [],
+      "hydrationHints": [],
+      "url": "http://127.0.0.1:4321/docs/components/popover"
+    },
+    {
+      "surface": "apps/docs:accordion",
+      "errors": [],
+      "hydrationHints": [],
+      "url": "http://127.0.0.1:4321/docs/components/accordion"
+    }
+  ]
+}

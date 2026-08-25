@@ -1,0 +1,38 @@
+{
+  "verdict": "PASS",
+  "closed": {
+    "open": false,
+    "display": "none"
+  },
+  "openState": {
+    "open": true,
+    "display": "block",
+    "opacity": "1",
+    "backdrop": {
+      "opacity": "1",
+      "backgroundColor": "rgba(0, 0, 0, 0.55)",
+      "backdropFilter": "blur(8px)"
+    },
+    "activeTag": "BUTTON",
+    "activeId": null,
+    "focusInsideDialog": true,
+    "focusableCount": 6,
+    "topLayer": true
+  },
+  "afterTabs": {
+    "focusInside": true,
+    "activeTag": "TEXTAREA",
+    "activeId": "dialog-bio"
+  },
+  "afterEsc": {
+    "open": false,
+    "display": "none"
+  },
+  "checks": {
+    "showModalOpens": true,
+    "escapeCloses": true,
+    "focusTrapNative": true,
+    "backdropPresent": true
+  },
+  "consoleErrors": []
+}

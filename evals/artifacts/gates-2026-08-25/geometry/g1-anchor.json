@@ -1,0 +1,57 @@
+{
+  "verdict": "PASS",
+  "gate": "DOM vs expected tether ≤1 CSS px",
+  "splitDeltaTop": 0,
+  "popoverDeltaTop": 0,
+  "popoverDeltaLeft": 0,
+  "geo": {
+    "trigger": {
+      "x": 79.21875,
+      "y": 327,
+      "w": 16,
+      "h": 24,
+      "bottom": 351,
+      "right": 95.21875,
+      "left": 79.21875
+    },
+    "popover": {
+      "x": -96.78125,
+      "y": 355,
+      "w": 192,
+      "h": 72,
+      "top": 355,
+      "right": 95.21875,
+      "left": -96.78125,
+      "open": true
+    },
+    "computed": {
+      "positionAnchor": "--split-btn-trigger",
+      "positionArea": "span-left bottom",
+      "display": "block"
+    },
+    "deltas": {
+      "topVsTriggerBottomPlus4": 0,
+      "rightAlign": 0
+    },
+    "supportsAnchor": true
+  },
+  "popGeo": {
+    "trigger": {
+      "bottom": 84.90625,
+      "left": 0,
+      "right": 177.75,
+      "w": 177.75
+    },
+    "popover": {
+      "top": 92.90625,
+      "left": 0,
+      "w": 320,
+      "h": 148.5,
+      "open": true
+    },
+    "deltaTop": 0,
+    "deltaLeft": 0,
+    "supportsAnchor": true
+  },
+  "consoleErrors": []
+}

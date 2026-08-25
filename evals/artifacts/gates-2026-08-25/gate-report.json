@@ -1,0 +1,443 @@
+{
+  "capturedAt": "2026-08-25T23:15:39.680Z",
+  "layout": {
+    "docs": "apps/docs",
+    "primitives": "packages/registry/ui",
+    "motion": "packages/registry/motion/motion.css",
+    "note": "No packages/apps/docs"
+  },
+  "temporalSeeking": {
+    "status": "SKIPPED_INCOMPLETE",
+    "reason": "measured-visual-qa animation-adapters cover WAAPI/rAF/GSAP/browser-clock only; Plain UI uses @starting-style, interpolate-size/::details-content, native popover top-layer, and @property. Do not block eval on missing CSS-native adapters."
+  },
+  "fullStackInteractionQa": {
+    "status": "OUT_OF_BLOCKING_SET",
+    "note": "Optional smoke only. Missing HTTP/trace/DB is evidence gap, not pass."
+  },
+  "blocking": {
+    "g1_anchor_tethering": {
+      "verdict": "PASS",
+      "gate": "DOM vs expected tether ≤1 CSS px",
+      "splitDeltaTop": 0,
+      "popoverDeltaTop": 0,
+      "popoverDeltaLeft": 0,
+      "geo": {
+        "trigger": {
+          "x": 79.21875,
+          "y": 327,
+          "w": 16,
+          "h": 24,
+          "bottom": 351,
+          "right": 95.21875,
+          "left": 79.21875
+        },
+        "popover": {
+          "x": -96.78125,
+          "y": 355,
+          "w": 192,
+          "h": 72,
+          "top": 355,
+          "right": 95.21875,
+          "left": -96.78125,
+          "open": true
+        },
+        "computed": {
+          "positionAnchor": "--split-btn-trigger",
+          "positionArea": "span-left bottom",
+          "display": "block"
+        },
+        "deltas": {
+          "topVsTriggerBottomPlus4": 0,
+          "rightAlign": 0
+        },
+        "supportsAnchor": true
+      },
+      "popGeo": {
+        "trigger": {
+          "bottom": 84.90625,
+          "left": 0,
+          "right": 177.75,
+          "w": 177.75
+        },
+        "popover": {
+          "top": 92.90625,
+          "left": 0,
+          "w": 320,
+          "h": 148.5,
+          "open": true
+        },
+        "deltaTop": 0,
+        "deltaLeft": 0,
+        "supportsAnchor": true
+      },
+      "consoleErrors": []
+    },
+    "g2_dialog_top_layer": {
+      "verdict": "PASS",
+      "closed": {
+        "open": false,
+        "display": "none"
+      },
+      "openState": {
+        "open": true,
+        "display": "block",
+        "opacity": "1",
+        "backdrop": {
+          "opacity": "1",
+          "backgroundColor": "rgba(0, 0, 0, 0.55)",
+          "backdropFilter": "blur(8px)"
+        },
+        "activeTag": "BUTTON",
+        "activeId": null,
+        "focusInsideDialog": true,
+        "focusableCount": 6,
+        "topLayer": true
+      },
+      "afterTabs": {
+        "focusInside": true,
+        "activeTag": "TEXTAREA",
+        "activeId": "dialog-bio"
+      },
+      "afterEsc": {
+        "open": false,
+        "display": "none"
+      },
+      "checks": {
+        "showModalOpens": true,
+        "escapeCloses": true,
+        "focusTrapNative": true,
+        "backdropPresent": true
+      },
+      "consoleErrors": []
+    },
+    "g3_discrete_enter_exit": {
+      "verdict": "PASS",
+      "note": "PASS on rAF opacity timeline (starts ~0, intermediates present, no 1-frame full flash). CSS.supports('@starting-style') unreliable in this Chromium. Temporal WAAPI seeking remains SKIPPED/INCOMPLETE.",
+      "supportsStartingStyle": false,
+      "temporalSeeking": "SKIPPED_INCOMPLETE",
+      "earlySamples": [
+        {
+          "label": "before",
+          "t": 755.5,
+          "open": false,
+          "opacity": "0",
+          "transform": "none",
+          "display": "none",
+          "backdropOpacity": "0"
+        },
+        {
+          "label": "sync-after-showModal",
+          "t": 761,
+          "open": true,
+          "opacity": "0",
+          "transform": "matrix(0.96, 0, 0, 0.96, 0, 7.68)",
+          "display": "block",
+          "backdropOpacity": "0"
+        },
+        {
+          "label": "raf1",
+          "t": 761.3999999999069,
+          "open": true,
+          "opacity": "0",
+          "transform": "matrix(0.96, 0, 0, 0.96, 0, 7.68)",
+          "display": "block",
+          "backdropOpacity": "0"
+        },
+        {
+          "label": "raf2",
+          "t": 771.3000000000466,
+          "open": true,
+          "opacity": "0.431183",
+          "transform": "matrix(0.977247, 0, 0, 0.977247, 0, 4.447)",
+          "display": "block",
+          "backdropOpacity": "0.360117"
+        },
+        {
+          "label": "raf3",
+          "t": 800.6999999999534,
+          "open": true,
+          "opacity": "0.685542",
+          "transform": "matrix(0.987422, 0, 0, 0.987422, 0, 2.48402)",
+          "display": "block",
+          "backdropOpacity": "0.601169"
+        }
+      ],
+      "settled": {
+        "opacity": "1",
+        "open": true,
+        "display": "block"
+      },
+      "flash": false,
+      "flashNote": "",
+      "evidenceBased": {
+        "ops": [
+          0,
+          0,
+          0.431183,
+          0.685542
+        ],
+        "startsNearZero": true,
+        "hasIntermediate": true,
+        "noFullOpacityFlash": true
+      }
+    },
+    "g4_accordion_interpolate_size": {
+      "verdict": "PASS",
+      "exclusiveNameWorks": true,
+      "openCounts": {
+        "start": 1,
+        "end": 1
+      },
+      "start": [
+        {
+          "i": 0,
+          "open": true,
+          "y": 60.90625,
+          "h": 75,
+          "bottom": 135.90625
+        },
+        {
+          "i": 1,
+          "open": false,
+          "y": 135.90625,
+          "h": 36,
+          "bottom": 171.90625
+        },
+        {
+          "i": 2,
+          "open": false,
+          "y": 171.90625,
+          "h": 36,
+          "bottom": 207.90625
+        }
+      ],
+      "end": [
+        {
+          "i": 0,
+          "open": false,
+          "y": 60.90625,
+          "h": 36,
+          "bottom": 96.90625
+        },
+        {
+          "i": 1,
+          "open": true,
+          "y": 96.90625,
+          "h": 94.5,
+          "bottom": 191.40625
+        },
+        {
+          "i": 2,
+          "open": false,
+          "y": 191.40625,
+          "h": 36,
+          "bottom": 227.40625
+        }
+      ],
+      "siblingXShift": {
+        "before": [
+          0,
+          0,
+          0
+        ],
+        "after": [
+          0,
+          0,
+          0
+        ],
+        "deltas": [
+          0,
+          0,
+          0
+        ],
+        "maxDelta": 0
+      },
+      "interpolateSize": "allow-keywords",
+      "midSampleCount": 8,
+      "heightChangedDuringSamples": true,
+      "temporalSeeking": "SKIPPED_INCOMPLETE",
+      "note": "Height continuity during ::details-content is observed via real-time samples only; WAAPI seek N/A for interpolate-size."
+    },
+    "g5_prefers_reduced_motion": {
+      "verdict": "PASS",
+      "sourceOk": true,
+      "isolated": {
+        "mm": true,
+        "feedback": "0ms",
+        "enter": "0ms",
+        "exit": "0ms",
+        "transitionDuration": "1e-05s",
+        "animationDuration": "1e-05s"
+      },
+      "withComponentTokenOverride": {
+        "feedback": "120ms",
+        "enter": "200ms",
+        "starTransition": "1e-05s",
+        "anyTransition": "1e-05s"
+      },
+      "note": "motion.css PRM block zeroes duration tokens and forces animation/transition to ~0 via !important. Some packages/registry/ui/*.html redeclare --motion-dur-feedback/enter on :root outside PRM (e.g. border-beam), which overrides tokens but not the !important transition/animation kill. Documented as warning."
+    },
+    "g6_zero_runtime_integrity": {
+      "verdict": "PASS",
+      "errorCount": 0,
+      "hydrationMismatchCount": 0,
+      "allErrors": [],
+      "hydration": [],
+      "results": [
+        {
+          "surface": "fixture:button",
+          "errors": [],
+          "hydrationHints": []
+        },
+        {
+          "surface": "fixture:dialog",
+          "errors": [],
+          "hydrationHints": []
+        },
+        {
+          "surface": "fixture:popover",
+          "errors": [],
+          "hydrationHints": []
+        },
+        {
+          "surface": "fixture:accordion",
+          "errors": [],
+          "hydrationHints": []
+        },
+        {
+          "surface": "apps/docs:button",
+          "errors": [],
+          "hydrationHints": [],
+          "url": "http://127.0.0.1:4321/docs/components/button"
+        },
+        {
+          "surface": "apps/docs:dialog",
+          "errors": [],
+          "hydrationHints": [],
+          "url": "http://127.0.0.1:4321/docs/components/dialog"
+        },
+        {
+          "surface": "apps/docs:popover",
+          "errors": [],
+          "hydrationHints": [],
+          "url": "http://127.0.0.1:4321/docs/components/popover"
+        },
+        {
+          "surface": "apps/docs:accordion",
+          "errors": [],
+          "hydrationHints": [],
+          "url": "http://127.0.0.1:4321/docs/components/accordion"
+        }
+      ]
+    }
+  },
+  "warnings": {
+    "anchor_flip_near_edges": {
+      "severity": "warning",
+      "triggerBottom": 836,
+      "popTop": 655.5,
+      "popBottom": 804,
+      "flippedAbove": true,
+      "note": "Warning-only: observe position-try-fallbacks flip-block near edge",
+      "verdict": "WARNING_ONLY"
+    },
+    "sda_reverse_restore": {
+      "severity": "warning",
+      "verdict": "WARNING_ONLY_INCOMPLETE",
+      "note": "Scroll-driven animations in motion.css (.plain-view-reveal / scroll timelines) not in blocking set; reverse restore not fully measured."
+    },
+    "houdini_property_paint": {
+      "severity": "warning",
+      "verdict": "WARNING_ONLY",
+      "supportsRegisterProperty": true,
+      "shimmerAngle": "0deg",
+      "animCount": 27,
+      "anims": [
+        {
+          "state": "running",
+          "t": 950.0349999998504,
+          "dur": 2500
+        },
+        {
+          "state": "running",
+          "t": 950.0349999998504,
+          "dur": 2500
+        },
+        {
+          "state": "running",
+          "t": 950.0349999998504,
+          "dur": 3500
+        },
+        {
+          "state": "running",
+          "t": 950.0349999998504,
+          "dur": 3500
+        },
+        {
+          "state": "running",
+          "t": 950.0349999998504,
+          "dur": 4000
+        }
+      ]
+    },
+    "combobox_toast_orphan_nodes": {
+      "severity": "warning",
+      "verdict": "WARNING_ONLY",
+      "toastSmoke": {
+        "before": 14,
+        "after": 14,
+        "deltaNodes": 0,
+        "toastNodes": 0,
+        "hasScript": false
+      },
+      "comboSmoke": {
+        "hasCombobox": true,
+        "childCount": 33
+      },
+      "note": "Light-DOM micro-JS may require registry scripts not auto-injected in fixture wrapper; orphan-node check is best-effort."
+    },
+    "component_motion_token_override": {
+      "severity": "warning",
+      "verdict": "WARNING_ONLY",
+      "detail": "Component HTML :root redefines --motion-dur-feedback/enter outside prefers-reduced-motion (border-beam, shimmer-button, etc.), so computed tokens may stay non-zero under PRM while !important still kills transitions/animations.",
+      "observed": {
+        "feedback": "120ms",
+        "enter": "200ms",
+        "starTransition": "1e-05s",
+        "anyTransition": "1e-05s"
+      }
+    }
+  },
+  "optionalSmoke": {
+    "toast": {
+      "loaded": true,
+      "errors": [],
+      "note": "Fixture HTML loads; interactive Light-DOM behavior may need companion scripts from CLI registry."
+    },
+    "command": {
+      "loaded": true,
+      "errors": [],
+      "note": "Fixture HTML loads; interactive Light-DOM behavior may need companion scripts from CLI registry."
+    },
+    "combobox": {
+      "loaded": true,
+      "errors": [],
+      "note": "Fixture HTML loads; interactive Light-DOM behavior may need companion scripts from CLI registry."
+    },
+    "native_dialog_popover_details": "Covered under blocking gates 2–4 (registry fixtures)."
+  },
+  "summary": {
+    "blockingVerdicts": {
+      "g1_anchor_tethering": "PASS",
+      "g2_dialog_top_layer": "PASS",
+      "g3_discrete_enter_exit": "PASS",
+      "g4_accordion_interpolate_size": "PASS",
+      "g5_prefers_reduced_motion": "PASS",
+      "g6_zero_runtime_integrity": "PASS"
+    },
+    "hardFails": [],
+    "incompletes": [],
+    "blockingPass": true,
+    "note": "INCOMPLETE does not fail the eval. FAIL does. Temporal seeking SKIPPED/INCOMPLETE globally."
+  }
+}

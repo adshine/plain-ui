@@ -1,0 +1,521 @@
+[
+  {
+    "stem": "button__default-styles__desktop-1280x800",
+    "annotated": "/workspace/evals/artifacts/annotated/button__default-styles__desktop-1280x800__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "gap[0]==16",
+          "value": 16,
+          "pass": true,
+          "toleranceCssPx": 1
+        },
+        {
+          "name": "gap[1]==16",
+          "value": 16,
+          "pass": true,
+          "toleranceCssPx": 1
+        },
+        {
+          "name": "gap[2]==16",
+          "value": 16,
+          "pass": true,
+          "toleranceCssPx": 1
+        },
+        {
+          "name": "height[0]~primary",
+          "value": 36,
+          "primary": 36,
+          "delta": 0,
+          "pass": true
+        },
+        {
+          "name": "height[1]~primary",
+          "value": 36,
+          "primary": 36,
+          "delta": 0,
+          "pass": true
+        },
+        {
+          "name": "height[outline]=38",
+          "value": 38,
+          "primary": 36,
+          "delta": 2,
+          "pass": true,
+          "note": "Outline variant includes 1px border; expected ~+2 vs fill buttons if border-box inconsistent"
+        },
+        {
+          "name": "height[3]~primary",
+          "value": 36,
+          "primary": 36,
+          "delta": 0,
+          "pass": true
+        }
+      ],
+      "owner_causes": [
+        {
+          "gate": "outline-height",
+          "class": "border-width-not-compensated",
+          "detail": "Outline button height 38 vs filled 36 (delta 2). Owning cause: 1px border on outline without matching height token; not a transform issue.",
+          "severity": "fail"
+        }
+      ],
+      "buttonEdgeGaps": [
+        16,
+        16,
+        16
+      ],
+      "heights": [
+        36,
+        36,
+        38,
+        36
+      ]
+    }
+  },
+  {
+    "stem": "button__sizes-loading-disabled__desktop-1280x800",
+    "annotated": "/workspace/evals/artifacts/annotated/button__sizes-loading-disabled__desktop-1280x800__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "size-row-centerY-spread",
+          "value": 0.0,
+          "pass": true,
+          "toleranceCssPx": 1
+        }
+      ],
+      "owner_causes": [],
+      "centerYs": [
+        209.0,
+        209.0,
+        209.0,
+        209.0,
+        209.0
+      ],
+      "disabled": [
+        {
+          "opacity": "0.75",
+          "h": 36
+        },
+        {
+          "opacity": "1",
+          "h": 36
+        }
+      ]
+    }
+  },
+  {
+    "stem": "accordion__item1-open__desktop-1280x800",
+    "annotated": "/workspace/evals/artifacts/annotated/accordion__item1-open__desktop-1280x800__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "closed-height-rhythm",
+          "value": 0,
+          "pass": true
+        },
+        {
+          "name": "exactly-one-open",
+          "value": 1,
+          "pass": true
+        }
+      ],
+      "owner_causes": [
+        {
+          "gate": "closed-body-geometry",
+          "class": "measurement-trap",
+          "detail": "Closed details[1] body getBoundingClientRect height=89.25 while details box h=54. Skill must measure details/summary box, not clipped descendants.",
+          "severity": "info"
+        },
+        {
+          "gate": "closed-body-geometry",
+          "class": "measurement-trap",
+          "detail": "Closed details[2] body getBoundingClientRect height=89.25 while details box h=54. Skill must measure details/summary box, not clipped descendants.",
+          "severity": "info"
+        }
+      ],
+      "details": [
+        {
+          "i": 0,
+          "open": true,
+          "h": 143.25,
+          "summary_h": 52
+        },
+        {
+          "i": 1,
+          "open": false,
+          "h": 54,
+          "summary_h": 52
+        },
+        {
+          "i": 2,
+          "open": false,
+          "h": 54,
+          "summary_h": 52
+        }
+      ],
+      "htmlInterpolateSize": "allow-keywords"
+    }
+  },
+  {
+    "stem": "accordion__item2-open__desktop-1280x800",
+    "annotated": "/workspace/evals/artifacts/annotated/accordion__item2-open__desktop-1280x800__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "closed-height-rhythm",
+          "value": 0,
+          "pass": true
+        },
+        {
+          "name": "exactly-one-open",
+          "value": 1,
+          "pass": true
+        }
+      ],
+      "owner_causes": [
+        {
+          "gate": "closed-body-geometry",
+          "class": "measurement-trap",
+          "detail": "Closed details[0] body getBoundingClientRect height=89.25 while details box h=54. Skill must measure details/summary box, not clipped descendants.",
+          "severity": "info"
+        },
+        {
+          "gate": "closed-body-geometry",
+          "class": "measurement-trap",
+          "detail": "Closed details[2] body getBoundingClientRect height=89.25 while details box h=54. Skill must measure details/summary box, not clipped descendants.",
+          "severity": "info"
+        }
+      ],
+      "details": [
+        {
+          "i": 0,
+          "open": false,
+          "h": 54,
+          "summary_h": 52
+        },
+        {
+          "i": 1,
+          "open": true,
+          "h": 143.25,
+          "summary_h": 52
+        },
+        {
+          "i": 2,
+          "open": false,
+          "h": 54,
+          "summary_h": 52
+        }
+      ],
+      "htmlInterpolateSize": "allow-keywords"
+    }
+  },
+  {
+    "stem": "dialog__open__desktop-1280x800",
+    "annotated": "/workspace/evals/artifacts/annotated/dialog__open__desktop-1280x800__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "dialog-horizontal-center",
+          "value": 0.0,
+          "pass": true,
+          "iframe_w": 620
+        }
+      ],
+      "owner_causes": [],
+      "dialog": {
+        "open": true,
+        "display": "block",
+        "rect": {
+          "x": 86,
+          "y": 37.5,
+          "width": 448,
+          "height": 343,
+          "top": 37.5,
+          "left": 86,
+          "bottom": 380.5,
+          "right": 534
+        }
+      }
+    }
+  },
+  {
+    "stem": "floating-label-input__empty__desktop-1280x800",
+    "annotated": "/workspace/evals/artifacts/annotated/floating-label-input__empty__desktop-1280x800__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "label0-inside-input-empty",
+          "pass": true,
+          "labelY": 165,
+          "inputY": 149
+        },
+        {
+          "name": "label1-inside-input-empty",
+          "pass": true,
+          "labelY": 235,
+          "inputY": 219
+        }
+      ],
+      "owner_causes": []
+    }
+  },
+  {
+    "stem": "dock__idle__desktop-1280x800",
+    "annotated": "/workspace/evals/artifacts/annotated/dock__idle__desktop-1280x800__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "dock-icon-44",
+          "pass": true,
+          "sizes": [
+            [
+              44,
+              44
+            ],
+            [
+              44,
+              44
+            ],
+            [
+              44,
+              44
+            ],
+            [
+              44,
+              44
+            ]
+          ]
+        },
+        {
+          "name": "dock-gap[0]==12",
+          "value": 12,
+          "pass": true
+        },
+        {
+          "name": "dock-gap[1]==12",
+          "value": 12,
+          "pass": true
+        }
+      ],
+      "owner_causes": [],
+      "sizes": [
+        [
+          44,
+          44
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          44,
+          44
+        ],
+        [
+          44,
+          44
+        ]
+      ],
+      "gaps": [
+        12,
+        12,
+        29
+      ]
+    }
+  },
+  {
+    "stem": "border-beam__animating__desktop-1280x800",
+    "annotated": "/workspace/evals/artifacts/annotated/border-beam__animating__desktop-1280x800__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "waapi-spin-running",
+          "pass": true,
+          "count": 1
+        }
+      ],
+      "owner_causes": [],
+      "animations": [
+        {
+          "id": null,
+          "playState": "running",
+          "currentTime": 766.6800000000015,
+          "effect": {
+            "duration": 4000,
+            "iterations": null
+          },
+          "target": "DIV.absolute inset-[-100%] animate-[spin_4s_"
+        }
+      ],
+      "adapter_note": "Border-beam uses CSS animate-[spin_4s_linear_infinite] exposed via getAnimations(); @property Houdini not required for this demo variant (conic-gradient spin)."
+    }
+  },
+  {
+    "stem": "button__default-styles__mobile-390x844",
+    "annotated": "/workspace/evals/artifacts/annotated/button__default-styles__mobile-390x844__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "gap[0]==16",
+          "value": -165.796875,
+          "pass": false,
+          "toleranceCssPx": 1
+        },
+        {
+          "name": "gap[1]==16",
+          "value": 16,
+          "pass": true,
+          "toleranceCssPx": 1
+        },
+        {
+          "name": "gap[2]==16",
+          "value": -152.96875,
+          "pass": false,
+          "toleranceCssPx": 1
+        },
+        {
+          "name": "height[0]~primary",
+          "value": 36,
+          "primary": 36,
+          "delta": 0,
+          "pass": true
+        },
+        {
+          "name": "height[1]~primary",
+          "value": 36,
+          "primary": 36,
+          "delta": 0,
+          "pass": true
+        },
+        {
+          "name": "height[outline]=38",
+          "value": 38,
+          "primary": 36,
+          "delta": 2,
+          "pass": true,
+          "note": "Outline variant includes 1px border; expected ~+2 vs fill buttons if border-box inconsistent"
+        },
+        {
+          "name": "height[3]~primary",
+          "value": 36,
+          "primary": 36,
+          "delta": 0,
+          "pass": true
+        }
+      ],
+      "owner_causes": [
+        {
+          "gate": "gap[0]",
+          "class": "parent-gap-or-wrapping",
+          "detail": "edge gap -165.796875 vs expected 16"
+        },
+        {
+          "gate": "gap[2]",
+          "class": "parent-gap-or-wrapping",
+          "detail": "edge gap -152.96875 vs expected 16"
+        },
+        {
+          "gate": "outline-height",
+          "class": "border-width-not-compensated",
+          "detail": "Outline button height 38 vs filled 36 (delta 2). Owning cause: 1px border on outline without matching height token; not a transform issue.",
+          "severity": "fail"
+        }
+      ],
+      "buttonEdgeGaps": [
+        -165.796875,
+        16,
+        -152.96875
+      ],
+      "heights": [
+        36,
+        36,
+        38,
+        36
+      ]
+    }
+  },
+  {
+    "stem": "accordion__item1-open__mobile-390x844",
+    "annotated": "/workspace/evals/artifacts/annotated/accordion__item1-open__mobile-390x844__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "closed-height-rhythm",
+          "value": 0,
+          "pass": true
+        },
+        {
+          "name": "exactly-one-open",
+          "value": 1,
+          "pass": true
+        }
+      ],
+      "owner_causes": [
+        {
+          "gate": "closed-body-geometry",
+          "class": "measurement-trap",
+          "detail": "Closed details[1] body getBoundingClientRect height=134.75 while details box h=74. Skill must measure details/summary box, not clipped descendants.",
+          "severity": "info"
+        },
+        {
+          "gate": "closed-body-geometry",
+          "class": "measurement-trap",
+          "detail": "Closed details[2] body getBoundingClientRect height=157.5 while details box h=74. Skill must measure details/summary box, not clipped descendants.",
+          "severity": "info"
+        }
+      ],
+      "details": [
+        {
+          "i": 0,
+          "open": true,
+          "h": 208.75,
+          "summary_h": 72
+        },
+        {
+          "i": 1,
+          "open": false,
+          "h": 74,
+          "summary_h": 72
+        },
+        {
+          "i": 2,
+          "open": false,
+          "h": 74,
+          "summary_h": 72
+        }
+      ],
+      "htmlInterpolateSize": "allow-keywords"
+    }
+  },
+  {
+    "stem": "dialog__open__mobile-390x844",
+    "annotated": "/workspace/evals/artifacts/annotated/dialog__open__mobile-390x844__annotated.png",
+    "notes": {
+      "gates": [
+        {
+          "name": "dialog-horizontal-center",
+          "value": 0.0,
+          "pass": true,
+          "iframe_w": 322
+        }
+      ],
+      "owner_causes": [],
+      "dialog": {
+        "open": true,
+        "display": "block",
+        "rect": {
+          "x": 16,
+          "y": 19,
+          "width": 290,
+          "height": 320,
+          "top": 19,
+          "left": 16,
+          "bottom": 339,
+          "right": 306
+        }
+      }
+    }
+  }
+]

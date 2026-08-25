@@ -1,0 +1,27 @@
+{
+  "device_pixel_ratio": 1,
+  "regions": [
+    {
+      "name": "summary-0",
+      "box": [
+        103,
+        72.375,
+        517,
+        124.375
+      ],
+      "threshold": 200
+    }
+  ],
+  "horizontal_rules": {
+    "x_range": [
+      110,
+      510
+    ],
+    "y_range": [
+      66,
+      351
+    ],
+    "threshold": 220,
+    "minimum_coverage": 0.55
+  }
+}

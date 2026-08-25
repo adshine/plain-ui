@@ -1,0 +1,49 @@
+{
+  "gates": [
+    {
+      "name": "closed-height-rhythm",
+      "value": 0,
+      "pass": true
+    },
+    {
+      "name": "exactly-one-open",
+      "value": 1,
+      "pass": true
+    }
+  ],
+  "owner_causes": [
+    {
+      "gate": "closed-body-geometry",
+      "class": "measurement-trap",
+      "detail": "Closed details[1] body getBoundingClientRect height=134.75 while details box h=74. Skill must measure details/summary box, not clipped descendants.",
+      "severity": "info"
+    },
+    {
+      "gate": "closed-body-geometry",
+      "class": "measurement-trap",
+      "detail": "Closed details[2] body getBoundingClientRect height=157.5 while details box h=74. Skill must measure details/summary box, not clipped descendants.",
+      "severity": "info"
+    }
+  ],
+  "details": [
+    {
+      "i": 0,
+      "open": true,
+      "h": 208.75,
+      "summary_h": 72
+    },
+    {
+      "i": 1,
+      "open": false,
+      "h": 74,
+      "summary_h": 72
+    },
+    {
+      "i": 2,
+      "open": false,
+      "h": 74,
+      "summary_h": 72
+    }
+  ],
+  "htmlInterpolateSize": "allow-keywords"
+}

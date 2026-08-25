@@ -1,0 +1,77 @@
+{
+  "verdict": "PASS",
+  "exclusiveNameWorks": true,
+  "openCounts": {
+    "start": 1,
+    "end": 1
+  },
+  "start": [
+    {
+      "i": 0,
+      "open": true,
+      "y": 60.90625,
+      "h": 75,
+      "bottom": 135.90625
+    },
+    {
+      "i": 1,
+      "open": false,
+      "y": 135.90625,
+      "h": 36,
+      "bottom": 171.90625
+    },
+    {
+      "i": 2,
+      "open": false,
+      "y": 171.90625,
+      "h": 36,
+      "bottom": 207.90625
+    }
+  ],
+  "end": [
+    {
+      "i": 0,
+      "open": false,
+      "y": 60.90625,
+      "h": 36,
+      "bottom": 96.90625
+    },
+    {
+      "i": 1,
+      "open": true,
+      "y": 96.90625,
+      "h": 94.5,
+      "bottom": 191.40625
+    },
+    {
+      "i": 2,
+      "open": false,
+      "y": 191.40625,
+      "h": 36,
+      "bottom": 227.40625
+    }
+  ],
+  "siblingXShift": {
+    "before": [
+      0,
+      0,
+      0
+    ],
+    "after": [
+      0,
+      0,
+      0
+    ],
+    "deltas": [
+      0,
+      0,
+      0
+    ],
+    "maxDelta": 0
+  },
+  "interpolateSize": "allow-keywords",
+  "midSampleCount": 8,
+  "heightChangedDuringSamples": true,
+  "temporalSeeking": "SKIPPED_INCOMPLETE",
+  "note": "Height continuity during ::details-content is observed via real-time samples only; WAAPI seek N/A for interpolate-size."
+}

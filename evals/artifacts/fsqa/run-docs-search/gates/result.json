@@ -1,0 +1,37 @@
+{
+  "gates": [
+    {
+      "failures": [],
+      "id": "G1-correlation",
+      "passed": true
+    },
+    {
+      "failures": [
+        "no machine assertion"
+      ],
+      "id": "G2-machine-legal",
+      "passed": false
+    },
+    {
+      "failures": {},
+      "id": "G3-idempotency",
+      "passed": true
+    },
+    {
+      "failures": [],
+      "id": "G4-stale-response",
+      "passed": true
+    },
+    {
+      "failures": [],
+      "id": "G5-optimistic-hygiene",
+      "passed": true
+    },
+    {
+      "failures": [],
+      "id": "G6-privacy",
+      "passed": true
+    }
+  ],
+  "passed": false
+}

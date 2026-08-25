@@ -1,0 +1,71 @@
+{
+  "verdict": "PASS",
+  "note": "PASS on rAF opacity timeline (starts ~0, intermediates present, no 1-frame full flash). CSS.supports('@starting-style') unreliable in this Chromium. Temporal WAAPI seeking remains SKIPPED/INCOMPLETE.",
+  "supportsStartingStyle": false,
+  "temporalSeeking": "SKIPPED_INCOMPLETE",
+  "earlySamples": [
+    {
+      "label": "before",
+      "t": 755.5,
+      "open": false,
+      "opacity": "0",
+      "transform": "none",
+      "display": "none",
+      "backdropOpacity": "0"
+    },
+    {
+      "label": "sync-after-showModal",
+      "t": 761,
+      "open": true,
+      "opacity": "0",
+      "transform": "matrix(0.96, 0, 0, 0.96, 0, 7.68)",
+      "display": "block",
+      "backdropOpacity": "0"
+    },
+    {
+      "label": "raf1",
+      "t": 761.3999999999069,
+      "open": true,
+      "opacity": "0",
+      "transform": "matrix(0.96, 0, 0, 0.96, 0, 7.68)",
+      "display": "block",
+      "backdropOpacity": "0"
+    },
+    {
+      "label": "raf2",
+      "t": 771.3000000000466,
+      "open": true,
+      "opacity": "0.431183",
+      "transform": "matrix(0.977247, 0, 0, 0.977247, 0, 4.447)",
+      "display": "block",
+      "backdropOpacity": "0.360117"
+    },
+    {
+      "label": "raf3",
+      "t": 800.6999999999534,
+      "open": true,
+      "opacity": "0.685542",
+      "transform": "matrix(0.987422, 0, 0, 0.987422, 0, 2.48402)",
+      "display": "block",
+      "backdropOpacity": "0.601169"
+    }
+  ],
+  "settled": {
+    "opacity": "1",
+    "open": true,
+    "display": "block"
+  },
+  "flash": false,
+  "flashNote": "",
+  "evidenceBased": {
+    "ops": [
+      0,
+      0,
+      0.431183,
+      0.685542
+    ],
+    "startsNearZero": true,
+    "hasIntermediate": true,
+    "noFullOpacityFlash": true
+  }
+}

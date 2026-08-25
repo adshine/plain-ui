@@ -1,0 +1,295 @@
+{
+  "base": "http://127.0.0.1:4321",
+  "capturedAt": "2026-08-25T22:59:34.843Z",
+  "count": 24,
+  "cases": [
+    {
+      "slug": "button",
+      "state": "default-styles",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/button__default-styles__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/button__default-styles__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/button__default-styles__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/button__default-styles__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "button",
+      "state": "sizes-loading-disabled",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/button__sizes-loading-disabled__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/button__sizes-loading-disabled__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/button__sizes-loading-disabled__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/button__sizes-loading-disabled__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "dialog",
+      "state": "closed",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/dialog__closed__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/dialog__closed__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/dialog__closed__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/dialog__closed__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "dialog",
+      "state": "open",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/dialog__open__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/dialog__open__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/dialog__open__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/dialog__open__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "accordion",
+      "state": "item1-open",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/accordion__item1-open__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/accordion__item1-open__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/accordion__item1-open__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/accordion__item1-open__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "accordion",
+      "state": "item2-open",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/accordion__item2-open__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/accordion__item2-open__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/accordion__item2-open__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/accordion__item2-open__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "floating-label-input",
+      "state": "empty",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/floating-label-input__empty__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/floating-label-input__empty__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/floating-label-input__empty__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/floating-label-input__empty__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "floating-label-input",
+      "state": "focused-filled",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/floating-label-input__focused-filled__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/floating-label-input__focused-filled__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/floating-label-input__focused-filled__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/floating-label-input__focused-filled__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "border-beam",
+      "state": "animating",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/border-beam__animating__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/border-beam__animating__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/border-beam__animating__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/border-beam__animating__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "dock",
+      "state": "idle",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/dock__idle__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/dock__idle__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/dock__idle__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/dock__idle__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "popover",
+      "state": "closed",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/popover__closed__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/popover__closed__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/popover__closed__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/popover__closed__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "popover",
+      "state": "open",
+      "viewport": "desktop-1280x800",
+      "meta": "/workspace/evals/artifacts/geometry/popover__open__desktop-1280x800.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/popover__open__desktop-1280x800.png",
+        "viewport": "/workspace/evals/artifacts/raw/popover__open__desktop-1280x800__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/popover__open__desktop-1280x800__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "button",
+      "state": "default-styles",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/button__default-styles__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/button__default-styles__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/button__default-styles__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/button__default-styles__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "button",
+      "state": "sizes-loading-disabled",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/button__sizes-loading-disabled__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/button__sizes-loading-disabled__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/button__sizes-loading-disabled__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/button__sizes-loading-disabled__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "dialog",
+      "state": "closed",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/dialog__closed__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/dialog__closed__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/dialog__closed__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/dialog__closed__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "dialog",
+      "state": "open",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/dialog__open__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/dialog__open__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/dialog__open__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/dialog__open__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "accordion",
+      "state": "item1-open",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/accordion__item1-open__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/accordion__item1-open__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/accordion__item1-open__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/accordion__item1-open__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "accordion",
+      "state": "item2-open",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/accordion__item2-open__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/accordion__item2-open__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/accordion__item2-open__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/accordion__item2-open__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "floating-label-input",
+      "state": "empty",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/floating-label-input__empty__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/floating-label-input__empty__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/floating-label-input__empty__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/floating-label-input__empty__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "floating-label-input",
+      "state": "focused-filled",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/floating-label-input__focused-filled__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/floating-label-input__focused-filled__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/floating-label-input__focused-filled__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/floating-label-input__focused-filled__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "border-beam",
+      "state": "animating",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/border-beam__animating__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/border-beam__animating__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/border-beam__animating__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/border-beam__animating__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "dock",
+      "state": "idle",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/dock__idle__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/dock__idle__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/dock__idle__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/dock__idle__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "popover",
+      "state": "closed",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/popover__closed__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/popover__closed__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/popover__closed__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/popover__closed__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    },
+    {
+      "slug": "popover",
+      "state": "open",
+      "viewport": "mobile-390x844",
+      "meta": "/workspace/evals/artifacts/geometry/popover__open__mobile-390x844.json",
+      "screenshots": {
+        "playground": "/workspace/evals/artifacts/raw/popover__open__mobile-390x844.png",
+        "viewport": "/workspace/evals/artifacts/raw/popover__open__mobile-390x844__viewport.png",
+        "iframe": "/workspace/evals/artifacts/raw/popover__open__mobile-390x844__iframe.png"
+      },
+      "consoleErrors": []
+    }
+  ]
+}

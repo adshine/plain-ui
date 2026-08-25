@@ -1,0 +1,23 @@
+{
+  "gates": [
+    {
+      "name": "waapi-spin-running",
+      "pass": true,
+      "count": 1
+    }
+  ],
+  "owner_causes": [],
+  "animations": [
+    {
+      "id": null,
+      "playState": "running",
+      "currentTime": 766.6800000000015,
+      "effect": {
+        "duration": 4000,
+        "iterations": null
+      },
+      "target": "DIV.absolute inset-[-100%] animate-[spin_4s_"
+    }
+  ],
+  "adapter_note": "Border-beam uses CSS animate-[spin_4s_linear_infinite] exposed via getAnimations(); @property Houdini not required for this demo variant (conic-gradient spin)."
+}

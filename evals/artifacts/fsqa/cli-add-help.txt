@@ -1,0 +1,12 @@
+Usage: plain add [options] [components...]
+
+Add components to your project from the registry
+
+Options:
+  -a, --all             Add all available components (default: false)
+  -o, --overwrite       Overwrite existing component files (default: false)
+  -p, --path <path>     Custom component destination directory
+  -r, --registry <url>  Custom registry URL
+  -y, --yes             Skip confirmation prompts (default: false)
+  -c, --cwd <path>      Working directory (default: "/tmp/plain-fsqa-probe")
+  -h, --help            display help for command
